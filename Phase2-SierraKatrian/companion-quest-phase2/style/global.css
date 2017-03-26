@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Patua+One|Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
+
+/*
+<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Patua+One|Source+Sans+Pro" rel="stylesheet">
+font-family: 'Source Sans Pro', sans-serif;
+font-family: 'Patua One', cursive;
+font-family: 'Alfa Slab One', cursive;
+font-family: 'Lato', sans-serif;
+*/
+
+
+/* LIGHT ORANGE = #ffa917 */
+
+
+/* DEEP ORANGE =  #ff9a00 */
+
+
+/*----------------------------------
+-------------- INDEX ------------
+1. GENERAL
+2. HEADER
+3. NAVIGATION
+4. FOOTER
+------------------------------------
+----------------------------------*/
+
+
+/*---------------------------
+--------- GENERAL -----------
+---------------------------*/
+
+
+/* PAGE RULES */
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+    background-color: #f1f1f1;
+    letter-spacing: 1px;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+/*img {
+    max-width: 100%;
+    height: auto;
+}*/
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Patua One', cursive;
+}
+
+p {
+    font-family: 'Source Sans Pro', sans-serif;
+    /*font-weight: 300;*/
+    /*font-size: 14px;*/
+}
+
+/*textarea {
+    max-width: 100%;
+    max-height: 100%;
+}*/
+
+.content-wrapper {
+    /*      border:1px dashed red;        */
+    max-width: 1024px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.glyphicon-inverse {
+    color: #fff;
+}
+
+
+/* BUTTONS */
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Patua One', cursive;
+    /*  border-radius:0;*/
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-primary {
+    background: #ffa917;
+    color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    background: #ff9a00;
+}

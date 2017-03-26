@@ -1,0 +1,122 @@
+/* GLOBAL RULES */
+
+    header li {
+        display:inline-block;
+        float:left;
+    }
+
+    .profile-name {
+        color:white;
+        font-family: 'Patua One', cursive;
+    }
+
+.dropdown-menu-right {
+    margin-right:150px;
+}
+
+    li a {
+        color:white;
+        font-family: 'Patua One', cursive;
+        text-decoration: none;
+    }
+
+    a:hover, a:active, a:focus {
+        text-decoration: none;
+        color: #ff9a00;
+    }
+
+    ul{
+        margin: 0;
+        padding: 0;
+    }
+
+    nav li {
+        list-style:none;
+    }
+
+/* HEADER RULES */
+
+    header {
+/*      padding:25px 0;*/
+        width:100%;
+        height:70px;
+        background-color:#1d1d27;
+        position:relative;
+    }
+
+    .start-quest, .start-quest a, .start-quest a:hover, .start-quest a:active, .start-quest a:focus {
+        font-family: 'Patua One', cursive;
+        color:#595a6a;
+    }
+
+    .companionquest-logo {
+        left:50%;
+        transform:translateX(-50%);
+        position:absolute;
+        margin:10px auto;
+        width:70px;
+    }
+
+    .profile-pic {
+        margin: 22px 10px 0 15px;
+        float:right;
+        width:20px;
+        height:20px;
+    }
+
+    .left-links {
+        margin-top:22px;
+        float:left;
+    }
+
+    .right-links {
+        margin-top:22px;
+        float:right;
+    }
+
+    .nav {
+        padding:0;
+    }
+
+    .nav-containers {
+        padding:25px 0;
+    }
+
+    .home, .signin {
+        padding:0 20px;
+    }
+
+/* HAMBURGER */
+
+.hamburger {
+    display:none;
+    margin-right:22px;
+}
+
+li > .menu-links {
+    color:black; !important;
+}
+
+/* FOOTER RULES */
+
+    footer {
+        padding:25px 0;
+        width:100%;
+        height:100%;
+        background-color:#1d1d27;
+    }
+
+    footer li {
+        display:inline-block;
+    }
+
+@media only screen and (max-width: 480px) {
+    .home, .start-quest, .signin, .register {
+        display:none;
+    }
+    .hamburger {
+        display:block;
+    }
+    .companionquest-logo {
+        left:22px;
+        transform:translateX(0);    }
