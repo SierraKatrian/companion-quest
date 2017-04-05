@@ -1,0 +1,584 @@
+@import url('https://fonts.googleapis.com/css?family=Antic+Slab|Lalezar|Londrina+Solid|McLaren|Medula+One|Patua+One|Port+Lligat+Slab|Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
+
+/* GLOBAL */
+
+    html {
+        box-sizing: border-box;
+        height:100%;
+        letter-spacing:1px;
+    }
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+    }
+
+    body {
+        margin:0;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight:300;
+        font-size:14px;
+        letter-spacing:0.5px;
+        /*font-family: 'Lato', sans-serif;*/
+        /*font-size:12px;*/
+    }
+
+    select {
+        width:100%;
+        height:30px;
+    }
+
+    .form-control{
+        height:26px;
+        padding: 0 12px;
+    }
+
+    img {
+        max-width:100%;
+        height:auto;
+    }
+
+    h1, h2, h3, h5, h6, a, .btn, .dropbtn  {
+        /*font-family: 'Antic Slab', serif;*/
+        /*font-family: 'Lalezar', cursive;*/
+        font-family: 'Londrina Solid', cursive;
+        /*font-family: 'McLaren', cursive;*/
+        /*font-family: 'Patua One', cursive;*/
+
+        /*font-weight:bold;*/
+        letter-spacing:1.5px;
+    }
+
+    h2 {
+        text-transform:uppercase;
+    }
+
+    h4 {
+        font-size:12px;
+        line-height:5px;
+        padding:0 10px;
+        font-weight:bold;
+    }
+
+    .wrapper {
+        width:84%;
+        display:block;
+        margin:0 auto;
+    }
+
+    .no-padding {
+        padding:0;
+    }
+
+    .full-width {
+        width:100%;
+    }
+
+    .padding-10px {
+        padding:10px;
+    }
+
+    .green {
+        /*outline:1px dashed green;*/
+    }
+
+    .red {
+        /*outline:1px dashed red;*/
+    }
+
+    .blue {
+        /*outline:1px dashed blue;*/
+    }
+
+    .gap-10px {
+        height:10px;
+    }
+
+    .horizontal-line {
+        border-bottom:1px solid lightgray;
+    }
+
+    /* BUTTONS */
+
+        .btn {
+            border:0 none;
+            letter-spacing:1px;
+            text-transform:uppercase;
+            outline:0 none;
+        }
+
+        /* orange buttons */
+
+            .btn-primary {
+                padding:15px 25px;
+                background:#ffad33;
+                color:white;
+            }
+
+            .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+                background:#ff9a00;
+            }
+
+
+    /* NAVIGATION */
+
+        .left-links {
+            float:left;
+            width:50%;
+            text-align:left;
+        }
+
+        .right-links {
+            float:left;
+            width:50%;
+            text-align:right;
+        }
+
+        .hamburger-link {
+            display:none;
+            color:white;
+            float:right;
+            width:50%;
+            text-align:right;
+        }
+
+        li a, .nav-name {
+            color:white;
+        }
+
+        a:hover, a:active, a:focus, .nav-name:hover, .nav-name:active, .nav-name:focus {
+            text-decoration:none;
+            color:#ff9a00;
+        }
+
+        header li, footer li {
+            display:inline-block;
+        }
+
+        nav {
+            margin:0 auto;
+            position:relative;
+        }
+
+    /* HEADER */
+
+            header {
+                height:70px;
+                width:100%;
+                background-color:#1d1d27;
+            }
+
+            .header-content {
+                position:relative;
+                top:10px;
+            }
+
+            header li {
+                text-transform:uppercase;
+            }
+
+            header nav {
+                bottom:35px;
+            }
+
+            ul {
+                padding:0;
+            }
+
+            .companionquest-logo {
+                width:70px;
+                left:50%;
+                transform:translateX(-50%);
+                position:relative;
+            }
+
+            /* Nav Bar DROP DOWN */
+
+            .nav-name {
+                right:20px;
+                position:relative;
+            }
+
+            .dropdown-menu {
+                min-width:0;
+            }
+
+            .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+                background-color: red;
+                background-image: none;
+            }
+
+            /* DROP DOWN MENU */
+
+                /* Dropdown Button */
+                .dropbtn {
+                    text-align:right;
+                    position:relative;
+                    right:35px;
+                    background-color:#1d1d27;
+                    color:white;
+                    padding:20px;
+                    border:none;
+                    cursor:pointer;
+                }
+
+                /* The container <div> - needed to position the dropdown content */
+                .dropdown {
+                    position:relative;
+                    display:inline-block;
+                }
+
+                /* Dropdown Content (Hidden by Default) */
+                .dropdown-content {
+                    margin-top:5px;
+                    right:40px;
+                    display:none;
+                    position:absolute;
+                    background-color:#1d1d27;
+                    min-width:130px;
+                    box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+                    z-index: 1;
+                }
+
+                /* Links inside the dropdown */
+                .dropdown-content a {
+                    text-align:left;
+                    color:white;
+                    padding:10px 20px;
+                    text-decoration:none;
+                    display:block;
+                }
+
+                /* Change color of dropdown links on hover */
+                .dropdown-content a:hover {
+                    color:white;
+                    background-color:#6c6c93;
+                }
+
+                .border-bottom{
+                    border-bottom:1px solid #6c6c93;
+                }
+
+                .dropdown-Link {
+                    background:none!important;
+                    color:inherit;
+                    border:none;
+                    padding:0!important;
+                    font: inherit;
+                    letter-spacing:1.5px;
+                    /*border is optional*/
+                    text-transform:uppercase;
+                    cursor: pointer;
+                    text-decoration:none;
+                }
+
+                /* Show the dropdown menu on hover */
+                .dropdown:hover .dropdown-content {
+                    display:block;
+                }
+
+                /* Change the background color of the dropdown button when the dropdown content is shown */
+                .dropdown:hover .dropbtn {
+                    color:#ff9a00;
+                    background-color:#1d1d27;
+                }
+
+            /* Edit User */
+
+                .navbar-edit-buttons {
+                    width:100%;
+                    display:inline-block;
+                }
+
+                .edit-button-options {
+                    padding:30px 0;
+                }
+
+                /* Edit DELETE User */
+
+
+                    .navbar-edit-delete {
+                        float:right;
+                    }
+
+                        .navbar-edit-delete-confirm{
+                            display:none;
+                            float:left;
+                            text-align:right;
+                        }
+
+                        .navbar-edit-delete-message {
+                            float:left;
+                            padding:5px 0;
+                        }
+
+                        .navbar-edit-delete-buttons {
+                            float:left;
+                        }
+
+                            .navbar-edit-delete-no{
+                                padding:15px 17.5px;
+                            }
+
+                            .navbar-edit-delete-yes{
+                                padding:15px 13.75px;
+                            }
+
+                        .navbar-edit-delete-btn {
+                            float:right;
+                            padding:15px 17.5px;
+                        }
+
+                /* Edit SAVE User */
+
+                    .navbar-edit-save {
+                        float:left;
+                    }
+
+                    .navbar-edit-save-confirm{
+                        display:none;
+                        float:left;
+                        text-align:left;
+                    }
+
+                    .navbar-edit-save-message {
+                        float:right;
+                        padding:5px 0;
+                    }
+
+                    .navbar-edit-save-buttons {
+                        float:left;
+                    }
+
+                    .navbar-edit-save-no{
+                        padding:15px 17.5px;
+                    }
+
+                    .navbar-edit-save-yes{
+                        padding:15px 14.5px;
+                    }
+
+                    .navbar-edit-save-btn {
+                        float:right;
+                        padding:15px 17.5px;
+                    }
+
+            /* PROFILE PIC */
+
+                .nav-pic {
+                    width:30px;
+                    height:30px;
+                    border-radius:50%;
+                    position:absolute;
+                    top:-6px;
+                    right:1px;
+                }
+
+    /* FOOTER */
+
+            footer {
+                height:140px;
+                width:100%;
+                margin-top:80px;
+                padding:10px;
+                background-color:#1d1d27;
+            }
+
+            footer nav {
+                top:10px;
+            }
+
+
+/* HOMEPAGE */
+
+    /* Alerts */
+
+    .alert {
+        margin-bottom:22px;
+        border-radius:0;
+    }
+
+    /* Main Banner */
+
+    .home-banner {
+        /*background: url('../Images/bannerimage4.jpg') no-repeat center center;*/
+        width:100%;
+        padding:0;
+        color:white;
+        background: #4888f1; /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(-45deg, #1fc8db, #4888f1); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(-45deg, #1fc8db, #4888f1); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(-45deg, #1fc8db, #4888f1); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(-45deg, #1fc8db, #4888f1); /* Standard syntax */
+    }
+
+    .full-width {
+        width:100%;
+    }
+
+    .banner-content {
+        bottom:22px;
+    }
+
+    .banner-image {
+        position:relative;
+        top:10px;
+        display:block;
+        margin:0 auto;
+        width:427px;
+    }
+
+    .banner-image2 {
+        position:relative;
+        margin:0 auto;
+        width:100%;
+        bottom:25px;
+    }
+
+    .banner-content-text {
+        padding:5% 10px;
+    }
+
+    .register-btn {
+        margin-right:10px;
+    }
+
+    /* our games */
+
+    .apocalypseworld-content {
+        padding-bottom:40px;
+    }
+
+
+/* MAIN PORTAL*/
+
+    .access-definitions-container {
+        margin-bottom:20px;
+        width:100%;
+        padding:15px 0;
+        background-color:#1d1d27;
+        opacity: 0.85;
+        filter: alpha(opacity=85);
+        z-index:10;
+    }
+
+    .affix-top {
+        position: static;
+        margin-top:0;
+        width:100%;
+    }
+
+    .affix {
+        position: fixed;
+        top:0;
+        width:100%;
+    }
+
+    .access-definitions {
+        color:white;
+        text-align:center;
+    }
+
+    .create-game {
+        height:350px;
+        color:white;
+        text-align:center;
+        background-position:right;
+        border-top-left-radius:0;
+        border-top-right-radius:0;
+        border-bottom-left-radius:4px;
+        border-bottom-right-radius:4px;
+        background-image: url("../Images/bannerimage5.jpg");
+    }
+
+    .list-group {
+
+        margin-bottom:40px;
+    }
+
+    .list-group-item {
+        overflow-y: auto;
+        overflow-x: scroll;
+    }
+
+    .list-group-item.active {
+
+        margin-top:20px;
+
+        border-top-left-radius:4px;
+        border-top-right-radius:4px;
+        border-bottom-left-radius:0;
+        border-bottom-right-radius:0;
+
+        background: #4888f1; /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(-45deg, #1fc8db, #4888f1); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(-45deg, #1fc8db, #4888f1); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(-45deg, #1fc8db, #4888f1); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(-45deg, #1fc8db, #4888f1); /* Standard syntax */
+        border:none;
+    }
+
+    .main-portal-banner-content {
+        top: 50%;
+        left: 50%;
+        padding:25px 0;
+    }
+
+    .table > thead > tr > th {
+        vertical-align: bottom;
+        border-bottom: 1px solid #1d1d27;
+    }
+
+    .list-group-item:first-child {
+        border-top-left-radius:0;
+        border-top-right-radius:0;
+        border-bottom-left-radius:4px;
+        border-bottom-right-radius:4px;
+    }
+
+    .access-colours {
+        width:10px;
+    }
+
+    .table tbody {
+        cursor:pointer;
+    }
+
+    .find-a-quest-form-elements {
+        height:55px;
+    }
+
+    .find-a-quest-search-btn {
+        padding: 1px 1px;
+        position:relative;
+        width:100%;
+        top:23px;
+        height:30px;
+    }
+
+    .glyphicon-lock, .glyphicon-lock:hover  {
+        color:black;
+    }
+
+
+/* MOBILE SIZE*/
+
+@media only screen and (max-width: 480px) {
+    .left-links, .right-links {
+        display: none;
+    }
+
+    .companionquest-logo {
+        width:70px;
+        left:0;
+        transform:translateX(50%);
+        position:relative;
+    }
+
+    .hamburger-link {
+        display:block;
+    }
+
+}

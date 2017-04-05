@@ -1,0 +1,75 @@
+/*------------------------------
+----------- SLIDEOUT -----------
+------------------------------*/
+
+.slideout_btn {
+	background-color: #1d1d27;
+	border-style: none;
+	padding: 8px 10px;
+}
+
+.charSheet_btn {
+    position: fixed;
+    top: 127px;
+    left: 0px;
+}
+
+.rulebook_btn {
+    position: fixed;
+    top: 88px;
+    left: 0px;
+}
+
+.slideout {
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,.3);
+  color: #333;
+  height: 85%;
+  position: fixed;
+  bottom: -10px;
+  left: -100%;
+  width: 70%;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+
+.slideout.on {
+	z-index: 100;
+  	left: 0;
+}
+
+/*---------------------------------
+--------- NOTES & NOTICES ---------
+---------------------------------*/
+
+.notes_notices {
+    min-height: 200px;
+}
+
+#notes {
+    height: 100%;
+}
+
+/*-----------------------------
+--------- DICE ROLLER ---------
+-----------------------------*/
+
+.dice_roller {
+    min-height: 200px;
+}
+
+/*-------------------------------
+---------- MAP VIEWER -----------
+-------------------------------*/
+.map_view {
+    height: 100%;
+    width: 100%;
+}
+
+.map_view img {
+    max-height: 100%;
+    max-width: 100%;
+}
+

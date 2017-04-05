@@ -1,0 +1,90 @@
+.active {
+    height:50px;
+    padding:0px 20px;
+}
+
+h3 {
+    margin-top:11px;
+}
+
+.notices {
+    color:black;
+}
+
+.table tbody {
+    cursor:pointer;
+}
+
+.list-group-item.active, .list-group-item.active:hover {
+    background-color: #4888f1;
+}
+
+.access-colours {
+    width:15px;
+}
+
+.jumbotron {
+    padding:0 0 20px 0;
+}
+
+.companionquest-banner-2 {
+    position:relative;
+    left:50px;
+    height:300px;
+}
+
+.create-game-text {
+    left:25px;
+    margin-top:50px;
+}
+
+  .affix {
+      z-index:5;
+      opacity:0.9;
+      top: 0;
+  }
+
+  .affix + .container-fluid {
+      padding-top: 70px;
+  }
+
+.access-dot-index {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height:30px;
+    width:100%;
+    padding-top:3px;
+    background-color:#eeeeee;
+}
+
+.access-colours-text {
+    font-size:12px;
+    position:relative;
+}
+
+.bottom {
+    clear:both;
+    width:100%;
+    margin:20px 0;
+/*  border-bottom: 1px solid lightgrey;*/
+}
+
+.dropdown-menu {
+    clear:both;
+    float:right;
+}
+
+.gameNameDIV, .themeNameDIV, .gameLanguageDIV {
+    position:relative;
+    top:-10px;
+}
+
+.glyphicon-lock, .glyphicon-lock:hover  {
+    color:black;
+}
+
+/* BUTTONS */
+
+    .btn {
+        margin-left:57px;
+    }

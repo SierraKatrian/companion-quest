@@ -1,0 +1,54 @@
+/* drop down */
+
+select {
+    height:34px;
+    width:100%;
+}
+
+select:hover {
+    cursor:pointer;
+    background:lightgrey;
+}
+
+/* radio button list */
+
+.theme-radio{ /* class name of input */
+    display:none;
+}
+
+.theme-img{ /* class name of image */
+    opacity: 0.8;
+    cursor:pointer;
+    border:3px solid transparent
+}
+
+.theme-img:hover { /* class name of image */
+    opacity: 1;
+}
+
+input:checked + .theme-img {
+    opacity: 1;
+    border:3px solid #ff9a00;
+}
+
+/* checkbox list */
+
+.character-chk {
+    display:none;
+}
+
+.character-img{
+    opacity: 0.8;
+    cursor:pointer;
+    border:3px solid transparent
+}
+
+.character-img:hover {
+    opacity: 1;
+    border:3px solid #ff9a00;
+}
+
+input:checked + .character-img {
+    opacity: 1;
+    border:3px solid #ff9a00;
+}

@@ -1,0 +1,27 @@
+.jumbotron {
+    background-color:#4888f1;
+/*  background-color:#1d1d27;*/
+    min-height:480px;
+    color:white;
+    padding:0;
+}
+
+.jumbotron-text {
+    margin-top:50px;
+}
+
+.companionquest-banner img {
+    display:block;
+    margin:0 auto;
+    max-width:100%;
+    height:auto;
+}
+
+.register-btn, .signin-btn {
+    margin-right:10px;
+    margin-bottom:50px;
+}
+
+.apocalypse-world-img, .dungeon-world-img {
+    width:100%;
+}
