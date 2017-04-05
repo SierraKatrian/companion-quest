@@ -1,5 +1,5 @@
 <?php
-
+	//addded comment
     include "View/Header.php";
 
     $userDetails = $_SESSION['user'];
