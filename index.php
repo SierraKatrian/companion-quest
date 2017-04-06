@@ -65,7 +65,7 @@
             <!--RULEBOOK MODAL-->
 
             <button type="button" class="margin-10px btn btn-info btn-lg" data-toggle="modal" data-target="#ApocalypseModal"><span class="glyphicon glyphicon-file"></span>&nbsp;view rulebook</button>
-            <?php include "Modals/rulebook-apocalypseworld.php" ?>
+            <?php include "View/Modals/rulebook-apocalypseworld.php" ?>
 
         </div>
 
@@ -87,7 +87,7 @@
             <!--RULEBOOK MODAL-->
 
             <button type="button" class="margin-10px btn btn-info btn-lg" data-toggle="modal" data-target="#DungeonModal"><span class="glyphicon glyphicon-file"></span>&nbsp;view rulebook</button>
-            <?php include "Modals/rulebook-dungeonworld.php" ?>
+            <?php include "View/Modals/rulebook-dungeonworld.php" ?>
 
         </div>
 
