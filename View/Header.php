@@ -2,9 +2,7 @@
 
     require_once "Models/DbConnect.php";
     require_once "Models/UsersDAO.php";
-    require_once "Models/Avatar.php";
     $db = DbConnect::getDB();
-    $UsersDAO = new UsersDAO($db);
 
     session_start();
 
@@ -13,6 +11,7 @@
         include "View/Modals/navbar-register.php";
         include "View/Modals/navbar-signin.php";
         $startquestNavTitle = "";
+        $rightNavLinkMsg = "";
         $rightNavLink1 = "<a href='#' class='register-btn' data-toggle='modal' data-target='#navbar-register'> register </a>";
         $rightNavLink2 = "<a href='#' data-toggle='modal' data-target='#navbar-signin'> sign in </a>";
 
@@ -36,6 +35,8 @@
         $startquestNavTitle = "<a href='Main-Portal.php'> start quest! </a>";
 
         //modify the navigation text to hold user names with drop down menu
+        $rightNavLinkMsg = "<a href='#'><i class='fa fa-envelope-o fa-lg' aria-hidden='true'></i></a>";
+
         $rightNavLink1 = "
         <div class='dropdown'>
           <a class='dropbtn'>" . $userFullName . "<span class='caret'></span></a>
@@ -47,9 +48,8 @@
         ";
 
         //modify the navigation text to hold user profile pic
-        
-        $rightNavLink2 =  "<div id='avatar-container'></div>";
-            
+        $rightNavLink2 = "<img class='nav-pic' src='Images/profilepic.png' alt='profile picture'/>";
+
         //hide register and sign in buttons on homepage
         $showRegisterSigninBtns = "";
 
@@ -103,7 +103,6 @@
 <body>
 
     <!-- HEADER -->
-
     <header>
         <div class="header-content">
             <a href="index.php"><img class="companionquest-logo" src="Images/companionquest-logo.png" alt="Companion Quest Logo" /></a>
@@ -113,7 +112,8 @@
                     &emsp;
                     <li><a href="../Main-Portal.php"><?= $startquestNavTitle ?></li>
                 </ul>
-                <ul class="right-links green">
+                <ul class="right-links">
+                    <li class="msgIcon"><?= $rightNavLinkMsg ?></li>
                     <li><?= $rightNavLink1 ?></li>
                     <li><?= $rightNavLink2 ?></li>
                 </ul>
@@ -124,12 +124,12 @@
         </div>
     </header>
 
-<?php
+
+    <?php
 
 include "View/Modals/navbar-register.php";
 include "View/Modals/navbar-signin.php";
 include "View/Modals/navbar-edit.php";
-include "View/Modals/navbar-avatar.php";
 
 //echo $modalOpen;
 
