@@ -176,8 +176,8 @@
 
 </main>
 
-<script type="text/javascript" src="./Script/create-a-game.js"></script>
-<script type="text/javascript" src="./Script/limit-char.js"></script>
+<script type="text/javascript" src="Script/create-a-game.js"></script>
+<script type="text/javascript" src="Script/limit-char.js"></script>
 
 
 <?php include "View/Footer.php"; ?>

@@ -9,8 +9,6 @@ class DbConnect
     //reference to db connection
     private static $db;
 
-    private function __construct() {}
-
     //return reference to pdo object
     public static function getDB () {
 

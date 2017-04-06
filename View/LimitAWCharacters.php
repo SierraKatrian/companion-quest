@@ -28,5 +28,3 @@ $viewAvailChars = $availCharClass->getAvailCharacters($db, $rbID);
             </div><!-- end of row -->
         </div><!-- end of panel-body -->
     </div><!--end of panel panel-default-->
-
-<!-- <script type="text/javascript" src="./Script/limit-char.js"></script> -->
