@@ -1,5 +1,9 @@
 <?php
 
+//call database query class
+
+    $UsersDAO = new UsersDAO($db);
+
 //keep modal open on registration error
 
     $modalOpen = "<script type='text/javascript'>
