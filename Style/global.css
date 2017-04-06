@@ -194,6 +194,12 @@
                 position:relative;
             }
 
+            .msgIcon {
+                position:relative;
+                right:42px;
+                bottom:1.5px;
+            }
+
             /* Nav Bar DROP DOWN */
 
             .nav-name {
@@ -205,11 +211,6 @@
                 min-width:0;
             }
 
-            .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-                background-color: red;
-                background-image: none;
-            }
-
             /* DROP DOWN MENU */
 
                 /* Dropdown Button */
@@ -219,7 +220,7 @@
                     right:35px;
                     background-color:#1d1d27;
                     color:white;
-                    padding:20px;
+                    padding:20px 0;
                     border:none;
                     cursor:pointer;
                 }
