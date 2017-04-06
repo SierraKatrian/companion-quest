@@ -27,19 +27,20 @@
         $gameID = 1;
 
         if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
+            require_once './Models/DbConnect.php';
+            require_once './Models/AvailCharactersDAO.php';
+
+            $dbClass = new DbConnect();
+            $db = $dbClass->getDB();
+
+            $availCharClass = new AvailCharactersDAO();
+
             foreach($_POST['availChars'] as $check) {
-
-                require_once './Models/DbConnect.php';
-                require_once './Models/AvailCharactersDAO.php';
-
-                $dbClass = new DbConnect();
-                $db = $dbClass->getDB();
-
-                $availCharClass = new AvailCharactersDAO();
                 $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
 
 
                     echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
+                    echo $setAvailChars;
             }
         }
 
