@@ -648,6 +648,19 @@
         }
 
 
+    /* CREATE CHARACTER */
+    .barterList li, .gearList li {
+        margin-left: 30px;
+        /*list-style:circle;*/
+    }
+
+    p .pItalics {
+        font-style: italic;
+    }
+
+    p .pBold, li .pBold {
+        font-weight: bold;
+    }
 
 
 /* MOBILE SIZE*/

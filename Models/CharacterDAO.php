@@ -2,7 +2,7 @@
 
 class CharacterDAO {
 
-    public function getSavedDice($db, $userID, $gamesID){
+    public function getCharSheet($db, $userID, $rbID, $gamesID){
         $query = 'SELECT * FROM characters WHERE user_id = :userID AND games_id = :gamesID';
         $statement = $db->prepare($query);
         $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
@@ -14,56 +14,27 @@ class CharacterDAO {
         return $viewCharacter;
     }
 
-    public function saveDice($db, $charID, $numSides, $numDice, $modNum){
-        $query = 'INSERT INTO saved_dice
-                  (char_id, sides, quantity, modifier)
-                  VALUES (:charID, :sides, :quantity, :modifier)';
+    public function getRole($db, $rbID, $roleID){
+        $query = 'SELECT * FROM roles WHERE id = :ID AND rulebook_id = :rulebookID';
         $statement = $db->prepare($query);
-        $statement->bindValue(':charID', $charID, PDO::PARAM_INT);
-        $statement->bindValue(':sides', $numSides, PDO::PARAM_INT);
-        $statement->bindValue(':quantity', $numDice, PDO::PARAM_INT);
-        $statement->bindValue(':modifier', $modNum, PDO::PARAM_INT);
+        $statement->bindValue(':rulebookID', $rbID, PDO::PARAM_INT);
+        $statement->bindValue(':ID', $roleID, PDO::PARAM_INT);
         $statement->execute();
+        $viewCharacter = $statement->fetchAll(PDO::FETCH_OBJ);
         $statement->closeCursor();
 
-        return true;
+        return $viewCharacter;
     }
 
-    public function deleteDice($db, $id) {
-            $query = 'DELETE FROM saved_dice WHERE Id = :ID';
-            $statement = $db->prepare($query);
-            $statement->bindValue(':ID',$id, PDO::PARAM_INT);
-            $row = $statement->execute();
-
-            return true;
-    }
-
-    public function updateDice($db, $id, $dice) {
-        $query = 'UPDATE saved_dice SET sides = :sides, quantity = :quantity, modifier = :modifier WHERE Id = :ID';
+    public function getMoves($db, $roleID){
+        $query = 'SELECT * FROM moves WHERE role_id = :roleID';
         $statement = $db->prepare($query);
-        $statement->bindValue(':ID', $id, PDO::PARAM_INT);
-        $statement->bindValue(':sides', $dice->getSides(), PDO::PARAM_INT);
-        $statement->bindValue(':quantity', $dice->getQuantity(), PDO::PARAM_INT);
-        $statement->bindValue(':modifier', $dice->getModifier(), PDO::PARAM_INT);
-        $row = $statement->execute();
+        $statement->bindValue(':roleID', $roleID, PDO::PARAM_INT);
+        $statement->execute();
+        $viewMoves = $statement->fetchAll(PDO::FETCH_OBJ);
         $statement->closeCursor();
 
-        return true;
-    }
-
-    public function getDice($db, $id) {
-        $query = "SELECT * FROM saved_dice WHERE Id = :ID";
-        $statement = $db->prepare($query);
-        $statement->bindValue(':ID',$id, PDO::PARAM_INT);
-        $statement->execute();
-        $dice = $statement->fetch(PDO::FETCH_OBJ);
-        // $statement->closeCursor();
-
-        return $dice;
-    }
-
-    public function getCharacterId() {
-        'SELECT char_id FROM chars WHERE game_id = :game_id';
+        return $viewMoves;
     }
 }
 
