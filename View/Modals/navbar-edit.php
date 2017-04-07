@@ -41,8 +41,6 @@
         unset($_SESSION['user']);
         $_SESSION = array();
         session_destroy();
-        //header('Location: index.php');
-        //exit();
         $goToIndex="<script type='text/javascript'>location.replace('index.php'); </script>";
         echo $goToIndex;
 
@@ -111,7 +109,7 @@
                                         </div>
                                     </div>
                                     <button type="button" class="btn btn-primary navbar-edit-save-btn">
-                                        <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i>
+                                        <span class="glyphicon glyphicon-floppy-disk"></span>
                                     </button>
                                 </div>
 
