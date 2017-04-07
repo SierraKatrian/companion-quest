@@ -122,6 +122,24 @@ class Validation
         }
     }
 
+    //DROPDOWNS
+
+    public function validate_defaultdropdown(){
+        if ($this->text == 'default'){
+            $this->output = "please select";
+            $this->setError();
+            return $this->output;
+        }
+    }
+
+    public function validate_zerodropdown(){
+        if ($this->text == 0){
+            $this->output = "please select";
+            $this->setError();
+            return $this->output;
+        }
+    }
+
 }
 
 ?>
