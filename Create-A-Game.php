@@ -165,25 +165,23 @@
 
 
         //CHARACTER SELECTOR
+        if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
+            require_once './Models/DbConnect.php';
+            require_once './Models/AvailCharactersDAO.php';
 
-            if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
-                require_once './Models/DbConnect.php';
-                require_once './Models/AvailCharactersDAO.php';
+            $dbClass = new DbConnect();
+            $db = $dbClass->getDB();
 
-                $dbClass = new DbConnect();
-                $db = $dbClass->getDB();
+            $availCharClass = new AvailCharactersDAO();
 
-                $availCharClass = new AvailCharactersDAO();
-
-                foreach($_POST['availChars'] as $check) {
-                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+            foreach($_POST['availChars'] as $check) {
+                $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
 
 
-                        echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
-                        echo $setAvailChars;
-                }
+                    echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
+                    echo $setAvailChars;
             }
-
+        }
     }
 
 ?>
@@ -209,7 +207,7 @@
 
     <h2>Start a quest!</h2>
 
-    <form action="Create-A-Game.php" method="post" name="advanced-search" class="container-fluid find-a-game-form">
+    <form action="Create-A-Game.php" method="post" name="advancedSearch" class="container-fluid find-a-game-form">
         <div class="row">
             <div class="col-md-6 find-a-quest-form-elements">
                 <label for="gameName">Game Name <span style="color:red;">*&nbsp;<?= $output_gameName ?></span></label>
@@ -290,18 +288,20 @@
         </div><!--end of row-->
 
         <!--CHOOSE A CHARACTER-->
+        <!-- Apocalypse World Characters
+            <div id="apocalypse-world-character-panel">
+            <label>APOCALYPSE WORLD : Choose your characters</label> -->
+            <div class="showChars">
 
-        <!-- Apocalypse World Characters -->
-        <div id="apocalypse-world-character-panel">
-            <label>APOCALYPSE WORLD : Choose your characters</label>
+            </div>
             <?php require_once 'View/LimitAWCharacters.php'; ?>
-        </div><!--end of apocalypse world character panel-->
+        <!-- </div>end of apocalypse world character panel-->
 
-        <!-- Dungeon World Characters -->
-        <div id="dungeon-world-character-panel">
-            <label>DUNGEON WORLD : Choose your characters</label>
+        <!-- Dungeon World Characters
+            <div id="dungeon-world-character-panel">
+            <label>DUNGEON WORLD : Choose your characters</label> -->
             <?php require_once 'View/LimitDWCharacters.php'; ?>
-        </div><!--end of dungeon world character panel-->
+        <!-- </div>end of dungeon world character panel-->
 
         <!-- Leave a message! -->
         <div class="form-group">

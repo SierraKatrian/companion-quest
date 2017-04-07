@@ -15,5 +15,11 @@ $(document).ready(function(){
         $('#apocalypse-world-character-panel').hide();
     });
 
+    var formHandle = document.forms.advancedSearch.
+
+    if (formHandle.ruleBook.value == 1) {
+        console.log('one')
+    } else if (formHandle.ruleBook.value == 2) {
+        console.log('two')
 
 });

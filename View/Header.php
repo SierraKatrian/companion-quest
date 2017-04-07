@@ -2,6 +2,7 @@
 
     require_once "Models/DbConnect.php";
     require_once "Models/UsersDAO.php";
+    require_once "Models/GameDAO.php";
     require_once "Models/Avatar.php";
     $db = DbConnect::getDB();
 
