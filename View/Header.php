@@ -2,7 +2,8 @@
 
     require_once "Models/DbConnect.php";
     require_once "Models/UsersDAO.php";
-    require_once "Models/Avatar.php";
+    require_once "Models/GameDAO.php";
+
     $db = DbConnect::getDB();
 
     session_start();
@@ -49,7 +50,7 @@
         ";
 
         //modify the navigation text to hold user profile pic
-        $rightNavLink2 = "<div id='avatar-container'></div>";
+        $rightNavLink2 = "<img class='nav-pic' src='Images/profilepic.png' alt='profile picture'/>";
 
         //hide register and sign in buttons on homepage
         $showRegisterSigninBtns = "";
@@ -131,7 +132,6 @@
 include "View/Modals/navbar-register.php";
 include "View/Modals/navbar-signin.php";
 include "View/Modals/navbar-edit.php";
-include "View/Modals/navbar-avatar.php";
 
 //echo $modalOpen;
 
