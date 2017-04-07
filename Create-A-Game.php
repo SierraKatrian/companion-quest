@@ -165,23 +165,23 @@
 
 
         //CHARACTER SELECTOR
-        if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
-            require_once './Models/DbConnect.php';
-            require_once './Models/AvailCharactersDAO.php';
-
-            $dbClass = new DbConnect();
-            $db = $dbClass->getDB();
-
-            $availCharClass = new AvailCharactersDAO();
-
-            foreach($_POST['availChars'] as $check) {
-                $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
-
-
-                    echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
-                    echo $setAvailChars;
-            }
-        }
+        // if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
+        //     require_once './Models/DbConnect.php';
+        //     require_once './Models/AvailCharactersDAO.php';
+        //
+        //     $dbClass = new DbConnect();
+        //     $db = $dbClass->getDB();
+        //
+        //     $availCharClass = new AvailCharactersDAO();
+        //
+        //     foreach($_POST['availChars'] as $check) {
+        //         $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+        //
+        //
+        //             echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
+        //             echo $setAvailChars;
+        //     }
+        // }
     }
 
 ?>
@@ -288,20 +288,30 @@
         </div><!--end of row-->
 
         <!--CHOOSE A CHARACTER-->
-        <!-- Apocalypse World Characters
-            <div id="apocalypse-world-character-panel">
-            <label>APOCALYPSE WORLD : Choose your characters</label> -->
-            <div class="showChars">
+        <div class="apocalypse-world-character-panel">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row all-avail-chars">
+                        <div id="showAWChars">
 
-            </div>
-            <?php require_once 'View/LimitAWCharacters.php'; ?>
-        <!-- </div>end of apocalypse world character panel-->
+                        </div>
+                    </div><!-- end of row -->
+                </div><!-- end of panel-body -->
+            </div><!-- end of panel panel-default -->
+        </div><!-- end of apocalypse world character panel -->
 
-        <!-- Dungeon World Characters
-            <div id="dungeon-world-character-panel">
-            <label>DUNGEON WORLD : Choose your characters</label> -->
-            <?php require_once 'View/LimitDWCharacters.php'; ?>
-        <!-- </div>end of dungeon world character panel-->
+        <!-- <div class="dungeon-world-character-panel">
+            <label>DUNGEON WORLD : Choose your characters</label>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row all-avail-chars">
+                            <div id="showDWChars">
+
+                            </div>
+                        </div> end of row
+                    </div> end of panel-body
+                </div> end of panel panel-default
+            </div> end of dungeon world character panel -->
 
         <!-- Leave a message! -->
         <div class="form-group">

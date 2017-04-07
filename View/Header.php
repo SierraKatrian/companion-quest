@@ -3,11 +3,8 @@
     require_once "Models/DbConnect.php";
     require_once "Models/UsersDAO.php";
     require_once "Models/GameDAO.php";
-<<<<<<< HEAD
     require_once "Models/Avatar.php";
-=======
 
->>>>>>> origin/master
     $db = DbConnect::getDB();
 
     session_start();
