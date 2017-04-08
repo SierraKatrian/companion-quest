@@ -164,24 +164,24 @@
         }
 
 
-        //CHARACTER SELECTOR
-        // if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
-        //     require_once './Models/DbConnect.php';
-        //     require_once './Models/AvailCharactersDAO.php';
-        //
-        //     $dbClass = new DbConnect();
-        //     $db = $dbClass->getDB();
-        //
-        //     $availCharClass = new AvailCharactersDAO();
-        //
-        //     foreach($_POST['availChars'] as $check) {
-        //         $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
-        //
-        //
-        //             echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
-        //             echo $setAvailChars;
-        //     }
-        // }
+        // CHARACTER SELECTOR
+        if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
+            require_once './Models/DbConnect.php';
+            require_once './Models/AvailCharactersDAO.php';
+
+            $dbClass = new DbConnect();
+            $db = $dbClass->getDB();
+
+            $availCharClass = new AvailCharactersDAO();
+
+            // foreach($_POST['availChars'] as $check) {
+            //     $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+            //
+            //
+            //         echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
+            //         echo $setAvailChars;
+            // }
+        }
     }
 
 ?>
@@ -288,11 +288,11 @@
         </div><!--end of row-->
 
         <!--CHOOSE A CHARACTER-->
-        <div class="apocalypse-world-character-panel">
+        <div class="character-panel">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="row all-avail-chars">
-                        <div id="showAWChars">
+                        <div id="showChars">
 
                         </div>
                     </div><!-- end of row -->
@@ -332,6 +332,7 @@
 
 <script type="text/javascript" src="Script/create-a-game.js"></script>
 <script type="text/javascript" src="Script/limit-char.js"></script>
+<script type="text/javascript" src="Script/dice-roller.js"></script>
 
 
 <?php include "View/Footer.php"; ?>

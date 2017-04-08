@@ -21,7 +21,8 @@ $getAW = $charClass->getRole($db, $rbID, $roleID);
 $getDW = $charClass->getRole($db, 2, 16);
 $getAWMoves = $charClass->getMoves($db, 3);
 
-$getCharSheet = $charClass->getCharSheet($db, $userID, $gameID);
+$getCharSheet = $charClass->getCharSheet($db, 18, 3);
+$getCharSheet = $charClass->getCharSheet($db, 17, 1);
 
 $getUser = $charClass->getUser($db, $userID);
 $getGame = $charClass->getGame($db, $gameID);
@@ -38,21 +39,7 @@ $getGame = $charClass->getGame($db, $gameID);
     </head>
     <body>
         <main class="container-fluid">
-            <p style="font-weight:bold;font-size:24px;text-align:center;">GAME</p>
-            <?php foreach ($getGame as $game): ?>
-                <p style="font-weight:bold;font-size:24px;"><?php echo $game->rb_id; ?></p>
-                <div><?php echo $game->game_name; ?></div>
-                <div><?php echo $game->max_players; ?></div>
-            <?php endforeach; ?>
-            <p style="font-weight:bold;font-size:24px;text-align:center;">USER</p>
-            <?php foreach ($getUser as $user): ?>
-                <p style="font-weight:bold;font-size:24px;"><?php echo $user->user_name; ?></p>
-                <div><?php echo $user->f_name; ?></div>
-                <div><?php echo $user->email; ?></div>
-            <?php endforeach; ?>
-
-
-            <p style="font-weight:bold;font-size:24px;text-align:center;">CHARACTER SHEET</p>
+            <p style="font-weight:bold;font-size:24px;text-align:center;">APOCALYPSE WORLD CHARACTER SHEET</p>
             <?php foreach ($getCharSheet as $char): ?>
                 <p style="font-weight:bold;font-size:24px;"><?php echo 'ID: ' . $char->id . ' - ' . $char->name . ' the ' . $char->role_name; ?></p>
                 <div>Eyes: <?php echo $char->eyes; ?></div>
@@ -60,6 +47,51 @@ $getGame = $charClass->getGame($db, $gameID);
                 <div>Gender: <?php echo $char->gender; ?></div>
                 <p>BARTER</p>
                 <div><?php echo $char->barter; ?></div>
+                <label for="gear">GEAR</label>
+                <textarea name="gear" rows="8" cols="80"><?php echo $char->added_gear; ?></textarea>
+                <label for="other-moves">OTHER MOVES</label>
+                <textarea name="other-moves" rows="8" cols="80"><?php echo $char->other_moves; ?></textarea>
+                <label for="stat1">COOL</label>
+                <input type="text" name="stat1" value="<?php echo $char->stat1; ?>">
+                <label for="stat2">HARD</label>
+                <input type="text" name="stat2" value="<?php echo $char->stat2; ?>">
+                <label for="stat3">HOT</label>
+                <input type="text" name="stat3" value="<?php echo $char->stat3; ?>">
+                <label for="stat4">SHARP</label>
+                <input type="text" name="stat4" value="<?php echo $char->stat4; ?>">
+                <label for="stat5">WEIRD</label>
+                <input type="text" name="stat5" value="<?php echo $char->stat5; ?>">
+
+                <label for="harm">HARM</label>
+
+                <label for="moves">MOVES</label>
+                <input type="checkbox" name= value="">
+
+            <?php endforeach; ?>
+
+
+            <p style="font-weight:bold;font-size:24px;text-align:center;">DUNGEON WORLD CHARACTER SHEET</p>
+            <?php foreach ($getCharSheet as $char): ?>
+                <p style="font-weight:bold;font-size:24px;"><?php echo 'ID: ' . $char->id . ' - ' . $char->name . ' the ' . $char->role_name; ?></p>
+                <div>Eyes: <?php echo $char->eyes; ?></div>
+                <div>Hair: <?php echo $char->hair; ?></div>
+                <div>Gender: <?php echo $char->gender; ?></div>
+                <p>BARTER</p>
+                <div><?php echo $char->barter; ?></div>
+                <label for="gear">GEAR</label>
+                <textarea name="gear" rows="8" cols="80"><?php echo $char->added_gear; ?></textarea>
+                <label for="other-moves">OTHER MOVES</label>
+                <textarea name="other-moves" rows="8" cols="80"><?php echo $char->other_moves; ?></textarea>
+                <label for="stat1">COOL</label>
+                <input type="text" name="stat1" value="<?php echo $char->stat1; ?>">
+                <label for="stat2">HARD</label>
+                <input type="text" name="stat2" value="<?php echo $char->stat2; ?>">
+                <label for="stat3">HOT</label>
+                <input type="text" name="stat3" value="<?php echo $char->stat3; ?>">
+                <label for="stat4">SHARP</label>
+                <input type="text" name="stat4" value="<?php echo $char->stat4; ?>">
+                <label for="stat5">WEIRD</label>
+                <input type="text" name="stat5" value="<?php echo $char->stat5; ?>">
             <?php endforeach; ?>
 
 
@@ -71,11 +103,14 @@ $getGame = $charClass->getGame($db, $gameID);
                 <p>STARTING GEAR</p>
                 <div><?php echo $char->gear; ?></div>
             <?php endforeach; ?>
+
+
             <?php foreach ($getAWMoves as $move): ?>
                 <p style="font-weight:bold;font-size:18px;"><?php echo $move->move_name; ?></p>
                 <div><?php echo $move->move_desc; ?></div>
                 <div><?php echo $move->selected; ?></div>
             <?php endforeach; ?>
+
 
             <p style="margin-top:30px;font-weight:bold;font-size:24px;text-align:center;">DUNGEON WORLD</p>
             <?php foreach ($getDW as $char): ?>

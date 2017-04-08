@@ -133,6 +133,3 @@ $numDice = $numSides = $modNum = $message = '';
         <!-- </form> -->
     </body>
 </html>
-
-
-<script type="text/javascript" src="./Script/dice-roller.js"></script>
