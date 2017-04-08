@@ -2,15 +2,6 @@
 
 class DiceDAO {
 
-    // public function rollDice($sides, $quantity, $modifier = 0){
-    //     // $i = 1;ss
-    //     // $results = array();
-    //     // for($i = 0; $i > $quantity; $i++) {
-    //         $results = (floor(mt_rand(1, $sides)) % $sides) + 1;
-    //     // }
-    //     return $results;
-    // }
-
     public function getSavedDice($db, $charID){
         $query = 'SELECT * FROM saved_dice WHERE char_id = :charID';
         $statement = $db->prepare($query);
