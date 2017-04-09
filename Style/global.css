@@ -62,6 +62,19 @@
         font-weight:bold;
     }
 
+    .btn-info {
+        background-color:#4888f1;
+    }
+
+    .btn-link {
+        color:#4888f1;
+    }
+
+    .btn-link:hover {
+        text-decoration:none;
+        color:#ffad33;
+    }
+
     .wrapper {
         width:84%;
         display:block;
@@ -661,6 +674,259 @@
     p .pBold, li .pBold {
         font-weight: bold;
     }
+
+/* CREATE A GAME */
+
+    .choose-img-thumb-container {
+        margin-bottom:30px;
+    }
+
+    .theme-radio {
+        display:none;
+    }
+
+    .choose-img-thumb {
+        margin:20px 0 -5px 0;
+        opacity: 0.95;
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+        cursor:pointer;
+    }
+
+    .choose-img-thumb:hover {
+        outline:2px solid #ffad33;
+        opacity: 1;
+        -webkit-filter: grayscale(0); /* Safari 6.0 - 9.0 */
+        filter: grayscale(0);
+        cursor:pointer;
+    }
+
+    input:checked + .choose-img-thumb {
+        outline:2px solid #ffad33;
+        opacity: 1;
+        -webkit-filter: grayscale(0); /* Safari 6.0 - 9.0 */
+        filter: grayscale(0);
+        cursor:pointer;
+    }
+
+    .rulebook-btn {
+        margin-top:2.5px;
+        border-top-left-radius:0;
+        border-top-right-radius:0;
+        border-bottom-left-radius:4px;
+        border-bottom-right-radius:4px;
+    }
+
+    /* checkbox list */
+
+        .panel-body{
+            border:none;
+        }
+
+        .character-chk {
+            display:none;
+        }
+
+        .character-img {
+            opacity: 0.95;
+            outline:1px solid black;
+            cursor:pointer;
+        }
+
+        .character-img:hover {
+            opacity: 1;
+            outline:2px solid #ffad33;
+            cursor:pointer;
+        }
+
+        input:checked + .character-img {
+            opacity: 1;
+            outline:2px solid #ffad33;
+            cursor:pointer;
+        }
+
+        .character-thumb-container {
+            padding:5px;
+            text-align:center;
+        }
+
+/* PORTAL */
+
+    .portal-intro-message {
+        padding-bottom:30px;
+        margin:20px 0;
+        border-bottom:1px solid lightgrey;
+    }
+
+
+    /* GM-PORTAL */
+
+    .portal-banner {
+        height:206px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        margin-bottom:20px;
+    }
+
+        .portal-banner-logo-container {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+            .portal-banner-logo {
+                position:relative;
+                height:100px!important;
+            }
+
+            .portal-rulebook-btn {
+                text-align: center;
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius:4px;
+                z-index:2;
+            }
+
+        .delete-game-btn-container {
+            padding-top:10px;
+            width:84%;;
+            height:206px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            z-index:1;
+        }
+
+            .delete-game-btn {
+                float:right;
+                padding:0;
+                margin:0!important;
+            }
+
+    .square-button {
+        width:30px;
+        height:30px;
+        padding:0;
+        margin:0;
+    }
+
+    /* form rules */
+
+    .bigGameNameInput {
+        padding:10px;
+        width:100%;
+        height:60px!important;
+        font-size:25px!important;
+        border-bottom-left-radius:4px!important;
+        border-top-left-radius:4px!important;
+    }
+
+        .bigGameNameInput-btn {
+            padding:0;
+            text-align:center;
+            width:60px;
+            height:60px;
+            border-bottom-right-radius:4px!important;
+            border-top-right-radius:4px!important;
+        }
+
+        .portal-search-elements {
+            width:100%;
+            height:30px!important;
+            border-bottom-left-radius:4px!important;
+            border-top-left-radius:4px!important;
+        }
+
+    .gamePlayerTotal {
+        height:30px!important;
+        margin-bottom:10px;
+    }
+
+    .player-info-table {
+        height:382px;
+    }
+
+    .drop-down-options-list {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight:300;
+        font-size:14px;
+        letter-spacing:0.5px;
+    }
+
+    /* map link */
+
+        .mapPanel {
+            margin-bottom:40px;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .map-image {
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+        .map-middle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%)
+        }
+
+        .map-container:hover .map-image {
+            cursor:pointer;
+            opacity: 0.3;
+        }
+
+        .map-container:hover .map-middle {
+            opacity: 1;
+        }
+
+        .map-cog {
+            color: #4888f1;
+            font-size: 50px;
+        }
+
+    /* CHARACTER SELECTION PANEL */
+
+        .character-panel {
+            height:484px;
+        }
+
+    /* NOTES AND NOTICES */
+
+        .tab-links {
+            color:#4888f1;
+        }
+
+        .nav-tabs > li > a:hover {
+            color:white;
+            background-color:#4888f1;
+        }
+
+    /* GO TO GAME */
+
+        .go-to-game-btn {
+            width:100%;
+        }
 
 
 /* MOBILE SIZE*/
