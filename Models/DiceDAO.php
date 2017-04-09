@@ -13,10 +13,10 @@ class DiceDAO {
         return $viewSavedDice;
     }
 
-    public function saveDice($db, $charID, $numSides, $numDice, $modNum){
+    public function saveDice($db, $charID, $numDice, $numSides, $modNum){
         $query = 'INSERT INTO saved_dice
-                  (char_id, sides, quantity, modifier)
-                  VALUES (:charID, :sides, :quantity, :modifier)';
+                  (char_id, quantity, sides, modifier)
+                  VALUES (:charID, :quantity, :sides,  :modifier)';
         $statement = $db->prepare($query);
         $statement->bindValue(':charID', $charID, PDO::PARAM_INT);
         $statement->bindValue(':sides', $numSides, PDO::PARAM_INT);
@@ -29,7 +29,7 @@ class DiceDAO {
     }
 
     public function deleteDice($db, $id) {
-            $query = 'DELETE FROM saved_dice WHERE Id = :ID';
+            $query = 'DELETE FROM saved_dice WHERE id = :ID';
             $statement = $db->prepare($query);
             $statement->bindValue(':ID',$id, PDO::PARAM_INT);
             $row = $statement->execute();

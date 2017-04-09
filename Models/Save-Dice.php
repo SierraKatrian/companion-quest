@@ -1,11 +1,11 @@
 <?php
-require_once 'database.php';
-require_once 'dicedao.php';
+require_once 'DbConnect.php';
+require_once 'DiceDAO.php';
 
-$dbClass = new Database();
-$db = $dbClass->getDb();
+$dbClass = new DbConnect();
+$db = $dbClass->getDB();
 
-$charID = 4;
+$charID = 2;
 $numSides = $_POST['sides'];
 $numDice = $_POST['quantity'];
 $modNum = $_POST['modifier'];

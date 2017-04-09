@@ -1,9 +1,9 @@
 <?php
-require_once 'database.php';
-require_once 'dicedao.php';
+require_once 'DbConnect.php';
+require_once 'DiceDAO.php';
 
-$dbClass = new Database();
-$db = $dbClass->getDb();
+$dbClass = new DbConnect();
+$db = $dbClass->getDB();
 
 $id = $_POST['id'];
 

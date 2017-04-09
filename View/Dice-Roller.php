@@ -1,14 +1,9 @@
 <?php
 require_once './Models/DbConnect.php';
 require_once './Models/DiceDAO.php';
-// require_once './Models/Edit-Dice.php';
 
 $dbClass = new DbConnect();
 $db = $dbClass->getDB();
-
-$charID = 4;
-$diceClass = new DiceDAO();
-$viewSavedDice = $diceClass->getSavedDice($db, $charID);
 
 $numDice = $numSides = $modNum = $message = '';
 
@@ -113,7 +108,7 @@ $numDice = $numSides = $modNum = $message = '';
             <?php endif; ?>
 
             <!-- DISPLAY ROLLED DICE -->
-        <!-- <form class="char-dice-form" action="" method="post"> -->
+        <form id="char-dice-form" action="" method="post">
             <table class="table table-hover">
                 <thead class="hidden">
                     <tr>
@@ -130,6 +125,6 @@ $numDice = $numSides = $modNum = $message = '';
                 </tbody>
 
             </table>
-        <!-- </form> -->
+        </form>
     </body>
 </html>

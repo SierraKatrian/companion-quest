@@ -4,11 +4,11 @@ if (isset($_POST['saved-dice-form__btn-edit'])) {
 
     $id = filter_input(INPUT_POST, 'saved-dice-form__id', FILTER_VALIDATE_INT);
 
-    require_once './model/database.php';
-    require_once './model/dicedao.php';
+    require_once 'DbConnect.php';
+    require_once 'DiceDAO.php';
 
-    $dbClass = new Database();
-    $db = $dbClass->getDb();
+    $dbClass = new DbConnect();
+    $db = $dbClass->getDB();
 
     $diceClass = new DiceDAO();
     $getDice = $diceClass->getDice($db, $id);

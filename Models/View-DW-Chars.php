@@ -5,11 +5,13 @@ require_once 'AvailCharactersDAO.php';
 $dbClass = new DbConnect();
 $db = $dbClass->getDB();
 
-$availCharClass = new AvailCharactersDAO();
-$viewDWChars = $availCharClass->getAvailCharacters($db, 2);
+$rbID = 2;
 
-$jViewChars = json_encode($viewDWChars);
+$availCharClass = new AvailCharactersDAO();
+$viewDWChars = $availCharClass->getAvailCharacters($db, $rbID);
+
+$jViewDWChars = json_encode($viewDWChars);
 
 header("Content-Type: application/json");
-echo $jViewChars;
+echo $jViewDWChars;
 ?>

@@ -6,7 +6,7 @@ require_once 'DiceDAO.php';
 $dbClass = new DbConnect();
 $db = $dbClass->getDB();
 
-$charID = 4;
+$charID = 2;
 $diceClass = new DiceDAO();
 $viewSavedDice = $diceClass->getSavedDice($db, $charID);
 

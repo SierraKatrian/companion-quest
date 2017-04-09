@@ -66,6 +66,7 @@ $(document).ready(function(){
         // DELETE SAVED DICE
         $('#char-dice-form').on('click', '#btn_delete', function() {
             var id = $(this).val();
+            console.log(id);
             $.post('./Models/Delete-Dice.php', {id : id}, function(data){
                 $.getJSON('./Models/View-Dice.php', function(data){
                     var dice = '';
