@@ -5,7 +5,10 @@
     require_once "Models/GameDAO.php";
     require_once "Models/Avatar.php";
 
+
     $db = DbConnect::getDB();
+    $u = new UsersDAO($db);
+    $users = $u->listUsers();
 
     session_start();
 
@@ -38,7 +41,19 @@
         $startquestNavTitle = "<a href='Main-Portal.php'> start quest! </a>";
 
         //modify the navigation text to hold user names with drop down menu
-        $rightNavLinkMsg = "<a href='#'><i class='fa fa-envelope-o fa-lg' aria-hidden='true'></i></a>";
+        $rightNavLinkMsg ='<div class="chat-dropdown">
+                                <a href="#"><i class=\'fa fa-envelope-o fa-lg\' aria-hidden=\'true\'></i>Messages</a>
+                                 <div id="chats" class="chat-dropdown-content">
+                                   <ul id="chatList">
+                                   
+                                   
+                                  
+                                    </ul>
+                                     <button id="newChat" type="button">New Chat</button>
+                                 </div>
+                               
+                             </div>';
+        ;
 
         $rightNavLink1 = "
         <div class='dropdown'>
@@ -99,8 +114,10 @@
     <script src="https://use.fontawesome.com/2d7fe5a6b4.js"></script>
     <!-- CUSTOM CSS STYLESHEETS -->
     <link rel="stylesheet" href="Style/global.css">
+    <link rel="stylesheet" href="Style/pm.css" >
     <!-- CUSTOM JAVASCRIPT -->
     <script src="Script/jQuery.js"></script>
+    <script src="Script/privateMsg.js"></script>
 </head>
 
 <body>
@@ -124,6 +141,29 @@
                     <li><a href="../Main-Portal.php"><i class="fa fa-bars fa-lg" aria-hidden="true"></i></a></li>
                 </ul>
             </nav>
+        </div>
+        <!--This is the private message chat box-->
+        <div id="msgBox" class="msgBox">
+            <a class="boxclose" id="boxclose">X</a>
+            <div id="msgs">
+                <ul>
+
+                </ul>
+            </div>
+            <form id="newMsg" method="post" name="newMsg">
+                <div id="createChat">
+                    <label>To:</label>
+                    <select id="to" name="to">
+                        <option value="default">Select User</option>
+                        <?php foreach ($users as $user) : ?>
+                            <option value="<?php echo $user['id'] ?>"><?php echo $user['user_name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <input type="text" id="msgText" name="msgText" />
+                <input type="button" id="sendMsg" name="sendMsg" value="Send" />
+                <input type="button" id="sendNewMsg" name="sendMsg" value="Send" />
+            </form>
         </div>
     </header>
 

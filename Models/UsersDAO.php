@@ -96,6 +96,17 @@ class UsersDAO
         return $result;
     }
 
+
+    public function listUsers () {
+        $query = "SELECT * FROM users";
+        $statement = $this->db->prepare($query);
+        $statement ->execute();
+        $users = $statement->fetchAll();
+
+        return $users;
+
+    }
+
     /*
     public function getUser(){
 
