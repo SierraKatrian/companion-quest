@@ -1,23 +1,7 @@
-// $(document).ready(function(){
-    // alert("working");
+$(document).ready(function(){
 
-    // CREATE A GAME
-    // $('.dungeon-world-character-panel').hide();
-    // $('.apocalypse-world-character-panel').hide();
-    //
-    // $('#apocalypse-theme-radio').click(function(){
-    //     $('.apocalypse-world-character-panel').slideToggle();
-    //     $('.dungeon-world-character-panel').hide();
-    // });
-    //
-    // $('#dungeon-theme-radio').click(function(){
-    //     $('.dungeon-world-character-panel').slideToggle();
-    //     $('.apocalypse-world-character-panel').hide();
-    // });
-
-    function getAWChar(){
-
-        $.parseJSON('./Models/View-AW-Chars.php', function(data){
+    function AWCharSheet(){
+        $.getJSON('./Models/View-AW-Chars.php', function(data){
             console.log("connected")
             var info = '<div><h3>APOCALYPSE WORLD : Choose your characters</h3></div>';
             var char = '';
@@ -29,7 +13,7 @@
         });
     }
 
-    function getDWChar(){
+    function DWCharSheet(){
         $.getJSON('./Models/View-DW-Chars.php', function(data){
             console.log("connected")
             var info = '<div><h3>DUNGEON WORLD : Choose your characters</h3></div>';
@@ -42,25 +26,12 @@
         });
     }
 
-    // GET VALUE FROM RADIO BUTTON
-    var rulebook = document.advancedSearch.ruleBook;
-    for(var i = 0; i < rulebook.length; i++) {
-        rulebook[i].onclick = function() {
+    var availChar = document.selectChar.availChar;
+    for(var i = 0; i < availChar.length; i++) {
+        availChar[i].onclick = function() {
             console.log(this.value)
-            if (this.value == 1) {
-                console.log("one")
-                // $('.character-panel').slideDown();
-                getAWChar();
-            } else if (this.value == 2) {
-                console.log("two")
-                // $('.character-panel').slideDown();
-                getDWChar();
-            } else {
-                $('#showChars').html("something went wrong");
-            }
+
+                $('#charSheet').html(this.value);
         };
     }
-
-
-
-// });
+});

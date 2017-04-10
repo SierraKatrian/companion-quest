@@ -12,6 +12,8 @@ $viewDWChars = $availCharClass->getAvailCharacters($db, $rbID);
 
 $jViewDWChars = json_encode($viewDWChars);
 
-header("Content-Type: application/json");
-echo $jViewDWChars;
+var_dump($viewDWChars);
+
+// header("Content-Type: application/json");
+// echo $jViewDWChars;
 ?>

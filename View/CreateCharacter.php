@@ -8,7 +8,7 @@ $db = $dbClass->getDB();
 
 // $rbID = 1;
 
-// $availCharClass = new AvailCharactersDAO();
+$availCharClass = new AvailCharactersDAO();
 // $getAWChars = $availCharClass->getAvailCharacters($db, 1);
 // $getDWChars = $availCharClass->getAvailCharacters($db, 2);
 $userID = 18;
@@ -17,15 +17,19 @@ $rbID = 1;
 $roleID = 3;
 
 $charClass = new CharacterDAO();
-$getAW = $charClass->getRole($db, $rbID, $roleID);
+$getAW = $charClass->getRole($db, 1, 1);
 $getDW = $charClass->getRole($db, 2, 16);
 $getAWMoves = $charClass->getMoves($db, 3);
 
-$getCharSheet = $charClass->getCharSheet($db, 18, 3);
-$getCharSheet = $charClass->getCharSheet($db, 17, 1);
+// GET PLAYABLE CHARACTERS SELECTED CHARACTER SHEET
+$getAWSheet = $charClass->getCharSheet($db, 18, 3);
+$getDWSheet = $charClass->getCharSheet($db, 17, 1);
 
 $getUser = $charClass->getUser($db, $userID);
 $getGame = $charClass->getGame($db, $gameID);
+
+// GET PLAYABLE CHARACTERS FOR SPECIFIC GAME
+$playableChars = $availCharClass->getAllChars($db, $gameID)
 
 // var_dump($getCharSheet);
 
@@ -39,16 +43,38 @@ $getGame = $charClass->getGame($db, $gameID);
     </head>
     <body>
         <main class="container-fluid">
+
+        <!-- GET PLAYABLE CHARACTERS FOR SPECIFIC GAME -->
+        <form name="selectChar" class="" action="" method="post">
+            <div class="playableChars">
+                <?php foreach ($playableChars as $chars): ?>
+                    <div class="col-sm-2 col-xs-3 character-thumb-container">
+                        <label for="<?php echo $chars->role_name ?>">
+                            <input id="<?php echo $chars->role_name ?>" class="character-chk" type="radio" name="availChar" value="<?php echo $chars->role_id ?>" />
+                            <img class="character-img" src="Images/apocalypse-world-characters/<?php echo $chars->picture ?>" /> <p><?php echo $chars->role_name . '(' . $chars->role_id . ')' ?></p>
+                        </label>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div id="charSheet">
+
+            </div>
+        </form>
+
+
             <p style="font-weight:bold;font-size:24px;text-align:center;">APOCALYPSE WORLD CHARACTER SHEET</p>
-            <?php foreach ($getCharSheet as $char): ?>
-                <p style="font-weight:bold;font-size:24px;"><?php echo 'ID: ' . $char->id . ' - ' . $char->name . ' the ' . $char->role_name; ?></p>
+            <?php foreach ($getAWSheet as $char): ?>
+                <p style="font-weight:bold;font-size:24px;"><?php echo 'ID: ' . $char->roles_id . ' - ' . $char->name . ' the ' . $char->role_name ?></p>
+                <p><?php echo $char->bio; ?></p>
                 <div>Eyes: <?php echo $char->eyes; ?></div>
                 <div>Hair: <?php echo $char->hair; ?></div>
                 <div>Gender: <?php echo $char->gender; ?></div>
                 <p>BARTER</p>
                 <div><?php echo $char->barter; ?></div>
+
                 <label for="gear">GEAR</label>
                 <textarea name="gear" rows="8" cols="80"><?php echo $char->added_gear; ?></textarea>
+
                 <label for="other-moves">OTHER MOVES</label>
                 <textarea name="other-moves" rows="8" cols="80"><?php echo $char->other_moves; ?></textarea>
                 <label for="stat1">COOL</label>
@@ -62,16 +88,71 @@ $getGame = $charClass->getGame($db, $gameID);
                 <label for="stat5">WEIRD</label>
                 <input type="text" name="stat5" value="<?php echo $char->stat5; ?>">
 
-                <label for="harm">HARM</label>
+                <h3>HARM</h3>
+                <div class="">
+                    <input type="radio" name="harm" value="1" <?php echo ($char->total_harm == 1) ? "checked" : "" ; ?>>
+                    <label for="harm">First Hit</label>
+                </div>
+
+                <div class="">
+                    <input type="radio" name="harm" value="2" <?php echo ($char->total_harm == 2) ? "checked" : "" ; ?>>
+                    <label for="harm">Second Hit</label>
+                </div>
+
+                <div class="">
+                    <input type="radio" name="harm" value="3" <?php echo ($char->total_harm == 3) ? "checked" : "" ; ?>>
+                    <label for="harm">Third Hit</label>
+                </div>
+
+                <div class="">
+                    <input type="radio" name="harm" value="4" <?php echo ($char->total_harm == 4) ? "checked" : "" ; ?>>
+                    <label for="harm">Fourth Hit</label>
+                </div>
+
+                <div class="">
+                    <input type="radio" name="harm" value="5" <?php echo ($char->total_harm == 5) ? "checked" : "" ; ?>>
+                    <label for="harm">Fifth Hit</label>
+                </div>
+
+                <div class="">
+                    <input type="radio" name="harm" value="6" <?php echo ($char->total_harm == 6) ? "checked" : "" ; ?>>
+                    <label for="harm">Sixth Hit</label>
+                </div>
+
+                <div class="">
+                    <input type="radio" name="stabilized" value="stabilized" <?php echo ($char->stabilized == 1) ? "checked" : "" ; ?>>
+                    <label for="stabilized">Stabalized?</label>
+                </div>
+
+                <div class="">
+                    <input type="radio" name="minusHard" value="minusHard" <?php echo ($char->minus_hard == 1) ? "checked" : "" ; ?>>
+                    <label for="minusHard">Come back with -1hard</label>
+                </div>
+
+                <div class="">
+                    <input type="radio" name="plusWeird" value="plusWeird" <?php echo ($char->plus_weird == 1) ? "checked" : "" ; ?>>
+                    <label for="plusWeird">Come back with +1weird (max+3)</label>
+                </div>
+
+                <div class="">
+                    <input type="radio" name="newPlaybook" value="newPlaybook" <?php echo ($char->new_role == 1) ? "checked" : "" ; ?>>
+                    <label for="newPlaybook">Change to a new playbook</label>
+                </div>
+
+                <div class="">
+                    <input type="radio" name="die" value="die" <?php echo ($char->die == 1) ? "checked" : "" ; ?>>
+                    <label for="die">Die</label>
+                </div>
+
 
                 <label for="moves">MOVES</label>
-                <input type="checkbox" name= value="">
-
+                <?php echo $char->id; ?>
+                <?php var_dump(count($char->id)) ?>
             <?php endforeach; ?>
 
 
             <p style="font-weight:bold;font-size:24px;text-align:center;">DUNGEON WORLD CHARACTER SHEET</p>
-            <?php foreach ($getCharSheet as $char): ?>
+            <?php foreach ($getDWSheet as $char): ?>
                 <p style="font-weight:bold;font-size:24px;"><?php echo 'ID: ' . $char->id . ' - ' . $char->name . ' the ' . $char->role_name; ?></p>
                 <div>Eyes: <?php echo $char->eyes; ?></div>
                 <div>Hair: <?php echo $char->hair; ?></div>
