@@ -142,7 +142,7 @@ include "View/Header.php";
             <!--CHARACTER LIST-->
 
             <h2>Selected Characters</h2>
-            <div class="panel panel-default character-panel">
+            <div class="panel panel-default character-panel-gm">
                 <div class="panel-body">
                     insert selectable character thumbnails here
                 </div>
