@@ -208,24 +208,24 @@
 
     <h2>Find a quest!</h2>
 
-    <form action="" method="get" name="advanced-search" class="container-fluid find-a-game-form">
+    <form action="" method="get" name="advanced-search" id="searchroom" class="container-fluid find-a-game-form">
         <div class="row">
             <div class="col-md-5 find-a-quest-form-elements">
                 <label for="gameName">Game Name:</label>
-                <input type="text" class="form-control" name="gameName"/>
+                <input type="text" class="form-control" id="gameName" name="gameName"/>
             </div>
             <div class="col-md-3 find-a-quest-form-elements">
                 <label for="gametheme">Theme Preference:</label>
-                <select name="gametheme">
-                    <option value="chooseTheme">-- Choose A Theme --</option>
+                <select name="gametheme" id="gametheme">
+                    <option value="">-- Choose A Theme --</option>
                     <option value="Apocalypse World">Apocalypse World</option>
                     <option value="Dungeon World">Dungeon World</option>
                 </select>
             </div>
             <div class="col-md-3 find-a-quest-form-elements">
                 <label for="gamelanguage">Language:</label>
-                <select name="gamelanguage">
-                    <option value="chooseLanguage">-- Choose A Language --</option>
+                <select name="gamelanguage" id="gamelanguage">
+                    <option value="">-- Choose A Language --</option>
                     <option value="english">English</option>
                     <option value="french">French</option>
                     <option value="spanish">Spanish</option>
@@ -259,57 +259,11 @@
                     <th>Language</th>
                     <th>Players</th>
                     <th>Theme</th>
+                    <th></th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <a href="#" data-toggle="tooltip" data-placement="right" title="game open">
-                            <img class="access-colours" src="./Images/status-colours/access-searching.svg" alt="game open" />
-                        </a>
-                    </td>
-                    <td>THE_BEST_GAME_EVER111</td>
-                    <td>mandy1000</td>
-                    <td>EN</td>
-                    <td>15</td>
-                    <td>Apocalypse World</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="#" data-toggle="tooltip" data-placement="right" title="game open">
-                            <img class="access-colours" src="./Images/status-colours/access-searching.svg" alt="game open" />
-                        </a>
-                    </td>
-                    <td>harmon_fans</td>
-                    <td>Dan_Dan_Dan</td>
-                    <td>EN</td>
-                    <td>20</td>
-                    <td>Dungeon World</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="#" data-toggle="tooltip" data-placement="right" title="access locked">
-                            <span class="glyphicon glyphicon-lock"></span>
-                        </a>
-                    </td>
-                    <td>powerfulpals</td>
-                    <td>erin_the_roach</td>
-                    <td>EN</td>
-                    <td>1</td>
-                    <td>Apocalypse World</td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="#" data-toggle="tooltip" data-placement="right" title="access locked">
-                            <span class="glyphicon glyphicon-lock"></span>
-                        </a>
-                    </td>
-                    <td>powerfulpals</td>
-                    <td>erin_the_roach</td>
-                    <td>EN</td>
-                    <td>1</td>
-                    <td>Apocalypse World</td>
-                </tr>
+                <tbody id="search-output">
+                
                 </tbody>
             </table>
         </div><!--end of list-group-item-->
@@ -318,4 +272,4 @@
 </main>
 
 <?php include "View/Footer.php"; ?>
-
+<script type="text/javascript" src="Script/getRoom-ajax.js"></script>
