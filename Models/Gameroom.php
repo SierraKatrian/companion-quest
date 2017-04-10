@@ -45,20 +45,6 @@ class GameRoom {
 		return $data;
 	}
 
-	public function showRoom($input) {
-		foreach($input as $item) {
-			echo "<tr>
-				<td>
-					$item->status             
-				</td>
-				<td>$item->game_name</td>
-				<td>$item->user_name</td>
-				<td>$item->lang</td>
-				<td>$item->max_players</td>
-				<td>$item->name</td>
-			</tr>";
-		}
-	}
 }
 
 ?>
