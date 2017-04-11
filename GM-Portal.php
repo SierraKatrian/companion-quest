@@ -17,10 +17,13 @@ include "View/Header.php";
     $gameDetails = $_SESSION['gameDetails'];
 
     $ruleBook = $gameDetails['rb_id'];
+    $gameID = $gameDetails['id'];
     $gameName = $gameDetails['game_name'];
     $gameLanguage = $gameDetails['lang'];
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
+    
+var_dump($gameID);
 
 ?>
 

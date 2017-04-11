@@ -1,21 +1,17 @@
 <?php
-// mb_internal_encoding("UTF-8");
-
 require_once 'DbConnect.php';
 require_once 'AvailCharactersDAO.php';
 
 $dbClass = new DbConnect();
 $db = $dbClass->getDB();
 
-$rbID = 1;
-
+// $rbID = 2;
+//
 $availCharClass = new AvailCharactersDAO();
-$viewAWChars = $availCharClass->getAvailCharacters($db, $rbID);
-htmlspecialchars($viewAWChars);
+$viewAWChars = $availCharClass->getAvailCharacters($db, 1);
+
 $jViewAWChars = json_encode($viewAWChars);
-
-var_dump($jViewAWChars);
-
-header("Content-Type: text/plain");
+// var_dump($jViewAWChars);
+header("Content-Type: application/json");
 echo $jViewAWChars;
 ?>

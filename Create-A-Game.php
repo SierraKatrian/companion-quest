@@ -174,13 +174,13 @@
 
             $availCharClass = new AvailCharactersDAO();
 
-            // foreach($_POST['availChars'] as $check) {
-            //     $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
-            //
-            //
-            //         echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
-            //         echo $setAvailChars;
-            // }
+            foreach($_POST['availChars'] as $check) {
+                $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+
+
+                    echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
+                    echo $setAvailChars;
+            }
         }
     }
 
@@ -267,7 +267,6 @@
                 <!--rulebook modal-->
                 <button type="button" class="btn btn-info btn-lg full-width rulebook-btn" data-toggle="modal" data-target="#ApocalypseModal"><span class="glyphicon glyphicon-file"></span>&nbsp;view rulebook</button>
                 <?php include "View/Modals/rulebook-apocalypseworld.php" ?>
-
             </div>
 
             <!--DUNGEON WORLD-->
