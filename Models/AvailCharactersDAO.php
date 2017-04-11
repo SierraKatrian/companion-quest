@@ -28,7 +28,9 @@ class AvailCharactersDAO
     }
 
     public function getChars($db, $gameID) {
-        $query = 'SELECT role_id FROM roles_perms
+        $query = 'SELECT roles_perms.role_id, roles.role_name, roles.picture
+                  FROM roles_perms
+                  JOIN roles ON roles.id = roles_perms.role_id
                   WHERE game_id = :gameID';
         $statement = $db->prepare($query);
         $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);

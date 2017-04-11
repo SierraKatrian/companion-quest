@@ -22,7 +22,27 @@ require_once 'Models/AvailCharactersDAO.php';
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
 
+    require_once './Models/DbConnect.php';
+    require_once './Models/AvailCharactersDAO.php';
+
+    $dbClass = new DbConnect();
+    $db = $dbClass->getDB();
+
     $availCharClass = new AvailCharactersDAO();
+
+    // CHARACTER SELECTOR
+    if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
+
+
+        foreach($_POST['availChars'] as $check) {
+            $viewChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+
+
+                echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
+        }
+    }
+
+    $selectedChars = $availCharClass->getChars($db, $gameID);
 
     if ($ruleBook == 2) {
         $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
@@ -31,7 +51,7 @@ require_once 'Models/AvailCharactersDAO.php';
     }
 
 var_dump($gameID);
-// var_dump($viewChars);
+var_dump($selectedChars);
 
 ?>
 
@@ -159,7 +179,9 @@ var_dump($gameID);
                             <?php foreach ($viewChars as $char): ?>
                                 <div class="col-sm-2 col-xs-3 character-thumb-container">
                                     <label for="<?php echo $char->role_name ?>">
-                                        <input class="character-chk" type="checkbox" name="availChars[]" value="<?php echo $char->id ?>" <?php echo ($char->id == 3) ? "checked" : "" ; ?> />
+                                        <input class="character-chk" type="checkbox" name="availChars[]" value="<?php echo $char->id ?>" <?php for ($i=0; $i < ; $i++) {
+                                            # code...
+                                        } ?><?php echo ($char->id == $selectedChars->role_id) ? "checked" : "" ; ?> />
                                         <img class="character-img" src="Images/<?php echo ($ruleBook == 1) ? "apocalypse" : "dungeon"; ?>-world-characters/<?php echo $char->picture; ?>" />
                                         <p><?php echo $char->role_name ?></p>
                                     </label>
