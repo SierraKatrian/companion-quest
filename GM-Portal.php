@@ -1,7 +1,7 @@
 <?php
 
 require_once "View/Header.php";
-require_once 'Models/AvailCharactersDAO.php';
+require_once './Models/AvailCharactersDAO.php';
 
     //user details
     $userDetails = $_SESSION['user'];
@@ -22,8 +22,8 @@ require_once 'Models/AvailCharactersDAO.php';
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
 
-    require_once './Models/DbConnect.php';
-    require_once './Models/AvailCharactersDAO.php';
+
+    // require_once './Models/DbConnect.php';
 
     $dbClass = new DbConnect();
     $db = $dbClass->getDB();
@@ -42,7 +42,8 @@ require_once 'Models/AvailCharactersDAO.php';
         }
     }
 
-    $selectedChars = $availCharClass->getChars($db, $gameID);
+    $selectedChars = $availCharClass->getGameChars($db, $gameID);
+    // $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
 
     if ($ruleBook == 2) {
         $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
@@ -50,8 +51,8 @@ require_once 'Models/AvailCharactersDAO.php';
         $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
     }
 
-var_dump($gameID);
-// var_dump($selectedChars);
+    var_dump($gameID);
+var_dump($selectedChars);
 
 ?>
 
@@ -179,7 +180,7 @@ var_dump($gameID);
                             <?php foreach ($viewChars as $char): ?>
                                 <div class="col-sm-2 col-xs-3 character-thumb-container">
                                     <label for="<?php echo $char->role_name ?>">
-                                        <input class="character-chk" type="checkbox" name="availChars[]" value="<?php echo $char->id ?>" <?php echo ($char->id == $selectedChars->role_id) ? "checked" : "" ; ?> />
+                                        <input class="character-chk" type="checkbox" name="availChars[]" value="<?php echo $char->id ?>" <?php //echo ($char->permissions == 1) ? "checked" : "" ; ?> />
                                         <img class="character-img" src="Images/<?php echo ($ruleBook == 1) ? "apocalypse" : "dungeon"; ?>-world-characters/<?php echo $char->picture; ?>" />
                                         <p><?php echo $char->role_name ?></p>
                                     </label>
