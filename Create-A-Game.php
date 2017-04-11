@@ -179,7 +179,6 @@
 
 
                     echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
-                    echo $setAvailChars;
             }
         }
     }
@@ -207,7 +206,7 @@
 
     <h2>Start a quest!</h2>
 
-    <form action="Create-A-Game.php" method="post" name="advancedSearch" class="container-fluid find-a-game-form">
+    <form action="GM-Portal.php" method="post" name="advancedSearch" class="container-fluid find-a-game-form">
         <div class="row">
             <div class="col-md-6 find-a-quest-form-elements">
                 <label for="gameName">Game Name <span style="color:red;">*&nbsp;<?= $output_gameName ?></span></label>
@@ -327,7 +326,6 @@
     </form>
 </main>
 
-<script type="text/javascript" src="Script/view-chars.js"></script>
-<script type="text/javascript" src="Script/limit-char.js"></script>
+<script type="text/javascript" src="Script/select-chars.js"></script>
 
 <?php include "View/Footer.php"; ?>
