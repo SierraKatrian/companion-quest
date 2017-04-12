@@ -23,14 +23,12 @@ $gameroom = new GameRoom();
 	}
 
 $roomids = $gameroom->getRoomId($db);
-
 $rooms = array();
 
 foreach($roomids as $item) {
 	$data = $gameroom->getRoom($db, $item->id);
 	array_push($rooms, $data);
 }
-
 $jrooms = json_encode($rooms);
 header("Content-Type: application/json");
 

@@ -35,7 +35,7 @@ class GameRoom {
 	}
 	
 	public function getRoom($db,$ids) {
-		$query = "SELECT g.status,game_name,user_name,lang, max_players, name,g.id 
+		$query = "SELECT g.game_status,game_name,user_name,lang, max_players, name,g.id 
 				FROM games g JOIN rulebooks r ON g.rb_id = r.id JOIN user_games ug ON g.id = ug.games_id JOIN users u ON ug.user_id = u.id 
 				WHERE g.id = :id AND ug.permission = 1";
 		$pdostmt = $db->prepare($query);
