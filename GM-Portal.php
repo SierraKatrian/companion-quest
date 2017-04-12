@@ -1,7 +1,7 @@
 <?php
 
 require_once "View/Header.php";
-require_once 'Models/AvailCharactersDAO.php';
+require_once './Models/AvailCharactersDAO.php';
 
     //user details
     $userDetails = $_SESSION['user'];
@@ -21,9 +21,12 @@ require_once 'Models/AvailCharactersDAO.php';
     $gameLanguage = $gameDetails['lang'];
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
+    $gameID = $gameDetails['id'];
 
-    require_once './Models/DbConnect.php';
-    require_once './Models/AvailCharactersDAO.php';
+
+
+
+    // require_once './Models/DbConnect.php';
 
     $dbClass = new DbConnect();
     $db = $dbClass->getDB();
@@ -42,7 +45,8 @@ require_once 'Models/AvailCharactersDAO.php';
         }
     }
 
-    $selectedChars = $availCharClass->getChars($db, $gameID);
+    $selectedChars = $availCharClass->getGameChars($db, $gameID);
+    // $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
 
     if ($ruleBook == 2) {
         $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
@@ -50,8 +54,8 @@ require_once 'Models/AvailCharactersDAO.php';
         $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
     }
 
-var_dump($gameID);
-// var_dump($selectedChars);
+    var_dump($gameID);
+var_dump($selectedChars);
 
 ?>
 
@@ -179,7 +183,7 @@ var_dump($gameID);
                             <?php foreach ($viewChars as $char): ?>
                                 <div class="col-sm-2 col-xs-3 character-thumb-container">
                                     <label for="<?php echo $char->role_name ?>">
-                                        <input class="character-chk" type="checkbox" name="availChars[]" value="<?php echo $char->id ?>" <?php echo ($char->id == $selectedChars->role_id) ? "checked" : "" ; ?> />
+                                        <input class="character-chk" type="checkbox" name="availChars[]" value="<?php echo $char->id ?>" <?php //echo ($char->permissions == 1) ? "checked" : "" ; ?> />
                                         <img class="character-img" src="Images/<?php echo ($ruleBook == 1) ? "apocalypse" : "dungeon"; ?>-world-characters/<?php echo $char->picture; ?>" />
                                         <p><?php echo $char->role_name ?></p>
                                     </label>
@@ -199,8 +203,10 @@ var_dump($gameID);
 
             <h2>Player Info</h2>
 
+            <ul class="nav nav-tabs">
+                <li>
             <div class="list-group-item active col-md-12">
-                <h3>Current Players &nbsp;
+                <h3>Players &nbsp;
                     <a href="#" data-toggle="tooltip" title="Click To Lock Game">
                         <button type="submit" class="btn btn-primary square-button">
                             <i class="fa fa-unlock-alt" aria-hidden="true"></i>
@@ -209,124 +215,60 @@ var_dump($gameID);
                 </h3>
             </div>
 
-            <div class="list-group">
-                <div class="list-group-item player-info-table">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>Status</th>
-                            <th>Username</th>
-                            <th>Character Name (View/Edit Stats)</th>
-                            <th>Character</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+                    <div class="list-group">
+                        <div class="list-group-item player-info-table">
 
-                        <tr>
-                            <td>
-                                <a href="#" data-toggle="tooltip" data-placement="right" title="game master">
-                                    <img class="access-colours" src="./Images/status-colours/gm.svg" alt="grand master" />
-                                </a>
-                                <div class="dropdown">
-                                    <button type="button" class="btn btn-link btn-dropdown-options dropdown-toggle" data-toggle="dropdown">
-                                        <?= "GM" ?>
-                                        <span class="caret" data-toggle="dropdown"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li class="disabled"><a href="#" class="drop-down-options-list">accept</a></li>
-                                        <li class="disabled"><a href="#" class="drop-down-options-list">decline</a></li>
-                                        <li class="disabled"><a href="#" class="drop-down-options-list">delete</a></li>
-                                        <li class="disabled"><a href="#" class="drop-down-options-list">make GM</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td><?= $username ?></td>
-                            <td><a href="#"></td>
-                            <td>
-                                <?= "" ?>
-                            </td>
-                        </tr>
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#1" class="tab-links" data-toggle="tab">Current Players</a></li>
+                                <li><a class="tab-links" href="#2" data-toggle="tab">Requests & Invites</a></li>
+                            </ul>
+                            <div class = tab-content>
+                                <div class="tab-pane active" id="1">
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Status</th>
+                                            <th>Username</th>
+                                            <th>Character Name (View/Edit Stats)</th>
+                                            <th>Character</th>
+                                        </tr>
+                                        </thead>
 
-                        <tr>
-                            <td>
-                                <a href="#" data-toggle="tooltip" data-placement="right" title="access granted">
-                                    <img class="access-colours" src="./Images/status-colours/access-granted.svg" alt="access granted" />
-                                </a>
-                                <div class="dropdown">
-                                    <button type="button" class="btn btn-link btn-dropdown-options dropdown-toggle" data-toggle="dropdown">
-                                        <?= "Active" ?>
-                                        <span class="caret" data-toggle="dropdown"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li class="disabled"><a href="#" class="drop-down-options-list">accept</a></li>
-                                        <li class="disabled"><a href="#" class="drop-down-options-list">decline</a></li>
-                                        <li class=""><a href="#" class="drop-down-options-list">delete</a></li>
-                                        <li class=""><a href="#" class="drop-down-options-list">make GM</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td>SecretPeter</td>
-                            <td><button type="button" class="btn btn-link">Berty_Pep-Pep&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
-                            <td>
-                                <?= "Battlebabe" ?>
-                            </td>
-                        </tr>
 
-                        <tr>
-                            <td>
-                                <a href="#" data-toggle="tooltip" data-placement="right" title="access granted">
-                                    <img class="access-colours" src="./Images/status-colours/request-pending.svg" alt="access granted" />
-                                </a>
-                                <div class="dropdown">
-                                    <button type="button" class="btn btn-link btn-dropdown-options dropdown-toggle" data-toggle="dropdown">
-                                        <?= "Request" ?>
-                                        <span class="caret" data-toggle="dropdown"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li class=""><a href="#" class="drop-down-options-list">accept</a></li>
-                                        <li class=""><a href="#" class="drop-down-options-list">decline</a></li>
-                                        <li class="disabled"><a href="#" class="drop-down-options-list">delete</a></li>
-                                        <li class=""><a href="#" class="drop-down-options-list">make GM</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td>BerylPenn</td>
+                                        <tbody id="playerList">
 
-                            <td><button type="button" class="btn btn-link">CharlieCheesecakes&nbsp;<i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
-                            <td>
-                                <?= "Driver" ?>
-                            </td>
-                        </tr>
 
-                        <tr>
-                            <td>
-                                <a class="" href="#" data-toggle="tooltip" data-placement="right" title="invite pending">
-                                    <img class="access-colours" src="./Images/status-colours/invite-pending.svg" alt="invite pending" />
-                                </a>
-                                <div class="dropdown">
-                                    <button type="button" class="btn btn-link btn-dropdown-options dropdown-toggle" type="button" data-toggle="dropdown">
-                                        <?= "Invited" ?>
-                                        <span class="caret" data-toggle="dropdown"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li class="disabled"><a href="#" class="drop-down-options-list">accept</a></li>
-                                        <li class="disabled"><a href="#" class="drop-down-options-list">decline</a></li>
-                                        <li class=""><a href="#" class="drop-down-options-list">delete</a></li>
-                                        <li class="disabled"><a href="#" class="drop-down-options-list">make GM</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td>Mandy123</td>
-                            <td></td>
-                            <td>
-                                <?= "" ?>
-                            </td>
-                        </tr>
 
-                        </tbody>
-                    </table>
-                </div><!--end of list-group-item-->
-            </div><!--end of list-group-->
+                                        </tbody>
+
+
+                                    </table>
+                                </div> <!--end tab 1 content-->
+                                <div class="tab-pane" id="2">
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Status</th>
+                                            <th>Username</th>
+                                        </tr>
+                                        </thead>
+
+
+                                        <tbody id="pending">
+
+
+
+
+                                        </tbody>
+
+
+                                    </table>
+                                </div><!--end of tab 2 content-->
+                            </div> <!--end of tab content-->
+                        </div><!--end of list-group-item-->
+                    </div><!--end of list-group-->
+
+
 
         <!--NOTES AND NOTICES-->
 
@@ -371,15 +313,19 @@ var_dump($gameID);
                 </div><!--end of panel body-->
             </div><!--end of panel class-->
 
+
         </div><!--end of col-->
 
     </div><!--end of row-->
 
     <div class="gap-10px"></div>
     <div class="gap-10px"></div>
-    <a href="Game-Page.php"><button type="button" class="btn btn-primary go-to-game-btn">Go To Game!&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right"></span><span class="glyphicon glyphicon-chevron-right"></span></button></a>
+    <a href="game-room.php"><button type="button" class="btn btn-primary go-to-game-btn">Go To Game!&nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-right"></span><span class="glyphicon glyphicon-chevron-right"></span></button></a>
 
 
 </main>
-<script type="text/javascript" src="Script/select-chars.js"></script>
+    <script src="Script/GM.js"></script>
+
+    <script type="text/javascript" src="Script/select-chars.js"></script>
+
 <?php include "View/Footer.php"; ?>

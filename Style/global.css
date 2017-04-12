@@ -675,6 +675,15 @@
         font-weight: bold;
     }
 
+    .csTitle {
+        text-transform: uppercase;
+    }
+
+    .csTextArea textarea {
+        width: 100%;
+        height: auto;
+    }
+
 /* CREATE A GAME */
 
     .choose-img-thumb-container {

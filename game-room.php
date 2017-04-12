@@ -1,7 +1,7 @@
 <?php require_once 'View/header.php'; ?>
 <?php $_SESSION['game']= 1; ?>
 <head>
-    
+
 </head>
     <link rel="stylesheet" href="Style/global.css">
     <script src="Script/slide-out.js"></script>
@@ -30,17 +30,6 @@
                             <?php
                             echo "This is where the notices will be located.";
 
-                            //if permission = GM display
-                            // <form class="" action="#" method="post">
-                            //     <label for="notes">Notes</label>
-                            //     <textarea name="notes" rows="8" cols="80"></textarea>
-                            // </form>
-
-                            // if permission = PC display
-                            // <div class="notice_board">
-
-                            // </div>
-
                             ?>
                           </div>
                           <div id="notes" class="tab-pane fade">
@@ -58,7 +47,7 @@
                 <div class="col-md-4">
                     <div class="panel panel-default">
                         <section class="panel-body dice_roller">
-                            <h1>This is where the dice roller will go</h1>
+                            <?php require_once 'View/Dice-Roller.php'; ?>
                         </section>
                     </div>
                 </div>

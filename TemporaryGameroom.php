@@ -6,5 +6,5 @@
 </main>
 
 <script type="text/javascript" src="Script/dice-roller.js"></script>
-<script type="text/javascript" src="Script/select-chars.js"></script>
+<!-- <script type="text/javascript" src="Script/select-chars.js"></script> -->
 <?php require_once 'View/Footer.php'; ?>

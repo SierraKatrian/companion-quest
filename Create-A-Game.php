@@ -180,11 +180,22 @@
             $availCharClass = new AvailCharactersDAO();
 
             foreach($_POST['availChars'] as $check) {
-                $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
-
-
-                    echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
+                if (isset($_POST['availChars'])) {
+                    $check = 1;
+                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+                } else {
+                    $check = 0;
+                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+                }
             }
+            // foreach($_POST['availChars'] as $check) {
+            //
+            //     $check = ($check) ? 1 : 0;
+            //
+            //
+            //
+            //         echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
+            // }
         }
     }
 

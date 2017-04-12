@@ -3,20 +3,11 @@
 class CharacterDAO {
 
     public function getCharSheet($db, $userID, $gameID){
-        $query = 'SELECT characters.roles_id, characters.name, characters.eyes,
-                  characters.hair, characters.gender,
-                  characters.other_moves, characters.added_gear,
-                  roles.bio, roles.role_name, roles.gear, roles.barter,
-                  stats.stat1,stats.stat2, stats.stat3, stats.stat4, stats.stat5,
-                  harm.total_harm, harm.stabilized, harm.minus_hard, harm.plus_weird, harm.new_role, harm.die, alignment.alignment, char_moves.move_id, moves.move_name, moves.move_desc, moves.id
-                --   moves.move_name, moves.move_desc, moves.selectedss
+        $query = 'SELECT characters.roles_id, characters.name, characters.eyes, characters.hair, characters.gender, characters.clothes, characters.face, characters.added_gear, characters.selected_moves, characters.alignment, roles.bio, roles.role_name, roles.stats, roles.gear, roles.barter, roles.moves, stats.stat1,stats.stat2, stats.stat3, stats.stat4, stats.stat5, harm.total_harm, harm.stabilized, harm.minus_hard, harm.plus_weird, harm.new_role, harm.die
                   FROM characters
                   JOIN roles ON roles.id = characters.roles_id
                   JOIN stats ON stats.id = characters.stats_id
-                  JOIN alignment ON alignment.id = characters.alignment_id
                   JOIN harm ON harm.id = characters.harm_id
-                  JOIN char_moves ON char_moves.char_id = characters.id
-                  JOIN moves ON char_moves.move_id = moves.id
                   WHERE users_id = :usersID
                   AND games_id = :gamesID';
         $statement = $db->prepare($query);
@@ -75,7 +66,7 @@ class CharacterDAO {
         return $viewUser;
     }
 
-    public function getMoves($db, $roleID){
+    public function getRoleMoves($db, $roleID){
         $query = 'SELECT * FROM moves WHERE role_id = :roleID';
         $statement = $db->prepare($query);
         $statement->bindValue(':roleID', $roleID, PDO::PARAM_INT);
