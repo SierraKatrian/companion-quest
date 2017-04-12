@@ -17,6 +17,7 @@
     $gameDetails = $_SESSION['gameDetails'];
 
     $ruleBook = $gameDetails['rb_id'];
+    $gameID = $gameDetails['id'];
     $gameName = $gameDetails['game_name'];
     $gameLanguage = $gameDetails['lang'];
     $gamePlayerTotal = $gameDetails['max_players'];
@@ -69,23 +70,24 @@
 
 <main class="container-fluid wrapper">
 
-  <!--TABS-->
+    <!--TABS-->
+    <ul class="nav nav-tabs">
+        <li class="active"><a class="tab-links" href="#1" data-toggle="tab">INFO</a></li>
+        <li><a href="#2" class="tab-links" data-toggle="tab">STATS</a></li>
+    </ul>
 
-      <ul class="nav nav-tabs">
-          <li class="active"><a href="#1" class="tab-links" data-toggle="tab">STATS</a></li>
-          <li><a class="tab-links" href="#2" data-toggle="tab">INFO</a></li>
-      </ul>
+    <!--TAB CONTENT-->
 
-  <!--TAB CONTENT-->
-
-      <div class="tab-content">
-          <div class="tab-pane active" id="1">
-              <?php include "View/player-portal-STATS.php" ?>
-          </div>
-          <div class="tab-pane" id="2">
-              <?php include "View/player-portal-INFO.php" ?>
-          </div>
-      </div>
+    <div class="tab-content">
+        <div class="tab-pane active" id="1">
+            <?php include "View/player-portal-INFO.php" ?>
+        </div>
+        <div class="tab-pane" id="2">
+            <div class="panel panel-default">
+                <?php include "View/player-portal-STATS.php" ?>
+            </div>
+        </div>
+    </div>
 
     <div class="gap-10px"></div>
     <div class="gap-10px"></div>

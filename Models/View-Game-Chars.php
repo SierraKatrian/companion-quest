@@ -11,13 +11,13 @@ require_once 'AvailCharactersDAO.php';
 $dbClass = new DbConnect();
 $db = $dbClass->getDB();
 
-// $rbID = 2;
-//
 $availCharClass = new AvailCharactersDAO();
-$viewAWChars = $availCharClass->getAvailCharacters($db, $ruleBook);
+$selectedChars = $availCharClass->getGameChars($db, $gameID);
 
-$jViewAWChars = json_encode($viewAWChars);
-// var_dump($jViewAWChars);
+$jGameChars = json_encode($selectedChars);
+
+// var_dump($jGameChars);
+
 header("Content-Type: application/json");
-echo $jViewAWChars;
+echo $jGameChars;
 ?>

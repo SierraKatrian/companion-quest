@@ -2,7 +2,7 @@ $(document).ready(function(){
     // alert("working");
 
     // CREATE A GAME
-    // $('.dungeon-world-character-panel').hide();
+    $('.character-panel-gm').hide();
     // $('.apocalypse-world-character-panel').hide();
     //
     // $('#apocalypse-theme-radio').click(function(){
@@ -14,19 +14,6 @@ $(document).ready(function(){
     //     $('.dungeon-world-character-panel').slideToggle();
     //     $('.apocalypse-world-character-panel').hide();
     // });
-    function getChars(){
-        $.getJSON('./Models/View-AW-Chars.php', function(data){
-            console.log("connected")
-            var info = '<div><h3>APOCALYPSE WORLD : Choose your characters</h3></div>';
-            var char = '';
-            console.log(info)
-            $.each(data, function(index, AWInfo){
-                char += '<div class="col-sm-2 col-xs-3 character-thumb-container"> <label for="' + AWInfo.role_name + '"> <input id="' + AWInfo.role_name + '" class="character-chk" type="checkbox" name="availChars[]" value="' + AWInfo.id + '" /> <img class="character-img" src="Images/apocalypse-world-characters/' + AWInfo.picture + '" /> <p>' + AWInfo.role_name + '</p> </label> </div>';
-            });
-            $('#showChars').html(info + char);
-        });
-    }
-
 
     function getAWChar(){
         $.getJSON('./Models/View-AW-Chars.php', function(data){
@@ -35,8 +22,9 @@ $(document).ready(function(){
             var char = '';
             console.log(info)
             $.each(data, function(index, AWInfo){
-                char += '<div class="col-sm-2 col-xs-3 character-thumb-container"> <label for="' + AWInfo.role_name + '"> <input id="' + AWInfo.role_name + '" class="character-chk" type="checkbox" name="availChars[]" value="' + AWInfo.id + '" /> <img class="character-img" src="Images/apocalypse-world-characters/' + AWInfo.picture + '" /> <p>' + AWInfo.role_name + '</p> </label> </div>';
+                char += '<div class="col-sm-2 col-xs-3 character-thumb-container"> <label for="' + AWInfo.role_name + '"> <input id="' + AWInfo.id + '' + AWInfo.role_name + '" class="character-chk" type="checkbox" name="availChars[]" value="' + AWInfo.id + '" /> <img class="character-img" src="Images/apocalypse-world-characters/' + AWInfo.picture + '" /> <p>' + AWInfo.role_name + '</p> </label> </div>';
             });
+            $('.character-panel-gm').slideDown();
             $('#showChars').html(info + char);
         });
     }
@@ -48,8 +36,9 @@ $(document).ready(function(){
             var char = '';
             console.log(info)
             $.each(data, function(index, DWInfo){
-                char += '<div class="col-sm-2 col-xs-3 character-thumb-container"> <label for="' + DWInfo.role_name + '"> <input id="" class="character-chk" type="checkbox" name="availChars[]" value="' + DWInfo.id + '" /> <img class="character-img" src="Images/dungeon-world-characters/' + DWInfo.picture + '" /> <p>' + DWInfo.role_name + '</p> </label> </div>';
+                char += '<div class="col-sm-2 col-xs-3 character-thumb-container"> <label for="' + DWInfo.role_name + '"> <input id="' + DWInfo.id + '" class="character-chk" type="checkbox" name="availChars[]" value="' + DWInfo.id + '" /> <img class="character-img" src="Images/dungeon-world-characters/' + DWInfo.picture + '" /> <p>' + DWInfo.role_name + '</p> </label> </div>';
             });
+            $('.character-panel-gm').slideDown();
             $('#showChars').html(info + char);
         });
     }
@@ -73,6 +62,14 @@ $(document).ready(function(){
         };
     }
 
-
-
+    $('#limitChars').on('click', '#btn_limit_chars', function() {
+        var id = $('[name="availChars"]').val();
+        console.log(id)
+        var quantity = $('#quantity').val();
+        var sides = $('#sides').val();
+        var modifier = $('#modifier').val();
+        $.post('./Models/Save-Dice.php', {id : id, quantity : quantity, sides : sides, modifier : modifier}, function(data){
+            viewSavedDice()
+        });
+    });
 });

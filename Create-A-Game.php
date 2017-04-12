@@ -145,22 +145,14 @@
 
                         //delete userGame and go back to create-a-game.php
                         $output_pageError = "user games error";
-
                     }
-
                 } else {
-
                     $output_pageError = "create game failed";
-
                 }
-
             } else {
-
                 //output
                 $output_gameName = "this game name already exists";
-
             }
-
         }
 
 
@@ -176,21 +168,19 @@
 
             foreach($_POST['availChars'] as $check) {
                 if (isset($_POST['availChars'])) {
-                    $check = 1;
-                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+                    $perms = 1;
+                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID, $perms);
                 } else {
-                    $check = 0;
-                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+                    $perms = 0;
+                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID, $perms);
                 }
             }
+
             // foreach($_POST['availChars'] as $check) {
-            //
             //     $check = ($check) ? 1 : 0;
-            //
-            //
-            //
-            //         echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
+            //     echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
             // }
+
         }
     }
 
@@ -297,13 +287,16 @@
         </div><!--end of row-->
 
         <!--CHOOSE A CHARACTER-->
-        <div class="character-panel">
+        <div class="character-panel-gm">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="row all-avail-chars">
-                        <div id="showChars">
+                        <form id="limitChars" action="" method="post">
+                            <div id="showChars">
 
-                        </div>
+                            </div>
+                            <button id="btn_limit_chars" class="btn btn-primary btn-block" type="button" name="btn_limit_chars">Limit Playable Characters</button>
+                        </form>
                     </div><!-- end of row -->
                 </div><!-- end of panel-body -->
             </div><!-- end of panel panel-default -->

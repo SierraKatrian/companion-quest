@@ -51,7 +51,6 @@ require_once './Models/AvailCharactersDAO.php';
         $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
     }
 
-    var_dump($gameID);
 var_dump($selectedChars);
 
 ?>
@@ -158,7 +157,6 @@ var_dump($selectedChars);
                 </form>
 
             <!--MAPS-->
-
             <label for="mapPanel">Change/Upload Current Map:</label>
             <div class="panel panel-default mapPanel">
                 <div class="panel-body">
@@ -171,22 +169,27 @@ var_dump($selectedChars);
                 </div>
             </div>
 
+            <!-- <?php foreach ($viewChars as $char): ?>
+                <div class="col-sm-2 col-xs-3 character-thumb-container">
+                    <label for="<?php echo $char->role_name ?>">
+                        <input class="character-chk" type="checkbox" name="availChars[]" value="<?php echo $char->id ?>" />
+                        <img class="character-img" src="Images/<?php echo ($ruleBook == 1) ? "apocalypse" : "dungeon"; ?>-world-characters/<?php echo $char->picture; ?>" />
+                        <p><?php echo $char->role_name ?></p>
+                    </label>
+                </div>
+            <?php endforeach; ?> -->
+
             <!--CHARACTER LIST-->
             <h2>Selected Characters</h2>
             <div class="panel panel-default character-panel-gm">
                 <div class="panel-body">
                     <div class="row all-avail-chars">
-                        <div id="showChars">
-                            <?php foreach ($viewChars as $char): ?>
-                                <div class="col-sm-2 col-xs-3 character-thumb-container">
-                                    <label for="<?php echo $char->role_name ?>">
-                                        <input class="character-chk" type="checkbox" name="availChars[]" value="<?php echo $char->id ?>" <?php //echo ($char->permissions == 1) ? "checked" : "" ; ?> />
-                                        <img class="character-img" src="Images/<?php echo ($ruleBook == 1) ? "apocalypse" : "dungeon"; ?>-world-characters/<?php echo $char->picture; ?>" />
-                                        <p><?php echo $char->role_name ?></p>
-                                    </label>
+                        <form class="" action="index.html" method="post">
+                            <?php //foreach ($selectedChars as $value): ?>
+                                <div id="showChars">
                                 </div>
-                            <?php endforeach; ?>
-                        </div>
+                            <?php //endforeach; ?>
+                        </form>
                     </div>
                     <button class="btn btn-primary btn-block" type="button" name="btn_update_chars">Update Playable Characters</button>
                 </div>
@@ -382,5 +385,5 @@ var_dump($selectedChars);
 
 
 </main>
-<script type="text/javascript" src="Script/select-chars.js"></script>
+<script type="text/javascript" src="Script/update-selected-chars.js"></script>
 <?php include "View/Footer.php"; ?>
