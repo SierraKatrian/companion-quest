@@ -19,8 +19,6 @@ $chats = new PrivateMessage();
 $listChats = $chats->getChatsTwo($connection, $user_id);
 
 
-
-
 //var_dump($otherUser);
 
 

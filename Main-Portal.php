@@ -271,5 +271,5 @@
 
 </main>
 
+<script src="Script/getRoom-ajax.js"></script>
 <?php include "View/Footer.php"; ?>
-<script type="text/javascript" src="Script/getRoom-ajax.js"></script>

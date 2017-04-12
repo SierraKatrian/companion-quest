@@ -135,6 +135,11 @@
                     //write user games details
                     $createUserGame = $GameDAO->CREATE_UserGame($userID, $gameID, $notice);
 
+                    //Create a chat room for the created game
+                    require_once "Models/ChatRoomDAO.php";
+                    $chatroom = new ChatRoom();
+                    $chatroom->setChatRoom($db,$gameDetails['id']);
+
                     if($createUserGame) {
 
                         $goToGmPortal = "<script type='text/javascript'>location.replace('GM-Portal.php'); </script>";

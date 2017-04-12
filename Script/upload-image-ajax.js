@@ -1,8 +1,11 @@
 $(document).ready(function() {
+	//when the upload button is clicked do this
 	$("#img-form").submit(function(event){
+		//prevent the page from refreshing
 		event.preventDefault();
-		var file_data = $('#avatarForm__upload').val();
+		//var file_data = $('#avatarForm__upload').val();
 
+		//ajax to send post request to processupload
 		$.ajax({
 			url: "./Models/processupload.php",
 			type: "POST",

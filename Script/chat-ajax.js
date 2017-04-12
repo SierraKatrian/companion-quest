@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	//setInterval(function (){load()},500);
-
 	$.getJSON("Models/get-messages.php", function(data) {
 			console.log(data);
 		});
