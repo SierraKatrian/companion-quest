@@ -675,6 +675,15 @@
         font-weight: bold;
     }
 
+    .csTitle {
+        text-transform: uppercase;
+    }
+
+    .csTextArea textarea {
+        width: 100%;
+        height: auto;
+    }
+
 /* CREATE A GAME */
 
     .choose-img-thumb-container {
@@ -907,7 +916,7 @@
 
     /* CHARACTER SELECTION PANEL */
 
-        .character-panel {
+        .character-panel-gm {
             height:484px;
         }
 
@@ -927,6 +936,34 @@
         .go-to-game-btn {
             width:100%;
         }
+
+
+    /* PLAYER PORTAL */
+
+    .navbar{
+      clear:both;
+    }
+
+        .player-portal-navbar {
+            width:100%;
+            padding:15px 0;
+            background-color:#1d1d27;
+            z-index:10;
+        }
+
+        .player-portal-navbar {
+            color:white;
+            text-align:center;
+        }
+
+        .character-panel-player {
+            height:539px;
+        }
+
+          .leave-game-btn {
+              float:right;
+              margin:0!important;
+          }
 
 
 /* MOBILE SIZE*/

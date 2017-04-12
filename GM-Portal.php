@@ -1,9 +1,9 @@
 <?php
 
-include "View/Header.php";
+require_once "View/Header.php";
+require_once './Models/AvailCharactersDAO.php';
 
     //user details
-
     $userDetails = $_SESSION['user'];
 
     $fname = $userDetails['f_name'];
@@ -13,10 +13,10 @@ include "View/Header.php";
     $password = $userDetails['password'];
 
     //game details
-
     $gameDetails = $_SESSION['gameDetails'];
 
     $ruleBook = $gameDetails['rb_id'];
+    $gameID = $gameDetails['id'];
     $gameName = $gameDetails['game_name'];
     $gameLanguage = $gameDetails['lang'];
     $gamePlayerTotal = $gameDetails['max_players'];
@@ -24,6 +24,38 @@ include "View/Header.php";
     $gameID = $gameDetails['id'];
 
 
+
+
+    // require_once './Models/DbConnect.php';
+
+    $dbClass = new DbConnect();
+    $db = $dbClass->getDB();
+
+    $availCharClass = new AvailCharactersDAO();
+
+    // CHARACTER SELECTOR
+    if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
+
+
+        foreach($_POST['availChars'] as $check) {
+            $viewChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+
+
+                echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
+        }
+    }
+
+    $selectedChars = $availCharClass->getGameChars($db, $gameID);
+    // $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
+
+    if ($ruleBook == 2) {
+        $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
+    } else {
+        $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
+    }
+
+    var_dump($gameID);
+var_dump($selectedChars);
 
 ?>
 
@@ -143,11 +175,23 @@ include "View/Header.php";
             </div>
 
             <!--CHARACTER LIST-->
-
             <h2>Selected Characters</h2>
-            <div class="panel panel-default character-panel">
+            <div class="panel panel-default character-panel-gm">
                 <div class="panel-body">
-                    insert selectable character thumbnails here
+                    <div class="row all-avail-chars">
+                        <div id="showChars">
+                            <?php foreach ($viewChars as $char): ?>
+                                <div class="col-sm-2 col-xs-3 character-thumb-container">
+                                    <label for="<?php echo $char->role_name ?>">
+                                        <input class="character-chk" type="checkbox" name="availChars[]" value="<?php echo $char->id ?>" <?php //echo ($char->permissions == 1) ? "checked" : "" ; ?> />
+                                        <img class="character-img" src="Images/<?php echo ($ruleBook == 1) ? "apocalypse" : "dungeon"; ?>-world-characters/<?php echo $char->picture; ?>" />
+                                        <p><?php echo $char->role_name ?></p>
+                                    </label>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-block" type="button" name="btn_update_chars">Update Playable Characters</button>
                 </div>
             </div>
 
@@ -300,7 +344,7 @@ include "View/Header.php";
 
         <!--NOTES AND NOTICES-->
 
-            <h2>notes & notices</h2>
+            <h2>notes &amp; notices</h2>
             <div class="panel panel-default">
                 <div class="panel-body">
 
@@ -353,5 +397,7 @@ include "View/Header.php";
 
 </main>
     <script src="Script/GM.js"></script>
+
+    <script type="text/javascript" src="Script/select-chars.js"></script>
 
 <?php include "View/Footer.php"; ?>

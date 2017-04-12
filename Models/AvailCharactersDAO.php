@@ -26,6 +26,33 @@ class AvailCharactersDAO
 
         return true;
     }
+
+    // public function getChars($db, $gameID) {
+    //     $query = 'SELECT role_id FROM roles_perms
+    //               WHERE game_id = :gameID';
+    //     $statement = $db->prepare($query);
+    //     $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
+    //     $statement->execute();
+    //     $getChars = $statement->fetchAll(PDO::FETCH_OBJ);
+    //     $statement->closeCursor();
+    //
+    //     return $getChars;
+    // }
+
+    public function getGameChars($db, $gameID) {
+        $query = 'SELECT *
+                  FROM roles
+                --   JOIN roles_perms ON roles_perms.role_id = roles.id
+                  WHERE game_id = :gameID';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
+        $statement->execute();
+        $getChars = $statement->fetchAll(PDO::FETCH_OBJ);
+        $statement->closeCursor();
+
+        return $getChars;
+    }
+
 }
 
 ?>

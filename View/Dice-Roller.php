@@ -5,6 +5,8 @@ require_once './Models/DiceDAO.php';
 $dbClass = new DbConnect();
 $db = $dbClass->getDB();
 
+$charID = 2;
+
 $numDice = $numSides = $modNum = $message = '';
 
 ?>

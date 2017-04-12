@@ -66,7 +66,7 @@
         ";
 
         //modify the navigation text to hold user profile pic
-        $rightNavLink2 = "<img class='nav-pic' src='Images/profilepic.png' alt='profile picture'/>";
+        $rightNavLink2 = "<div id='avatar-container'></div>";
 
         //hide register and sign in buttons on homepage
         $showRegisterSigninBtns = "";
@@ -173,6 +173,7 @@
 include "View/Modals/navbar-register.php";
 include "View/Modals/navbar-signin.php";
 include "View/Modals/navbar-edit.php";
+include "View/Modals/navbar-avatar.php";
 
 //echo $modalOpen;
 

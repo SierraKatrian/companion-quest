@@ -7,21 +7,19 @@ class GameRoom {
 	private $condition = [];
 	private $query;
 
-	public function getRoom() {
+	public function getRoomId($db) {
 		if(!empty($this->condition[0])){
 			foreach($this->condition as $item) {
 				if(is_null($this->query)){
-					$this->query = "SELECT g.status,game_name,user_name,lang, max_players,name FROM games g JOIN rulebooks r ON g.rb_id = r.id JOIN user_games ug ON g.id = ug.games_id JOIN users u ON ug.user_id = u.id WHERE $item";
+					$this->query = "SELECT DISTINCT g.id FROM games g JOIN rulebooks r ON g.rb_id = r.id JOIN user_games ug ON g.id = ug.games_id JOIN users u ON ug.user_id = u.id WHERE $item";
 				} else {
 					$this->query .= "AND $item";
 				}
 			}
 		} else {
-			$this->query = "SELECT g.status,game_name,user_name,lang, max_players,name FROM games g JOIN rulebooks r ON g.rb_id = r.id JOIN user_games ug ON g.id = ug.games_id JOIN users u ON ug.user_id = u.id";
+			$this->query = "SELECT g.id FROM games g JOIN rulebooks r ON g.rb_id = r.id JOIN user_games ug ON g.id = ug.games_id JOIN users u ON ug.user_id = u.id";
 		}
 		
-		$dbc = new Dbconnect();
-		$db = $dbc->getDb('companionq');
 		$pdostmt = $db->prepare($this->query);
 		$pdostmt->execute();
 		$data = $pdostmt->fetchAll(PDO::FETCH_OBJ);
@@ -36,20 +34,17 @@ class GameRoom {
 		}
 	}
 	
-	public function showRoom($input) {
-		foreach($input as $item) {
-			echo "<tr>
-				<td>
-					$item->status             
-				</td>
-				<td>$item->game_name</td>
-				<td>$item->user_name</td>
-				<td>$item->lang</td>
-				<td>$item->max_players</td>
-				<td>$item->name</td>
-			</tr>";
-		}
+	public function getRoom($db,$ids) {
+		$query = "SELECT g.status,game_name,user_name,lang, max_players, name,g.id 
+				FROM games g JOIN rulebooks r ON g.rb_id = r.id JOIN user_games ug ON g.id = ug.games_id JOIN users u ON ug.user_id = u.id 
+				WHERE g.id = :id AND ug.permission = 1";
+		$pdostmt = $db->prepare($query);
+		$pdostmt->bindValue(":id", $ids);
+		$pdostmt->execute();
+		$data = $pdostmt->fetchAll(PDO::FETCH_OBJ);
+		return $data;
 	}
+
 }
 
 ?>

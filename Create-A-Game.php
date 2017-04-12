@@ -174,12 +174,22 @@
 
             $availCharClass = new AvailCharactersDAO();
 
+            foreach($_POST['availChars'] as $check) {
+                if (isset($_POST['availChars'])) {
+                    $check = 1;
+                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+                } else {
+                    $check = 0;
+                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+                }
+            }
             // foreach($_POST['availChars'] as $check) {
-            //     $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+            //
+            //     $check = ($check) ? 1 : 0;
+            //
             //
             //
             //         echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
-            //         echo $setAvailChars;
             // }
         }
     }
@@ -207,7 +217,7 @@
 
     <h2>Start a quest!</h2>
 
-    <form action="Create-A-Game.php" method="post" name="advancedSearch" class="container-fluid find-a-game-form">
+    <form action="create-a-game.php" method="post" name="advancedSearch" class="container-fluid find-a-game-form">
         <div class="row">
             <div class="col-md-6 find-a-quest-form-elements">
                 <label for="gameName">Game Name <span style="color:red;">*&nbsp;<?= $output_gameName ?></span></label>
@@ -267,7 +277,6 @@
                 <!--rulebook modal-->
                 <button type="button" class="btn btn-info btn-lg full-width rulebook-btn" data-toggle="modal" data-target="#ApocalypseModal"><span class="glyphicon glyphicon-file"></span>&nbsp;view rulebook</button>
                 <?php include "View/Modals/rulebook-apocalypseworld.php" ?>
-
             </div>
 
             <!--DUNGEON WORLD-->
@@ -326,13 +335,8 @@
         </div>
 
     </form>
-
-    <?php require_once 'View/Dice-Roller.php'; ?>
 </main>
 
-<script type="text/javascript" src="Script/create-a-game.js"></script>
-<script type="text/javascript" src="Script/limit-char.js"></script>
-<script type="text/javascript" src="Script/dice-roller.js"></script>
-
+<script type="text/javascript" src="Script/select-chars.js"></script>
 
 <?php include "View/Footer.php"; ?>
