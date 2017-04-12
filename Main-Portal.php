@@ -10,6 +10,8 @@
     $email = $userDetails['email'];
     $password = $userDetails['password'];
 
+
+
 ?>
 
 <body>
@@ -108,6 +110,7 @@
                         <td>EN</td>
                         <td>6</td>
                         <td>Apocalypse World</td>
+
                     </tr>
                     <tr>
                         <td>
@@ -250,7 +253,7 @@
 
     <div class="list-group">
         <div class="list-group-item">
-            <table class="table table-hover">
+            <table id="games" class="table table-hover">
                 <thead>
                 <tr>
                     <th>Status</th>
@@ -273,6 +276,7 @@
                     <td>EN</td>
                     <td>15</td>
                     <td>Apocalypse World</td>
+                    <td><button class="request" id="THE_BEST_GAME_EVER111">Request To Join</button></td>
                 </tr>
                 <tr>
                     <td>
@@ -285,6 +289,7 @@
                     <td>EN</td>
                     <td>20</td>
                     <td>Dungeon World</td>
+                    <td><button class="request" id="harmon_fans">Request To Join</button></td>
                 </tr>
                 <tr>
                     <td>
@@ -316,6 +321,7 @@
     </div><!--end of list-group-->
 
 </main>
+<script src="Script/joinReq.js"></script>
 
 <?php include "View/Footer.php"; ?>
 

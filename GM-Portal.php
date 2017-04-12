@@ -21,6 +21,9 @@ include "View/Header.php";
     $gameLanguage = $gameDetails['lang'];
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
+    $gameID = $gameDetails['id'];
+
+
 
 ?>
 
@@ -156,8 +159,10 @@ include "View/Header.php";
 
             <h2>Player Info</h2>
 
+            <ul class="nav nav-tabs">
+                <li>
             <div class="list-group-item active col-md-12">
-                <h3>Current Players &nbsp;
+                <h3>Players &nbsp;
                     <a href="#" data-toggle="tooltip" title="Click To Lock Game">
                         <button type="submit" class="btn btn-primary square-button">
                             <i class="fa fa-unlock-alt" aria-hidden="true"></i>
@@ -168,6 +173,12 @@ include "View/Header.php";
 
             <div class="list-group">
                 <div class="list-group-item player-info-table">
+
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#1" class="tab-links" data-toggle="tab">Current Players</a></li>
+                        <li><a class="tab-links" href="#2" data-toggle="tab">Requests & Invites</a></li>
+                    </ul>
+
                     <table class="table table-hover">
                         <thead>
                         <tr>
@@ -285,6 +296,8 @@ include "View/Header.php";
                 </div><!--end of list-group-item-->
             </div><!--end of list-group-->
 
+
+
         <!--NOTES AND NOTICES-->
 
             <h2>notes & notices</h2>
@@ -328,6 +341,7 @@ include "View/Header.php";
                 </div><!--end of panel body-->
             </div><!--end of panel class-->
 
+
         </div><!--end of col-->
 
     </div><!--end of row-->
@@ -338,5 +352,6 @@ include "View/Header.php";
 
 
 </main>
+    <script src="Script/GM.js"></script>
 
 <?php include "View/Footer.php"; ?>
