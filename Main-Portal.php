@@ -211,16 +211,16 @@
 
     <h2>Find a quest!</h2>
 
-    <form action="" method="get" name="advanced-search" class="container-fluid find-a-game-form">
+    <form action="" method="get" name="advanced-search" id="searchroom" class="container-fluid find-a-game-form">
         <div class="row">
             <div class="col-md-5 find-a-quest-form-elements">
                 <label for="gameName">Game Name:</label>
-                <input type="text" class="form-control" name="gameName"/>
+                <input type="text" class="form-control" id="gameName" name="gameName"/>
             </div>
             <div class="col-md-3 find-a-quest-form-elements">
                 <label for="gametheme">Theme Preference:</label>
-                <select name="gametheme">
-                    <option value="chooseTheme">-- Choose A Theme --</option>
+                <select name="gametheme" id="gametheme">
+                    <option value="">-- Choose A Theme --</option>
                     <option value="Apocalypse World">Apocalypse World</option>
                     <option value="Dungeon World">Dungeon World</option>
                 </select>
