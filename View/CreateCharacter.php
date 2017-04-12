@@ -74,7 +74,7 @@ $getGame = $charClass->getGame($db, $gameID);
                 </div>
 
                 <div class="row">
-                    <div class="col-xs-6">
+                    <div class="col-md-6">
 
                         <h3 class="csTitle">Stats</h3>
                         <div class="cool">
@@ -174,7 +174,7 @@ $getGame = $charClass->getGame($db, $gameID);
                     </div>
 
 
-                    <div class="col-xs-6">
+                    <div class="col-md-6">
                         <h3 class="csTitle">Creating a <?php echo $char->role_name ?></h3>
                         <h5 class="csTitle">Moves</h5>
                         <p><?php echo $char->moves ?></p>
@@ -184,10 +184,9 @@ $getGame = $charClass->getGame($db, $gameID);
 
                         <h5 class="csTitle">Gear</h5>
                         <p><?php echo $char->gear ?></p>
-                </div>
-            <?php endforeach; ?>
-
-        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
 
 
             <!-- DUNGEON WORLD CHARACTER SHEET -->

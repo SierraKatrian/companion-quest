@@ -83,9 +83,7 @@
             <?php include "View/player-portal-INFO.php" ?>
         </div>
         <div class="tab-pane" id="2">
-            <div class="panel panel-default">
-                <?php include "View/player-portal-STATS.php" ?>
-            </div>
+            <?php include "View/player-portal-STATS.php" ?>
         </div>
     </div>
 

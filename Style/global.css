@@ -660,30 +660,6 @@
             text-align:center;
         }
 
-
-    /* CREATE CHARACTER */
-    .barterList li, .gearList li {
-        margin-left: 30px;
-        /*list-style:circle;*/
-    }
-
-    p .pItalics {
-        font-style: italic;
-    }
-
-    p .pBold, li .pBold {
-        font-weight: bold;
-    }
-
-    .csTitle {
-        text-transform: uppercase;
-    }
-
-    .csTextArea textarea {
-        width: 100%;
-        height: auto;
-    }
-
 /* CREATE A GAME */
 
     .choose-img-thumb-container {
@@ -963,6 +939,39 @@
               float:right;
               margin:0!important;
           }
+
+/* CHARACTER SHEET */
+
+/* CREATE CHARACTER */
+.barterList li, .gearList li {
+    margin-left: 30px;
+    /*list-style:circle;*/
+}
+
+p .pItalics {
+    font-style: italic;
+}
+
+p .pBold, li .pBold {
+    font-weight: bold;
+}
+
+.csTitle {
+    text-transform: uppercase;
+}
+
+.csTitle h2 {
+    text-align: center;
+}
+
+.csTextArea textarea {
+    max-width: 100%;
+    height: auto;
+}
+
+.char-sheet-panel {
+    padding: 10px;
+}
 
 
 /* MOBILE SIZE*/
