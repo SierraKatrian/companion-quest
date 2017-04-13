@@ -712,6 +712,12 @@
             display:none;
         }
 
+        .char-disabled {
+            opacity: 0.5;
+            outline:1px solid black;
+            cursor: not-allowed;
+        }
+
         .character-img {
             opacity: 0.95;
             outline:1px solid black;

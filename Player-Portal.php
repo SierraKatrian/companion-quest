@@ -6,6 +6,7 @@
 
     $userDetails = $_SESSION['user'];
 
+    $userID = $userDetails['id'];
     $fname = $userDetails['f_name'];
     $lname = $userDetails['l_name'];
     $username = $userDetails['user_name'];
@@ -17,6 +18,7 @@
     $gameDetails = $_SESSION['gameDetails'];
 
     $ruleBook = $gameDetails['rb_id'];
+    $gameID = $gameDetails['id'];
     $gameID = $gameDetails['id'];
     $gameName = $gameDetails['game_name'];
     $gameLanguage = $gameDetails['lang'];

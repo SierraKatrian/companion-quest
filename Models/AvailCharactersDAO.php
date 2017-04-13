@@ -13,14 +13,15 @@ class AvailCharactersDAO
         return $viewAvailChars;
     }
 
-    public function setAvailCharacters($db, $roleID, $gameID, $perms) {
+    public function setAvailCharacters($db, $roleID, $gameID, $perms = 1, $selected = 0) {
         $query = 'INSERT INTO roles_perms
-                  (role_id, game_id, permissions)
-                  VALUES (:roleID, :gameID, :perms)';
+                  (role_id, game_id, permissions, selected)
+                  VALUES (:roleID, :gameID, :perms, :selected)';
         $statement = $db->prepare($query);
         $statement->bindValue(':roleID', $roleID, PDO::PARAM_INT);
         $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
         $statement->bindValue(':perms', $perms, PDO::PARAM_INT);
+        $statement->bindValue(':selected', $selected, PDO::PARAM_INT);
         $statement->execute();
         $statement->closeCursor();
 
@@ -28,7 +29,7 @@ class AvailCharactersDAO
     }
 
     public function getGameChars($db, $gameID) {
-        $query = 'SELECT roles.id, roles.role_name, roles.picture, roles_perms.permissions, games.game_name, rulebooks.name
+        $query = 'SELECT roles.id, roles.role_name, roles.picture, roles_perms.permissions, roles_perms.selected, games.game_name, games.rb_id, rulebooks.name
                   FROM roles
                   JOIN roles_perms ON roles_perms.role_id = roles.id
                   JOIN games ON games.id = roles_perms.game_id
@@ -43,14 +44,13 @@ class AvailCharactersDAO
         return $getChars;
     }
 
-    public function updateGameChars($db, $roleID, $gameID, $perms) {
-        $query = 'INSERT INTO roles_perms
-                  (role_id, game_id, permissions)
-                  VALUES (:roleID, :gameID, :perms)';
+    public function disableSelectedChar($db, $roleID, $gameID) {
+        $query = 'UPDATE roles_perms
+                  SET selected = 1
+                  WHERE role_id = :roleID AND game_id = :gameID';
         $statement = $db->prepare($query);
         $statement->bindValue(':roleID', $roleID, PDO::PARAM_INT);
         $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
-        $statement->bindValue(':perms', $perms, PDO::PARAM_INT);
         $statement->execute();
         $statement->closeCursor();
 

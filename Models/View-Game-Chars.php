@@ -1,8 +1,6 @@
 <?php
 session_start();
 $gameDetails = $_SESSION['gameDetails'];
-
-$ruleBook = $gameDetails['rb_id'];
 $gameID = $gameDetails['id'];
 
 require_once 'DbConnect.php';

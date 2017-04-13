@@ -3,7 +3,8 @@
 class CharacterDAO {
 
     public function getCharSheet($db, $userID, $gameID){
-        $query = 'SELECT characters.roles_id, characters.name, characters.eyes, characters.hair, characters.gender, characters.clothes, characters.face, characters.added_gear, characters.selected_moves, characters.alignment, roles.bio, roles.role_name, roles.stats, roles.gear, roles.barter, roles.moves, stats.stat1,stats.stat2, stats.stat3, stats.stat4, stats.stat5, harm.total_harm, harm.stabilized, harm.minus_hard, harm.plus_weird, harm.new_role, harm.die
+        $query = 'SELECT characters.roles_id, characters.name, characters.eyes, characters.hair, characters.gender, characters.clothes, characters.face, characters.added_gear, characters.selected_moves, characters.alignment, roles.bio, roles.role_name, roles.stats, roles.gear, roles.barter,
+        roles.moves, stats.stat1, stats.stat2, stats.stat3, stats.stat4, stats.stat5, harm.total_harm, harm.stabilized, harm.minus_hard, harm.plus_weird, harm.new_role, harm.die
                   FROM characters
                   JOIN roles ON roles.id = characters.roles_id
                   JOIN stats ON stats.id = characters.stats_id
@@ -75,6 +76,30 @@ class CharacterDAO {
         $statement->closeCursor();
 
         return $viewMoves;
+    }
+
+    public function selectPlayerChar($db, $userID, $roleID, $gameID, $name, $hair, $face, $eyes, $body, $clothes, $gender, $alignment, $addedGear, $selectedMoves) {
+        $query = 'INSERT INTO characters
+                  (users_id, roles_id, games_id, name, hair, face, eyes, body, clothes, gender, alignment, added_gear, selected_moves)
+                  VALUES (:userID, :roleID, :gameID, :name, :hair, :face, :eyes, :body, :clothes, :gender, :alignment, :added_gear, :selected_moves)';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
+        $statement->bindValue(':roleID', $roleID, PDO::PARAM_INT);
+        $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
+        $statement->bindValue(':name', $name, PDO::PARAM_STR);
+        $statement->bindValue(':hair', $hair, PDO::PARAM_STR);
+        $statement->bindValue(':face', $face, PDO::PARAM_STR);
+        $statement->bindValue(':eyes', $eyes, PDO::PARAM_STR);
+        $statement->bindValue(':body', $body, PDO::PARAM_STR);
+        $statement->bindValue(':clothes', $clothes, PDO::PARAM_STR);
+        $statement->bindValue(':gender', $gender, PDO::PARAM_STR);
+        $statement->bindValue(':alignment', $alignment, PDO::PARAM_STR);
+        $statement->bindValue(':added_gear', $addedGear, PDO::PARAM_LOB);
+        $statement->bindValue(':selected_moves', $selectedMoves, PDO::PARAM_LOB);
+        $statement->execute();
+        $statement->closeCursor();
+
+        return true;
     }
 }
 

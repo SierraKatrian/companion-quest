@@ -1,12 +1,12 @@
 <?php
     require_once "View/Header.php";
+    require_once './Models/DbConnect.php';
+    require_once './Models/AvailCharactersDAO.php';
 
     //call database query class
-
         $GameDAO = new GameDAO($db);
 
     //make user Session available
-
         $userDetails = $_SESSION['user'];
 
         $userID = (intval($userDetails['id']));
@@ -160,26 +160,27 @@
                 $output_gameName = "this game name already exists";
 
             }
-
         }
 
+        $dbClass = new DbConnect();
+        $db = $dbClass->getDB();
 
+        $availCharClass = new AvailCharactersDAO();
+        $getCharsClass = $availCharClass->getAvailCharacters($db, $ruleBook);
+        
         // CHARACTER SELECTOR
         if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
-            require_once './Models/DbConnect.php';
-            require_once './Models/AvailCharactersDAO.php';
-
-            $dbClass = new DbConnect();
-            $db = $dbClass->getDB();
-
-            $availCharClass = new AvailCharactersDAO();
 
             foreach($_POST['availChars'] as $check) {
-               $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
-                    echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
+                $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+                echo " Rulebook #: " . $ruleBook . " | Name: " . $getCharsClass['role_name'];
             }
         }
+
     }
+
+// var_dump($getCharsClass);
+var_dump($gameID);
 
 ?>
 

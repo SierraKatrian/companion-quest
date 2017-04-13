@@ -5,7 +5,7 @@ $(document).ready(function(){
         $.getJSON('./Models/View-Dice.php', function(data){
             var dice = '';
             $.each(data, function(index, savedDice){
-                dice += '<tr><td>' + savedDice.quantity + '</td> <td>' + savedDice.sides + '</td><td>' + savedDice.modifier + '</td> <td><input type="number" id="' + savedDice.id + '" name="edit-dice-form__id" value="' + savedDice.id + '" /> <input id="savedQuantity" type="hidden" name="quantity" value="' + savedDice.quantity + '" /><input id="savedSides" type="hidden" name="sides" value="' + savedDice.sides + '" /> <input id="savedModifier" type="hidden" name="modifier" value="' + savedDice.modifier + '" /><div class="btn-group"><button id="btn_roll_saved" name="saved-dice-form__btn-roll" type="button" class="btn btn-default" value="' + savedDice.id + '">Roll </button><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"> <li><button id="btn_edit" class="btn btn-default" type="button" name="btn-edit" value="' + savedDice.id + '">Edit</button></li> <li><button id="btn_delete" class="btn btn-default" type="button" name="btn-delete" value="' + savedDice.id + '">Delete</button></li></ul></div></td></tr>';
+                dice += '<tr><td>' + savedDice.quantity + '</td> <td>' + savedDice.sides + '</td><td>' + savedDice.modifier + '</td> <td><input type="number" id="' + savedDice.id + '" name="edit-dice-form__id" value="' + savedDice.id + '" /> <input id="quantity' + savedDice.id + '" type="hidden" name="quantity" value="' + savedDice.quantity + '" /><input id="sides' + savedDice.id + '" type="hidden" name="sides" value="' + savedDice.sides + '" /> <input id="modifier' + savedDice.id + '" type="hidden" name="modifier" value="' + savedDice.modifier + '" /><div class="btn-group"><button id="btn_roll_saved" name="saved-dice-form__btn-roll" type="button" class="btn btn-default" value="' + savedDice.id + '">Roll </button><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"> <li><button id="btn_edit" class="btn btn-default" type="button" name="btn-edit" value="' + savedDice.id + '">Edit</button></li> <li><button id="btn_delete" class="btn btn-default" type="button" name="btn-delete" value="' + savedDice.id + '">Delete</button></li></ul></div></td></tr>';
             });
             $('#dice-saved').html(dice);
         });
@@ -67,17 +67,16 @@ $(document).ready(function(){
             });
         });
 
-        // dice += '<tr><td>' + savedDice.quantity + '</td> <td>' + savedDice.sides + '</td><td>' + savedDice.modifier + '</td> <td><input type="number" id="' + savedDice.id + '" name="edit-dice-form__id" value="' + savedDice.id + '" /> <input id="savedQuantity" type="hidden" name="quantity" value="' + savedDice.quantity + '" /><input id="savedSides" type="hidden" name="sides" value="' + savedDice.sides + '" /> <input id="savedModifier" type="hidden" name="modifier" value="' + savedDice.modifier + '" /><div class="btn-group"><button id="btn_roll_saved" name="saved-dice-form__btn-roll" type="button" class="btn btn-default" value="' + savedDice.id + '">Roll </button><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu" role="menu"> <li><button id="btn_edit" class="btn btn-default" type="button" name="btn-edit" value="' + savedDice.id + '">Edit</button></li> <li><button id="btn_delete" class="btn btn-default" type="button" name="btn-delete" value="' + savedDice.id + '">Delete</button></li></ul></div></td></tr>';
-
+        // ROLL SAVED DICE
         $('#char-dice-form').on('click', '#btn_roll_saved', function() {
                 var id = $(this).val();
                 console.log(id);
-                var quantity = $('#savedQuantity').val();
-                console.log(quantity);
-                var sides = $('#savedSides').val();
-                console.log(sides);
-                var modifier = $('#savedModifier').val();
-                console.log(modifier);
+                var quantity = $('#quantity' + id).val();
+                console.log('quantity' + quantity);
+                var sides = $('#sides' + id).val();
+                console.log('sides' + sides);
+                var modifier = $('#modifier' + id).val();
+                console.log('modifier' + modifier);
                 var roll = "";
                 var breakdown = "";
                 var totalValues = "";
