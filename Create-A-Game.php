@@ -1,6 +1,6 @@
 <?php
     require_once "View/Header.php";
-    
+
     //call database query class
 
         $GameDAO = new GameDAO($db);
@@ -175,22 +175,9 @@
             $availCharClass = new AvailCharactersDAO();
 
             foreach($_POST['availChars'] as $check) {
-                if (isset($_POST['availChars'])) {
-                    $check = 1;
-                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
-                } else {
-                    $check = 0;
-                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
-                }
+               $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+                    echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
             }
-            // foreach($_POST['availChars'] as $check) {
-            //
-            //     $check = ($check) ? 1 : 0;
-            //
-            //
-            //
-            //         echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
-            // }
         }
     }
 
@@ -297,7 +284,7 @@
         </div><!--end of row-->
 
         <!--CHOOSE A CHARACTER-->
-        <div class="character-panel">
+        <div class="character-panel-gm">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="row all-avail-chars">
@@ -308,19 +295,6 @@
                 </div><!-- end of panel-body -->
             </div><!-- end of panel panel-default -->
         </div><!-- end of apocalypse world character panel -->
-
-        <!-- <div class="dungeon-world-character-panel">
-            <label>DUNGEON WORLD : Choose your characters</label>
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div class="row all-avail-chars">
-                            <div id="showDWChars">
-
-                            </div>
-                        </div> end of row
-                    </div> end of panel-body
-                </div> end of panel panel-default
-            </div> end of dungeon world character panel -->
 
         <!-- Leave a message! -->
         <div class="form-group">
