@@ -1,6 +1,6 @@
 <?php
     require_once "View/Header.php";
-
+    
     //call database query class
 
         $GameDAO = new GameDAO($db);
@@ -135,11 +135,6 @@
                     //write user games details
                     $createUserGame = $GameDAO->CREATE_UserGame($userID, $gameID, $notice);
 
-                    //Create a chat room for the created game
-                    require_once "Models/ChatRoomDAO.php";
-                    $chatroom = new ChatRoom();
-                    $chatroom->setChatRoom($db,$gameDetails['id']);
-
                     if($createUserGame) {
 
                         $goToGmPortal = "<script type='text/javascript'>location.replace('GM-Portal.php'); </script>";
@@ -150,14 +145,22 @@
 
                         //delete userGame and go back to create-a-game.php
                         $output_pageError = "user games error";
+
                     }
+
                 } else {
+
                     $output_pageError = "create game failed";
+
                 }
+
             } else {
+
                 //output
                 $output_gameName = "this game name already exists";
+
             }
+
         }
 
 
@@ -173,19 +176,21 @@
 
             foreach($_POST['availChars'] as $check) {
                 if (isset($_POST['availChars'])) {
-                    $perms = 1;
-                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID, $perms);
+                    $check = 1;
+                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
                 } else {
-                    $perms = 0;
-                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID, $perms);
+                    $check = 0;
+                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
                 }
             }
-
             // foreach($_POST['availChars'] as $check) {
+            //
             //     $check = ($check) ? 1 : 0;
-            //     echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
+            //
+            //
+            //
+            //         echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
             // }
-
         }
     }
 
@@ -292,16 +297,13 @@
         </div><!--end of row-->
 
         <!--CHOOSE A CHARACTER-->
-        <div class="character-panel-gm">
+        <div class="character-panel">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="row all-avail-chars">
-                        <form id="limitChars" action="" method="post">
-                            <div id="showChars">
+                        <div id="showChars">
 
-                            </div>
-                            <button id="btn_limit_chars" class="btn btn-primary btn-block" type="button" name="btn_limit_chars">Limit Playable Characters</button>
-                        </form>
+                        </div>
                     </div><!-- end of row -->
                 </div><!-- end of panel-body -->
             </div><!-- end of panel panel-default -->
