@@ -56,16 +56,24 @@ class CharacterDAO {
         return $viewUser;
     }
 
-    public function getGame($db, $gameID){
-        $query = 'SELECT * FROM games WHERE id = :ID';
+
+
+    public function getCharacter($db, $userID, $gameID){
+        $query = 'SELECT *
+                  FROM characters
+                  WHERE users_id = :userID
+                  AND games_id = :gameID';
         $statement = $db->prepare($query);
-        $statement->bindValue(':ID', $gameID, PDO::PARAM_INT);
+        $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
+        $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
         $statement->execute();
-        $viewUser = $statement->fetchAll(PDO::FETCH_OBJ);
+        $charDetails = $statement->fetchAll(PDO::FETCH_OBJ);
         $statement->closeCursor();
 
-        return $viewUser;
+        return $charDetails;
     }
+
+
 
     public function getRoleMoves($db, $roleID){
         $query = 'SELECT * FROM moves WHERE role_id = :roleID';
@@ -78,10 +86,46 @@ class CharacterDAO {
         return $viewMoves;
     }
 
-    public function selectPlayerChar($db, $userID, $roleID, $gameID, $name, $hair, $face, $eyes, $body, $clothes, $gender, $alignment, $addedGear, $selectedMoves) {
-        $query = 'INSERT INTO characters
-                  (users_id, roles_id, games_id, name, hair, face, eyes, body, clothes, gender, alignment, added_gear, selected_moves)
-                  VALUES (:userID, :roleID, :gameID, :name, :hair, :face, :eyes, :body, :clothes, :gender, :alignment, :added_gear, :selected_moves)';
+    // public function submitPlayerChar($db, $userID, $roleID, $gameID, $name, $hair, $face, $eyes, $body, $clothes, $gender, $alignment, $addedGear, $selectedMoves) {
+    //     $query = 'INSERT INTO characters
+    //               (users_id, roles_id, games_id, name, hair, face, eyes, body, clothes, gender, alignment, added_gear, selected_moves)
+    //               VALUES (:userID, :roleID, :gameID, :name, :hair, :face, :eyes, :body, :clothes, :gender, :alignment, :added_gear, :selected_moves)';
+    //     $statement = $db->prepare($query);
+    //     $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
+    //     $statement->bindValue(':roleID', $roleID, PDO::PARAM_INT);
+    //     $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
+    //     $statement->bindValue(':name', $name, PDO::PARAM_STR);
+    //     $statement->bindValue(':hair', $hair, PDO::PARAM_STR);
+    //     $statement->bindValue(':face', $face, PDO::PARAM_STR);
+    //     $statement->bindValue(':eyes', $eyes, PDO::PARAM_STR);
+    //     $statement->bindValue(':body', $body, PDO::PARAM_STR);
+    //     $statement->bindValue(':clothes', $clothes, PDO::PARAM_STR);
+    //     $statement->bindValue(':gender', $gender, PDO::PARAM_STR);
+    //     $statement->bindValue(':alignment', $alignment, PDO::PARAM_STR);
+    //     $statement->bindValue(':added_gear', $addedGear, PDO::PARAM_LOB);
+    //     $statement->bindValue(':selected_moves', $selectedMoves, PDO::PARAM_LOB);
+    //     $statement->execute();
+    //     $statement->closeCursor();
+    //
+    //     return true;
+    // }
+
+    public function submitPlayerChar($db, $userID, $roleID, $gameID, $name, $hair, $face, $eyes, $body, $clothes, $gender, $addedGear, $selectedMoves, $alignment = '') {
+        $query = 'UPDATE characters
+                  SET users_id, roles_id, games_id, name, hair, face, eyes, body, clothes, gender, alignment, added_gear, selected_moves
+                  WHERE users_id = :userID
+                  AND roles_id = :roleID
+                  AND games_id = :gameID
+                  AND name = :name
+                  AND hair = :hair
+                  AND face = :face
+                  AND eyes = :eyes
+                  AND body = :body
+                  AND clothes = :clothes
+                  AND gender = :gender
+                  AND alignment = :alignment
+                  AND added_gear = :added_gear
+                  AND selected_moves = :selected_moves';
         $statement = $db->prepare($query);
         $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
         $statement->bindValue(':roleID', $roleID, PDO::PARAM_INT);
@@ -93,9 +137,9 @@ class CharacterDAO {
         $statement->bindValue(':body', $body, PDO::PARAM_STR);
         $statement->bindValue(':clothes', $clothes, PDO::PARAM_STR);
         $statement->bindValue(':gender', $gender, PDO::PARAM_STR);
-        $statement->bindValue(':alignment', $alignment, PDO::PARAM_STR);
         $statement->bindValue(':added_gear', $addedGear, PDO::PARAM_LOB);
         $statement->bindValue(':selected_moves', $selectedMoves, PDO::PARAM_LOB);
+        $statement->bindValue(':alignment', $alignment, PDO::PARAM_STR);
         $statement->execute();
         $statement->closeCursor();
 

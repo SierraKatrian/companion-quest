@@ -1,17 +1,4 @@
 <?php
-require_once './Models/DbConnect.php';
-require_once './Models/CharacterDAO.php';
-
-$dbClass = new DbConnect();
-$db = $dbClass->getDB();
-
-$charClass = new CharacterDAO();
-
-
-$getUser = $charClass->getUser($db, $userID);
-$getGame = $charClass->getGame($db, $gameID);
-
-
 var_dump($userID, $username);
 var_dump($gameID);
 
@@ -57,19 +44,6 @@ var_dump($gameID);
                         <span class="map-cog glyphicon glyphicon-cog"></span>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!--CHARACTER LIST-->
-
-        <h2>Choose Your Character</h2>
-        <div class="panel panel-default character-panel-player">
-            <div class="panel-body">
-                <form id="selectPlayableChar" name="selectPlayableChar" action="" method="post">
-                    <div id="chooseChar">
-
-                    </div>
-                </form>
             </div>
         </div>
 
@@ -194,5 +168,3 @@ var_dump($gameID);
     </div><!--end of col-->
 
 </div><!--end of row-->
-
-<script type="text/javascript" src="./Script/select-playable-char.js"></script>

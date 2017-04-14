@@ -14,8 +14,6 @@ $selectedChars = $availCharClass->getGameChars($db, $gameID);
 
 $jGameChars = json_encode($selectedChars);
 
-// var_dump($jGameChars);
-
 header("Content-Type: application/json");
 echo $jGameChars;
 ?>

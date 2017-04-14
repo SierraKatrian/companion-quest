@@ -1,9 +1,11 @@
 <?php
 
     include "View/Header.php";
+    require_once 'Models/AvailCharactersDAO.php';
+    require_once 'Models/CharacterDAO.php';
+    $charClass = new CharacterDAO();
 
-    //user details
-
+    //User details
     $userDetails = $_SESSION['user'];
 
     $userID = $userDetails['id'];
@@ -13,8 +15,7 @@
     $email = $userDetails['email'];
     $password = $userDetails['password'];
 
-    //game details
-
+    //Game details
     $gameDetails = $_SESSION['gameDetails'];
 
     $ruleBook = $gameDetails['rb_id'];
@@ -24,7 +25,16 @@
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
 
+    //Character details
+    $charDetails = $charClass->getCharacter($db, $userID, $gameID);
+
+    $charDetails = $_SESSION['charDetails'];
+    $charID = $charDetails['id'];
+    $roleID = $charDetails['roles_id'];
+
 ?>
+
+
 
 <body>
 
@@ -95,3 +105,5 @@
 </main>
 
 <?php include "View/Footer.php"; ?>
+
+<script type="text/javascript" src="./Script/select-playable-char.js"></script>

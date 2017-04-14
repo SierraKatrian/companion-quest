@@ -29,7 +29,7 @@ class AvailCharactersDAO
     }
 
     public function getGameChars($db, $gameID) {
-        $query = 'SELECT roles.id, roles.role_name, roles.picture, roles_perms.permissions, roles_perms.selected, games.game_name, games.rb_id, rulebooks.name
+        $query = 'SELECT roles.id, roles.role_name, roles.picture, roles.bio, roles_perms.permissions, roles_perms.selected, games.game_name, games.rb_id, rulebooks.name
                   FROM roles
                   JOIN roles_perms ON roles_perms.role_id = roles.id
                   JOIN games ON games.id = roles_perms.game_id

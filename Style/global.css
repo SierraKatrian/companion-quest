@@ -724,6 +724,10 @@
             cursor:pointer;
         }
 
+        .character-bio-container {
+            /*display: none;*/
+        }
+
         .character-img:hover {
             opacity: 1;
             outline:2px solid #ffad33;
@@ -938,7 +942,6 @@
         }
 
         .character-panel-player {
-            height:539px;
         }
 
           .leave-game-btn {

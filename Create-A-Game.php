@@ -167,7 +167,7 @@
 
         $availCharClass = new AvailCharactersDAO();
         $getCharsClass = $availCharClass->getAvailCharacters($db, $ruleBook);
-        
+
         // CHARACTER SELECTOR
         if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
 
@@ -180,7 +180,7 @@
     }
 
 // var_dump($getCharsClass);
-var_dump($gameID);
+// var_dump($gameID);
 
 ?>
 
