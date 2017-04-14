@@ -1,9 +1,9 @@
 <?php
-session_start();
-$gameDetails = $_SESSION['gameDetails'];
+// session_start();
+// $gameDetails = $_SESSION['gameDetails'];
 
-$ruleBook = $gameDetails['rb_id'];
-$gameID = $gameDetails['id'];
+// $ruleBook = $gameDetails['rb_id'];
+// $gameID = $gameDetails['id'];
 
 require_once 'DbConnect.php';
 require_once 'AvailCharactersDAO.php';
@@ -12,7 +12,7 @@ $dbClass = new DbConnect();
 $db = $dbClass->getDB();
 
 $availCharClass = new AvailCharactersDAO();
-$viewDWChars = $availCharClass->getAvailCharacters($db, $ruleBook);
+$viewDWChars = $availCharClass->getAvailCharacters($db, 2);
 
 $jViewDWChars = json_encode($viewDWChars);
 

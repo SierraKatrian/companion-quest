@@ -14,7 +14,6 @@ $gameDetails = $_SESSION['gameDetails'];
 
 $ruleBook = $gameDetails['rb_id'];
 $gameID = $gameDetails['id'];
-$gameID = $gameDetails['id'];
 $gameName = $gameDetails['game_name'];
 $gameLanguage = $gameDetails['lang'];
 $gamePlayerTotal = $gameDetails['max_players'];
@@ -26,14 +25,13 @@ require_once 'AvailCharactersDAO.php';
 $dbClass = new DbConnect();
 $db = $dbClass->getDB();
 
-$charID = 2;
 $selectedChar = $_POST['selectChar'];
 
 $availCharClass = new AvailCharactersDAO();
-$selectedChars = $availCharClass->getGameChars($db, $gameID);
+$disableSelectedChars = $availCharClass->disableSelectedChar($db, $selectedChar, $gameID)
 
-$jSaveDice = json_encode($selectedChars);
+$jDisSelChars = json_encode($disableSelectedChars);
 
 header("Content-Type: application/json");
-echo $jSaveDice;
+echo $jDisSelChars;
 ?>
