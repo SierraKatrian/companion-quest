@@ -25,28 +25,35 @@ require_once 'Models/CharacterDAO.php';
     $gameStatus = $gameDetails['game_status'];
 
     //Character details
-    $getCharSheet = $charClass->getCharSheet($db, $userID, $gameID)
+    $getCharSheet = $charClass->getCharSheet($db, $userID, $gameID);
 
     // $charDetails = $_SESSION['charDetails'];
     // $charID = $charDetails['id'];
     // $roleID = $charDetails['roles_id'];
 
-var_dump($ruleBook);
+    echo 'Rulebook: ' . $ruleBook;
+    echo 'Game ID: ' . $gameID;
 
 ?>
 
 <!--CHARACTER LIST-->
-
 <h2>Choose Your Character</h2>
 <div class="panel panel-default character-panel-player">
     <div class="panel-body">
         <form id="selectPlayableChar" name="selectPlayableChar" action="" method="post">
             <div class="row">
-                <div id="chooseChar">
+                <div class="col-sm-6">
+                    <div id="chooseChar">
 
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div id="charBio">
+
+                    </div>
                 </div>
             </div>
-                <button id="btn_select_char" class="btn btn-primary" type="button" name="btn_select_char">Select Character</button>
+            <button id="btn_select_char" class="btn btn-primary" type="button" name="btn_select_char">Select Character</button>
         </form>
     </div>
 </div>
@@ -54,6 +61,7 @@ var_dump($ruleBook);
 <?php if ($ruleBook == 1) : ?>
     <!-- APOCALYPSE WORLD CHARACTER SHEET -->
     <h2 class="csTitle">APOCALYPSE WORLD CHARACTER SHEET</h2>
+    <form class="" name="btn_submit_char" action="Models/Submit-Player-Char.php" method="post">
     <?php foreach ($getCharSheet as $char): ?>
         <div class="row">
             <div class="col-xs-12">
@@ -62,6 +70,7 @@ var_dump($ruleBook);
 
                         <div class="col-sm-6">
                             <h3><label for="name">Name: </label><input type="text" name="name" value="<?php echo $char->name ?>"></h3>
+                            <input type="hiddent" name="role_id" value="<?php echo $char->role_id ?>">
                             <h3 class="csTitle">Look</h3>
                             <div class="gender">
                                 <label for="gender">Gender: </label><input type="text" name="gender" value="<?php echo $char->gender ?>">
@@ -214,9 +223,10 @@ var_dump($ruleBook);
             </div>
         </div>
     <?php endforeach; ?>
+    </form>
 </div>
 
-<?php elseif ($ruleBook == 2): ?>
+<?php else : ?>
 
     <!-- DUNGEON WORLD CHARACTER SHEET -->
     <h2 class="csTitle">DUNGEON WORLD CHARACTER SHEET</h2>
@@ -256,9 +266,5 @@ var_dump($ruleBook);
         <input type="text" name="stat5" value="<?php echo $char->stat5; ?>">
 
     <?php endforeach; ?>
-
-<?php else : ?>
-
-    <p>Something went wrong</p>
 
 <?php endif; ?>

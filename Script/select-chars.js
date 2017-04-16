@@ -36,7 +36,7 @@ $(document).ready(function(){
     var rulebook = document.advancedSearch.ruleBook;
     for(var i = 0; i < rulebook.length; i++) {
         rulebook[i].onclick = function() {
-            console.log(this.value)
+            console.log(this.value);
             if (this.value == 1) {
                 console.log("one");
                 getAWChar();

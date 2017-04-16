@@ -26,11 +26,12 @@
     $gameStatus = $gameDetails['game_status'];
 
     //Character details
-    $charDetails = $charClass->getCharacter($db, $userID, $gameID);
+    // $charDetails = $charClass->getCharacter($db, $userID, $gameID);
+    //
+    // $charDetails = $_SESSION['charDetails'];
+    // $charID = $charDetails['id'];
+    // $roleID = $charDetails['roles_id'];
 
-    $charDetails = $_SESSION['charDetails'];
-    $charID = $charDetails['id'];
-    $roleID = $charDetails['roles_id'];
 
 ?>
 

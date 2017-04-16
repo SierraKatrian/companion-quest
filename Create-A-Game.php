@@ -173,7 +173,7 @@
 
             foreach($_POST['availChars'] as $check) {
                 $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
-                echo " Rulebook #: " . $ruleBook . " | Name: " . $getCharsClass['role_name'];
+                echo " Rulebook #: " . $ruleBook;
             }
         }
 
