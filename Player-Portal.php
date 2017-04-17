@@ -210,14 +210,11 @@
                 </div><!--end of panel class-->
             </div><!--end of col-->
 
-        </div><!--end of column-->
-
-
-
         <!--RIGHT SIDE FORM COLUMN-->
         <div class="col-md-8">
             <?php include "View/player-portal-STATS.php" ?>
-        </div><!--end of row-->
+        </div>
+    </div><!--end of row-->
 
     <div class="gap-10px"></div>
     <div class="gap-10px"></div>
