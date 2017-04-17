@@ -3,7 +3,7 @@
 class DbConnect
 {
 
-    private static $dsn = 'mysql:host=localhost;dbname=CompanionQuest';
+    private static $dsn = 'mysql:host=localhost;dbname=Companion_Quest';
     private static $username = 'root';
     private static $password = '';
     //reference to db connection

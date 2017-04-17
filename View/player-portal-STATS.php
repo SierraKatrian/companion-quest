@@ -31,8 +31,11 @@ require_once 'Models/CharacterDAO.php';
     // $charID = $charDetails['id'];
     // $roleID = $charDetails['roles_id'];
 
-    echo 'Rulebook: ' . $ruleBook;
-    echo 'Game ID: ' . $gameID;
+    echo '<br/>Rulebook: ' . $ruleBook;
+    echo '<br/>Game ID: ' . $gameID;
+    echo '<br/>User ID: ' . $userID . '<br/>';
+
+    var_dump($getCharSheet);
 
 ?>
 
@@ -171,10 +174,10 @@ require_once 'Models/CharacterDAO.php';
                     <label for="plusWeird">Come back with +1weird (max+3)</label>
                 </div>
 
-                <div class="">
-                    <input type="radio" name="newPlaybook" value="newPlaybook" <?php echo ($char->new_role == 1) ? "checked" : "" ; ?>>
+                <!-- <div class="">
+                    <input type="radio" name="newPlaybook" value="newPlaybook" <?php //echo ($char->new_role == 1) ? "checked" : "" ; ?>>
                     <label for="newPlaybook">Change to a new playbook</label>
-                </div>
+                </div> -->
 
                 <div class="">
                     <input type="radio" name="die" value="die" <?php echo ($char->die == 1) ? "checked" : "" ; ?>>
