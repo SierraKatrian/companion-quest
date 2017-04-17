@@ -32,7 +32,7 @@ class AvailCharactersDAO
         $query = 'SELECT roles.id, roles.role_name, roles.picture, roles.bio, roles_perms.permissions, roles_perms.selected, games.game_name, games.rb_id, rulebooks.name
                   FROM roles
                   JOIN roles_perms ON roles_perms.role_id = roles.id
-                  JOIN games ON games.id = roles_perms.game_id
+                  JOIN games ON roles_perms.game_id = games.id
                   JOIN rulebooks ON rulebooks.id = games.rb_id
                   WHERE game_id = :gameID';
         $statement = $db->prepare($query);

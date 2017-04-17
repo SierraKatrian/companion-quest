@@ -3,15 +3,15 @@
 class CharacterDAO {
 
     public function getCharSheet($db, $userID, $gameID){
-        $query = 'SELECT characters.roles_id, characters.name, characters.eyes, characters.hair, characters.gender, characters.clothes, characters.face, characters.added_gear, characters.selected_moves, characters.alignment, roles.bio, roles.role_name, roles.stats, roles.gear, roles.barter,
+        $query = 'SELECT characters.role_id, characters.name, characters.eyes, characters.hair, characters.gender, characters.clothes, characters.face, characters.added_gear, characters.selected_moves, characters.alignment, roles.bio, roles.role_name, roles.stats, roles.gear, roles.barter,
         roles.moves, stats.stat1, stats.stat2, stats.stat3, stats.stat4, stats.stat5, harm.total_harm, harm.stabilized, harm.minus_hard,
         harm.plus_weird, harm.new_role, harm.die
                   FROM characters
-                  JOIN roles ON roles.id = characters.roles_id
+                  JOIN roles ON roles.id = characters.role_id
                   JOIN stats ON stats.id = characters.stats_id
                   JOIN harm ON harm.id = characters.harm_id
-                  WHERE users_id = :usersID
-                  AND games_id = :gamesID';
+                  WHERE user_id = :usersID
+                  AND game_id = :gamesID';
         $statement = $db->prepare($query);
         $statement->bindValue(':usersID', $userID, PDO::PARAM_INT);
         $statement->bindValue(':gamesID', $gameID, PDO::PARAM_INT);
@@ -57,13 +57,11 @@ class CharacterDAO {
         return $viewUser;
     }
 
-
-
     public function getCharacter($db, $userID, $gameID){
         $query = 'SELECT *
                   FROM characters
-                  WHERE users_id = :userID
-                  AND games_id = :gameID';
+                  WHERE user_id = :userID
+                  AND game_id = :gameID';
         $statement = $db->prepare($query);
         $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
         $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
@@ -89,7 +87,7 @@ class CharacterDAO {
 
     // public function submitPlayerChar($db, $userID, $roleID, $gameID, $name, $hair, $face, $eyes, $body, $clothes, $gender, $alignment, $addedGear, $selectedMoves) {
     //     $query = 'INSERT INTO characters
-    //               (users_id, roles_id, games_id, name, hair, face, eyes, body, clothes, gender, alignment, added_gear, selected_moves)
+    //               (user_id, role_id, game_id, name, hair, face, eyes, body, clothes, gender, alignment, added_gear, selected_moves)
     //               VALUES (:userID, :roleID, :gameID, :name, :hair, :face, :eyes, :body, :clothes, :gender, :alignment, :added_gear, :selected_moves)';
     //     $statement = $db->prepare($query);
     //     $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
@@ -113,7 +111,7 @@ class CharacterDAO {
 
     public function setPlayerChar($db, $userID, $roleID, $gameID) {
         $query = 'INSERT INTO characters
-                  (users_id, roles_id, games_id)
+                  (user_id, role_id, game_id)
                   VALUES
                   (:userID, :roleID, :gameID)';
         $statement = $db->prepare($query);
@@ -186,9 +184,9 @@ class CharacterDAO {
     public function updateCharStats($db, $statsID, $userID, $roleID, $gameID) {
         $query3 = 'UPDATE characters
                    SET stats_id = :statsID
-                   WHERE users_id = :userID
-                   AND roles_id = :roleID
-                   AND games_id = :gameID';
+                   WHERE user_id = :userID
+                   AND role_id = :roleID
+                   AND game_id = :gameID';
         $stmt3 = $db->prepare($query3);
         $stmt3->bindValue(':statsID', $statsID, PDO::PARAM_INT);
         $stmt3->bindValue(':userID', $userID, PDO::PARAM_INT);
@@ -201,10 +199,10 @@ class CharacterDAO {
 
     public function updatePlayerChar($db, $userID, $roleID, $gameID, $name, $hair, $face, $eyes, $body, $clothes, $gender, $addedGear, $selectedMoves, $alignment = '') {
         $query = 'UPDATE characters
-                  SET users_id, roles_id, games_id, name, hair, face, eyes, body, clothes, gender, alignment, added_gear, selected_moves
-                  WHERE users_id = :userID
-                  AND roles_id = :roleID
-                  AND games_id = :gameID
+                  SET user_id, role_id, game_id, name, hair, face, eyes, body, clothes, gender, alignment, added_gear, selected_moves
+                  WHERE user_id = :userID
+                  AND role_id = :roleID
+                  AND game_id = :gameID
                   AND name = :name
                   AND hair = :hair
                   AND face = :face

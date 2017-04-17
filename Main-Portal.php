@@ -44,9 +44,9 @@
     <div class="row green">
 
         <div class="col-md-12 red">
-            <h1>Game Room</h1>
+            <h1>Main Portal</h1>
             <p>
-                Welcome to the Game Room <?echo $fname?>! Here you can create or join a game. You can
+                Welcome to the Main Portal <?php echo $fname ?>! Here you can create or join a game. You can
                 request to join current games, view pending requests or invites and
                 search for available games. Enjoy your quest!
             </p>
@@ -80,9 +80,8 @@
 
 
     <!--CURRENT GAMES-->
-
         <div class="list-group-item active">
-            <h3>View Current Games</h3>
+            <h3>Your Current Games</h3>
         </div>
 
         <div class="list-group">
@@ -248,7 +247,7 @@
     </form>
 
     <div class="list-group-item active">
-        <h3>Current Games</h3>
+        <h3>Games</h3>
     </div>
 
     <div class="list-group">
@@ -275,4 +274,3 @@
 <script src="Script/joinReq.js"></script>
 <script src="Script/getRoom-ajax.js"></script>
 <?php include "View/Footer.php"; ?>
-
