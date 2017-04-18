@@ -222,7 +222,7 @@
 
     <h2>Start a quest!</h2>
 
-    <form action="create-a-game.php" method="post" name="advancedSearch" class="container-fluid find-a-game-form">
+    <form action="Create-A-Game.php" method="post" name="advancedSearch" class="container-fluid find-a-game-form">
         <div class="row">
             <div class="col-md-6 find-a-quest-form-elements">
                 <label for="gameName">Game Name <span style="color:red;">*&nbsp;<?= $output_gameName ?></span></label>

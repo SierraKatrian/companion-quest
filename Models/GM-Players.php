@@ -13,14 +13,16 @@ require_once 'playerPermissions.php';
 
 $connection = DbConnect::getDB();
 $gameName = $_POST['gameName'];
+$gameId = $_SESSION['gameDetails']['id'];
+
 
 $p = new playerPermissions();
-$gameID = $p->getGameName($connection, $gameName);
+//$gameID = $p->getGameName($connection, $gameName);
 
-$list= $p->listActivePlayers($connection, $gameID[0]);
+$list= $p->listActivePlayers($connection, $gameId);
 
-//$jList = json_encode($list);
-//header("Content-Type: application/json");
-//echo $jList;
+$jList = json_encode($list);
+header("Content-Type: application/json");
+echo $jList;
 
-var_dump($_SESSION);
+//var_dump($list);

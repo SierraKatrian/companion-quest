@@ -18,7 +18,10 @@ $newGmId = $_POST['user_id'];
 $currentGM = $_SESSION['user']['id'];
 
 $gm = new playerPermissions();
-$gm->changePermissions($connection, $currentGM, $newGmId, $gameId );
+
+$gm->removePlayer($connection, $currentGM,$gameId);
+$gm->gmPermissions($connection,$newGmId, $gameId);
+
 
 echo "permissions updated";
 

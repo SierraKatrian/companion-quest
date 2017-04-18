@@ -4,7 +4,9 @@
 
 $(document).ready(function(){
 
-    var game_name = "gameofswords";
+
+
+    var game_name = "pooppoop";
     var games_id = "";
 
 

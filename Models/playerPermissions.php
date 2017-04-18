@@ -94,7 +94,7 @@ class playerPermissions
         $statement->bindValue(':gameId', $gameId);
         $statement->execute();
 
-        $newGM = $this->gmPermissions($db,$NextGM, $gameId);
+       // $newGM = $this->gmPermissions($db,$NextGM, $gameId);
 
         echo "Permissions switched!";
     }
@@ -108,5 +108,20 @@ class playerPermissions
         $statement->execute();
 
         echo "Permissions Updated!";
+    }
+
+    public function getAllGamePlayers ($db, $user_id, $game_id) {
+        $query = "SELECT user_games.player_status, user_games.games_id, user_games.games_id, user_games.permission, users.user_name, characters.name, roles.role_name 
+        FROM user_games JOIN users ON user_games.user_id = users.id 
+        JOIN characters ON users.id = characters.user_id 
+        JOIN roles ON roles.roles_id = characters.role_id
+        WHERE user_games.user_id = :user_id AND user_games.games_id = :game_id AND player_status = 1 ORDER BY user_games.permission DESC";
+        $statement = $db->prepare($query);
+        $statement->bindValue(':user_id', $user_id);
+        $statement->bindValue(':game_id', $game_id);
+        $statement->execute();
+        $userInGame = $statement->fetchAll();
+
+        return $userInGame;
     }
 }

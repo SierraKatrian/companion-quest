@@ -21,7 +21,7 @@ require_once './Models/AvailCharactersDAO.php';
     $gameLanguage = $gameDetails['lang'];
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
-    $gameID = $gameDetails['id'];
+
 
 
 
@@ -54,8 +54,8 @@ require_once './Models/AvailCharactersDAO.php';
         $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
     }
 
-    var_dump($gameID);
-var_dump($selectedChars);
+    //var_dump($gameID);
+//var_dump($selectedChars);
 
 ?>
 

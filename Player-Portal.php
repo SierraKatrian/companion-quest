@@ -76,6 +76,7 @@
           <li><a class="tab-links" href="#2" data-toggle="tab">INFO</a></li>
       </ul>
 
+
   <!--TAB CONTENT-->
 
       <div class="tab-content">
