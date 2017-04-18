@@ -2,15 +2,7 @@
 
     $getCharSheet = $charClass->getCharSheet($db, $userID, $gameID);
 
-    // $charDetails = $_SESSION['charDetails'];
-    // $charID = $charDetails['id'];
-    // $roleID = $charDetails['roles_id'];
-
-    echo '<br/>Rulebook: ' . $ruleBook;
-    echo '<br/>Game ID: ' . $gameID;
-    echo '<br/>User ID: ' . $userID . '<br/>';
-
-    var_dump($getCharSheet);
+    
 
 ?>
 
@@ -39,6 +31,7 @@
 <div class="panel panel-default character-panel-player">
     <div class="panel-body">
         <?php if ($ruleBook == 1) : ?>
+
             <!-- APOCALYPSE WORLD CHARACTER SHEET -->
             <h2 class="csTitle">APOCALYPSE WORLD CHARACTER SHEET</h2>
             <form class="" name="btn_submit_char" action="Models/Submit-Player-Char.php" method="post">

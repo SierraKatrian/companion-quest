@@ -2,11 +2,13 @@
 
 class CharacterDAO {
 
-    public function getAllChars($db, $userID, $gameID) {
-        $query = 'SELECT * FROM characetrs';
+    public function getCharacter($db, $userID, $gameID) {
+        $query = 'SELECT * FROM characetrs
+                  WHERE user_id = :userID
+                  AND game_id = :gameID';
         $statement = $db->prepare($query);
-        // $statement->bindValue(':rulebookID', $rbID, PDO::PARAM_INT);
-        // $statement->bindValue(':ID', $roleID, PDO::PARAM_INT);
+        $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
+        $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
         $statement->execute();
         $viewCharacter = $statement->fetchAll(PDO::FETCH_OBJ);
         $statement->closeCursor();
@@ -16,8 +18,7 @@ class CharacterDAO {
 
     public function getCharSheet($db, $userID, $gameID){
         $query = 'SELECT characters.role_id, characters.name, characters.eyes, characters.hair, characters.gender, characters.clothes, characters.face, characters.added_gear, characters.selected_moves, characters.alignment, roles.bio, roles.role_name, roles.stats, roles.gear, roles.barter,
-        roles.moves, stats.stat1, stats.stat2, stats.stat3, stats.stat4, stats.stat5, harm.total_harm, harm.stabilized, harm.minus_hard,
-        harm.plus_weird, harm.new_role, harm.die
+        roles.moves, stats.stat1, stats.stat2, stats.stat3, stats.stat4, stats.stat5, harm.total_harm, harm.stabilized, harm.minus_hard, harm.plus_weird, harm.new_role, harm.die
                   FROM characters
                   JOIN roles ON roles.id = characters.role_id
                   JOIN stats ON stats.id = characters.stats_id
@@ -67,21 +68,6 @@ class CharacterDAO {
         $statement->closeCursor();
 
         return $viewUser;
-    }
-
-    public function getCharacter($db, $userID, $gameID){
-        $query = 'SELECT *
-                  FROM characters
-                  WHERE user_id = :userID
-                  AND game_id = :gameID';
-        $statement = $db->prepare($query);
-        $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
-        $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
-        $statement->execute();
-        $charDetails = $statement->fetchAll(PDO::FETCH_OBJ);
-        $statement->closeCursor();
-
-        return $charDetails;
     }
 
     public function getRoleMoves($db, $roleID){

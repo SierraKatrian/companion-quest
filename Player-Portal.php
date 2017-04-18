@@ -1,7 +1,12 @@
 <?php
 
     require_once "View/Header.php";
+    require_once 'Models/DbConnect.php';
     require_once 'Models/CharacterDAO.php';
+
+    $dbClass = new DbConnect();
+    $db = $dbClass->getDB();
+
     $charClass = new CharacterDAO();
 
     //User details
@@ -23,6 +28,25 @@
     $gameLanguage = $gameDetails['lang'];
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
+
+    $characters = $charClass->getCharacter($db, $userID, $gameID);
+
+    // $characterDetails = $_SESSION['characters'];
+    //
+    // $roleID = $characterDetails['role_id'];
+
+    // $charDetails = $_SESSION['charDetails'];
+    // $charID = $charDetails['id'];
+    // $roleID = $charDetails['roles_id'];
+
+    echo '<br/>Rulebook: ' . $ruleBook;
+    echo '<br/>Game ID: ' . $gameID;
+    echo '<br/>User ID: ' . $userID . '<br/>';
+    // echo '<br/>Role ID: ' . $roleID . '<br/>';
+
+    // var_dump($roleID);
+
+    var_dump($characters);
 
 ?>
 

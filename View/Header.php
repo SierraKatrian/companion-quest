@@ -45,13 +45,13 @@
                                 <a href="#"><i class=\'fa fa-envelope-o fa-lg\' aria-hidden=\'true\'></i>Messages</a>
                                  <div id="chats" class="chat-dropdown-content">
                                    <ul id="chatList">
-                                   
-                                   
-                                  
+
+
+
                                     </ul>
                                      <button id="newChat" type="button">New Chat</button>
                                  </div>
-                               
+
                              </div>';
         ;
 

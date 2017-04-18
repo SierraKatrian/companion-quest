@@ -1,7 +1,7 @@
 <?php
     require_once "View/Header.php";
-    require_once './Models/DbConnect.php';
-    require_once './Models/AvailCharactersDAO.php';
+    require_once 'Models/DbConnect.php';
+    require_once 'Models/CharacterDAO.php';
 
     //call database query class
         $GameDAO = new GameDAO($db);
@@ -135,15 +135,15 @@
                     //write user games details
                     $createUserGame = $GameDAO->CREATE_UserGame($userID, $gameID, $notice);
 
-                    $availCharClass = new AvailCharactersDAO();
+                    $charClass = new CharacterDAO();
 
-                    $getCharsClass = $availCharClass->getAvailCharacters($db, $ruleBook);
+                    $getCharsClass = $charClass->getAvailCharacters($db, $ruleBook);
 
                     // CHARACTER SELECTOR
                     if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
 
                         foreach($_POST['availChars'] as $check) {
-                            $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+                            $setAvailChars = $charClass->setAvailCharacters($db, $check, $gameID);
 
                             // echo " Rulebook #: " . $ruleBook . '<br/>';
                             // echo " Role Name #: " . $check . '<br/>';
