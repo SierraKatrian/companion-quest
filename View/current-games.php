@@ -7,6 +7,8 @@ require_once 'Models/query-game.php';
 $dbClass = new DbConnect();
 $db = $dbClass->getDB();
 
+$userId = $_SESSION['user']['id'];
+
 $gameClass = new QueryGame();
 $roomId = $gameClass->getGameRoomid($db, $userId);
 
