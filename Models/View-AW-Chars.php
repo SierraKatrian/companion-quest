@@ -1,14 +1,12 @@
 <?php
 require_once 'DbConnect.php';
-require_once 'AvailCharactersDAO.php';
+require_once 'CharacterDAO.php';
 
 $dbClass = new DbConnect();
 $db = $dbClass->getDB();
 
-// $rbID = 2;
-//
-$availCharClass = new AvailCharactersDAO();
-$viewAWChars = $availCharClass->getAvailCharacters($db, 1);
+$charClass = new CharacterDAO();
+$viewAWChars = $charClass->getAvailCharacters($db, 1);
 
 $jViewAWChars = json_encode($viewAWChars);
 // var_dump($jViewAWChars);

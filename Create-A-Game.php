@@ -1,12 +1,12 @@
 <?php
     require_once "View/Header.php";
+    require_once './Models/DbConnect.php';
+    require_once './Models/AvailCharactersDAO.php';
 
     //call database query class
-
         $GameDAO = new GameDAO($db);
 
     //make user Session available
-
         $userDetails = $_SESSION['user'];
 
         $userID = (intval($userDetails['id']));
@@ -135,10 +135,21 @@
                     //write user games details
                     $createUserGame = $GameDAO->CREATE_UserGame($userID, $gameID, $notice);
 
-                    //Create a chat room for the created game
-                    require_once "Models/ChatRoomDAO.php";
-                    $chatroom = new ChatRoom();
-                    $chatroom->setChatRoom($db,$gameDetails['id']);
+                    $availCharClass = new AvailCharactersDAO();
+
+                    $getCharsClass = $availCharClass->getAvailCharacters($db, $ruleBook);
+
+                    // CHARACTER SELECTOR
+                    if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
+
+                        foreach($_POST['availChars'] as $check) {
+                            $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+
+                            // echo " Rulebook #: " . $ruleBook . '<br/>';
+                            // echo " Role Name #: " . $check . '<br/>';
+
+                        }
+                    }
 
                     if($createUserGame) {
 
@@ -147,57 +158,24 @@
                         exit();
 
                     } else {
-
                         //delete userGame and go back to create-a-game.php
                         $output_pageError = "user games error";
-
                     }
 
                 } else {
 
                     $output_pageError = "create game failed";
-
                 }
 
             } else {
-
                 //output
                 $output_gameName = "this game name already exists";
-
             }
-
-        }
-
-
-        // CHARACTER SELECTOR
-        if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
-            require_once './Models/DbConnect.php';
-            require_once './Models/AvailCharactersDAO.php';
-
-            $dbClass = new DbConnect();
-            $db = $dbClass->getDB();
-
-            $availCharClass = new AvailCharactersDAO();
-
-            foreach($_POST['availChars'] as $check) {
-                if (isset($_POST['availChars'])) {
-                    $check = 1;
-                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
-                } else {
-                    $check = 0;
-                    $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
-                }
-            }
-            // foreach($_POST['availChars'] as $check) {
-            //
-            //     $check = ($check) ? 1 : 0;
-            //
-            //
-            //
-            //         echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
-            // }
         }
     }
+
+// var_dump($getCharsClass);
+// var_dump($gameID);
 
 ?>
 
@@ -302,7 +280,7 @@
         </div><!--end of row-->
 
         <!--CHOOSE A CHARACTER-->
-        <div class="character-panel">
+        <div class="character-panel-gm">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="row all-avail-chars">
@@ -313,19 +291,6 @@
                 </div><!-- end of panel-body -->
             </div><!-- end of panel panel-default -->
         </div><!-- end of apocalypse world character panel -->
-
-        <!-- <div class="dungeon-world-character-panel">
-            <label>DUNGEON WORLD : Choose your characters</label>
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div class="row all-avail-chars">
-                            <div id="showDWChars">
-
-                            </div>
-                        </div> end of row
-                    </div> end of panel-body
-                </div> end of panel panel-default
-            </div> end of dungeon world character panel -->
 
         <!-- Leave a message! -->
         <div class="form-group">
@@ -342,6 +307,6 @@
     </form>
 </main>
 
-<script type="text/javascript" src="Script/select-chars.js"></script>
+<script type="text/javascript" src="Script/limit-chars.js"></script>
 
 <?php include "View/Footer.php"; ?>

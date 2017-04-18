@@ -21,6 +21,7 @@ require_once './Models/AvailCharactersDAO.php';
     $gameLanguage = $gameDetails['lang'];
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
+<<<<<<< HEAD
 
 
 
@@ -30,32 +31,20 @@ require_once './Models/AvailCharactersDAO.php';
 
     $dbClass = new DbConnect();
     $db = $dbClass->getDB();
+=======
+>>>>>>> e49a98da72f4a3dc7d299e942f1b6da706647cfe
 
+    //GET CURRENT GAMES AVAILABLE CHARACTERS
     $availCharClass = new AvailCharactersDAO();
-
-    // CHARACTER SELECTOR
-    if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
-
-
-        foreach($_POST['availChars'] as $check) {
-            $viewChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
-
-
-                echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
-        }
-    }
-
     $selectedChars = $availCharClass->getGameChars($db, $gameID);
-    // $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
 
-    if ($ruleBook == 2) {
-        $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
-    } else {
-        $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
-    }
 
+<<<<<<< HEAD
     //var_dump($gameID);
 //var_dump($selectedChars);
+=======
+var_dump($selectedChars);
+>>>>>>> e49a98da72f4a3dc7d299e942f1b6da706647cfe
 
 ?>
 
@@ -88,7 +77,7 @@ require_once './Models/AvailCharactersDAO.php';
         <div class="wrapper">
             <h1>Game Master's Portal</h1>
             <p>
-                Welcome to the Game Master's Portal <?echo $fname?>! Here you can edit the game you've created, add and
+                Welcome to the Game Master's Portal <?php echo $fname?>! Here you can edit the game you've created, add and
                 delete players as well as plan your strategy for your epic quest.
             </p>
         </div>
@@ -96,18 +85,14 @@ require_once './Models/AvailCharactersDAO.php';
 
 <main class="container-fluid wrapper">
 
-    <!--EDIT YOUR QUEST-->
-
     <div class="row">
 
         <!--LEFT SIDE FORM COLUMN-->
-
         <div class="col-md-4">
 
             <h2>Game Info</h2>
 
             <!--GAME NAME-->
-
                 <form action="" method="get">
                     <label for="edit-game-name">Edit Game Name:</label>
                     <div class="input-group col-md-12">
@@ -161,7 +146,6 @@ require_once './Models/AvailCharactersDAO.php';
                 </form>
 
             <!--MAPS-->
-
             <label for="mapPanel">Change/Upload Current Map:</label>
             <div class="panel panel-default mapPanel">
                 <div class="panel-body">
@@ -179,26 +163,22 @@ require_once './Models/AvailCharactersDAO.php';
             <div class="panel panel-default character-panel-gm">
                 <div class="panel-body">
                     <div class="row all-avail-chars">
-                        <div id="showChars">
-                            <?php foreach ($viewChars as $char): ?>
-                                <div class="col-sm-2 col-xs-3 character-thumb-container">
-                                    <label for="<?php echo $char->role_name ?>">
-                                        <input class="character-chk" type="checkbox" name="availChars[]" value="<?php echo $char->id ?>" <?php //echo ($char->permissions == 1) ? "checked" : "" ; ?> />
-                                        <img class="character-img" src="Images/<?php echo ($ruleBook == 1) ? "apocalypse" : "dungeon"; ?>-world-characters/<?php echo $char->picture; ?>" />
-                                        <p><?php echo $char->role_name ?></p>
-                                    </label>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
+                        <?php foreach ($selectedChars as $char): ?>
+                            <div class="col-sm-4 col-xs-6 character-thumb-container">
+                                <label for="<?php echo $char->role_name ?>">
+                                    <!-- <input class="character-chk" type="checkbox" name="availChars[]" value="<?php echo $char->role_id ?>" /> -->
+                                    <img class="character-img" src="Images/<?php echo ($ruleBook == 1) ? "apocalypse" : "dungeon"; ?>-world-characters/<?php echo $char->picture; ?>" />
+                                    <p><?php echo $char->role_name ?></p>
+                                </label>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
-                    <button class="btn btn-primary btn-block" type="button" name="btn_update_chars">Update Playable Characters</button>
                 </div>
             </div>
 
-        </div>
+        </div> <!-- end of left side column -->
 
-        <!--RIGHT SIDE FORM COLUMN-->
-
+        <!--RIGHT SIDE COLUMN-->
         <div class="col-md-8">
 
             <h2>Player Info</h2>
@@ -220,7 +200,7 @@ require_once './Models/AvailCharactersDAO.php';
 
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#1" class="tab-links" data-toggle="tab">Current Players</a></li>
-                                <li><a class="tab-links" href="#2" data-toggle="tab">Requests & Invites</a></li>
+                                <li><a class="tab-links" href="#2" data-toggle="tab">Requests &amp; Invites</a></li>
                             </ul>
                             <div class = tab-content>
                                 <div class="tab-pane active" id="1">
@@ -324,8 +304,6 @@ require_once './Models/AvailCharactersDAO.php';
 
 
 </main>
-    <script src="Script/GM.js"></script>
-
-    <script type="text/javascript" src="Script/select-chars.js"></script>
+    <script type="text/javascript" src="Script/GM.js"></script>
 
 <?php include "View/Footer.php"; ?>

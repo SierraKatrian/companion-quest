@@ -480,6 +480,7 @@
         margin-bottom:20px;
         width:100%;
         padding:15px 0;
+        margin-bottom: 0;
         background-color:#1d1d27;
         opacity: 0.85;
         filter: alpha(opacity=85);
@@ -660,30 +661,6 @@
             text-align:center;
         }
 
-
-    /* CREATE CHARACTER */
-    .barterList li, .gearList li {
-        margin-left: 30px;
-        /*list-style:circle;*/
-    }
-
-    p .pItalics {
-        font-style: italic;
-    }
-
-    p .pBold, li .pBold {
-        font-weight: bold;
-    }
-
-    .csTitle {
-        text-transform: uppercase;
-    }
-
-    .csTextArea textarea {
-        width: 100%;
-        height: auto;
-    }
-
 /* CREATE A GAME */
 
     .choose-img-thumb-container {
@@ -736,10 +713,20 @@
             display:none;
         }
 
+        .char-disabled {
+            opacity: 0.5;
+            outline:1px solid black;
+            cursor: not-allowed;
+        }
+
         .character-img {
             opacity: 0.95;
             outline:1px solid black;
             cursor:pointer;
+        }
+
+        .character-bio-container {
+            /*display: none;*/
         }
 
         .character-img:hover {
@@ -917,7 +904,6 @@
     /* CHARACTER SELECTION PANEL */
 
         .character-panel-gm {
-            height:484px;
         }
 
     /* NOTES AND NOTICES */
@@ -957,13 +943,45 @@
         }
 
         .character-panel-player {
-            height:539px;
         }
 
           .leave-game-btn {
               float:right;
               margin:0!important;
           }
+
+/* CHARACTER SHEET */
+
+/* CREATE CHARACTER */
+.barterList li, .gearList li {
+    margin-left: 30px;
+    /*list-style:circle;*/
+}
+
+p .pItalics {
+    font-style: italic;
+}
+
+p .pBold, li .pBold {
+    font-weight: bold;
+}
+
+.csTitle {
+    text-transform: uppercase;
+}
+
+.csTitle h2 {
+    text-align: center;
+}
+
+.csTextArea textarea {
+    max-width: 100%;
+    height: auto;
+}
+
+.char-sheet-panel {
+    padding: 10px;
+}
 
 
 /* MOBILE SIZE*/

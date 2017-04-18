@@ -1,81 +1,86 @@
 <?php
-require_once './Models/DbConnect.php';
-// require_once './Models/AvailCharactersDAO.php';
-require_once './Models/CharacterDAO.php';
 
-$dbClass = new DbConnect();
-$db = $dbClass->getDB();
+    $getCharSheet = $charClass->getCharSheet($db, $userID, $gameID);
 
-// $rbID = 1;
+    // $charDetails = $_SESSION['charDetails'];
+    // $charID = $charDetails['id'];
+    // $roleID = $charDetails['roles_id'];
 
-// $availCharClass = new AvailCharactersDAO();
-// $getAWChars = $availCharClass->getAvailCharacters($db, 1);
-// $getDWChars = $availCharClass->getAvailCharacters($db, 2);
-$userID = 18;
-$gameID = 3;
-$rbID = 1;
-$roleID = 3;
+    echo '<br/>Rulebook: ' . $ruleBook;
+    echo '<br/>Game ID: ' . $gameID;
+    echo '<br/>User ID: ' . $userID . '<br/>';
 
-$charClass = new CharacterDAO();
-
-    $getAWSheet = $charClass->getCharSheet($db, 18, 3);
-    $getAWMoves = $charClass->getRoleMoves($db, 3);
-    $getDWSheet = $charClass->getCharSheet($db, 17, 1);
-
-
-//
-// $getAW = $charClass->getRole($db, 1, 1);
-// $getDW = $charClass->getRole($db, 2, 16);
-
-
-$getUser = $charClass->getUser($db, $userID);
-$getGame = $charClass->getGame($db, $gameID);
-
-// var_dump($getDWSheet);
+    var_dump($getCharSheet);
 
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
-        <main class="container-fluid">
-
-            <!-- APOCALYPSE WORLD CHARACTER SHEET -->
-            <h2 class="csTitle">APOCALYPSE WORLD CHARACTER SHEET</h2>
-            <?php foreach ($getAWSheet as $char): ?>
-                <div class="row">
-                    <div class="col-xs-12">
-
-                        <h3 class="csTitle">The <?php echo $char->role_name ?></h3>
-                        <p><?php echo $char->bio; ?></p>
-                        <h3><label for="name">Name: </label><input type="text" name="name" value="<?php echo $char->name ?>"></h3>
-                        <h3 class="csTitle">Look</h3>
-                        <div class="gender">
-                            <label for="gender">Gender: </label><input type="text" name="gender" value="<?php echo $char->gender ?>">
-                        </div>
-                        <div class="clothes">
-                            <label for="clothes">Clothes: </label><input type="text" name="clothes" value="<?php echo $char->clothes ?>">
-                        </div>
-                        <div class="face">
-                            <label for="face">Face: </label><input type="text" name="face" value="<?php echo $char->face ?>">
-                        </div>
-                        <div class="eyes">
-                            <label for="eyes">Eyes: </label><input type="text" name="eyes" value="<?php echo $char->eyes ?>">
-                        </div>
-                        <div class="hair">
-                            <label for="hair">Hair: </label><input type="text" name="hair" value="<?php echo $char->hair ?>">
-                        </div>
+<!--CHARACTER LIST-->
+<h2>Choose Your Character</h2>
+<div class="panel panel-default character-panel-player">
+    <div class="panel-body">
+        <form id="selectPlayerChar" name="selectPlayerChar" action="" method="post">
+            <div class="row">
+                <!-- <div class="col-sm-6"> -->
+                    <div id="chooseChar">
 
                     </div>
-                </div>
+                <!-- </div>
+                <div class="col-sm-6">
+                    <div id="charBio">
 
+                    </div>
+                </div> -->
+            </div>
+            <button id="btn_select_char" class="btn btn-primary" type="button" name="btn_select_char">Select Character</button>
+        </form>
+    </div>
+</div>
+
+<div class="panel panel-default character-panel-player">
+    <div class="panel-body">
+        <?php if ($ruleBook == 1) : ?>
+            <!-- APOCALYPSE WORLD CHARACTER SHEET -->
+            <h2 class="csTitle">APOCALYPSE WORLD CHARACTER SHEET</h2>
+            <form class="" name="btn_submit_char" action="Models/Submit-Player-Char.php" method="post">
+            <?php foreach ($getCharSheet as $char): ?>
                 <div class="row">
-                    <div class="col-xs-6">
+                    <div class="col-xs-12">
+                        <div class="panel panel-default char-sheet-panel">
+                            <div class="row">
 
+                                <div class="col-sm-6">
+                                    <h3><label for="name">Name: </label><input type="text" name="name" value="<?php echo $char->name ?>"></h3>
+                                    <input type="hiddent" name="role_id" value="<?php echo $char->role_id ?>">
+                                    <h3 class="csTitle">Look</h3>
+                                    <div class="gender">
+                                        <label for="gender">Gender: </label><input type="text" name="gender" value="<?php echo $char->gender ?>">
+                                    </div>
+                                    <div class="clothes">
+                                        <label for="clothes">Clothes: </label><input type="text" name="clothes" value="<?php echo $char->clothes ?>">
+                                    </div>
+                                    <div class="face">
+                                        <label for="face">Face: </label><input type="text" name="face" value="<?php echo $char->face ?>">
+                                    </div>
+                                    <div class="eyes">
+                                        <label for="eyes">Eyes: </label><input type="text" name="eyes" value="<?php echo $char->eyes ?>">
+                                    </div>
+                                    <div class="hair">
+                                        <label for="hair">Hair: </label><input type="text" name="hair" value="<?php echo $char->hair ?>">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                        <h3 class="csTitle">The <?php echo $char->role_name ?></h3>
+                                        <p><?php echo $char->bio; ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="panel panel-default char-sheet-panel">
                         <h3 class="csTitle">Stats</h3>
                         <div class="cool">
                             <label for="stat1">COOL</label>
@@ -97,7 +102,9 @@ $getGame = $charClass->getGame($db, $gameID);
                             <label for="stat5">WEIRD</label>
                             <input type="text" name="stat5" value="<?php echo $char->stat5; ?>">
                         </div>
+                    </div>
 
+                    <div class="panel panel-default char-sheet-panel">
                         <h3 class="csTitle">Harm</h3>
                         <div class="">
                             <input type="radio" name="harm" value="1" <?php echo ($char->total_harm == 1) ? "checked" : "" ; ?>>
@@ -144,37 +151,46 @@ $getGame = $charClass->getGame($db, $gameID);
                             <label for="plusWeird">Come back with +1weird (max+3)</label>
                         </div>
 
-                        <div class="">
-                            <input type="radio" name="newPlaybook" value="newPlaybook" <?php echo ($char->new_role == 1) ? "checked" : "" ; ?>>
+                        <!-- <div class="">
+                            <input type="radio" name="newPlaybook" value="newPlaybook" <?php //echo ($char->new_role == 1) ? "checked" : "" ; ?>>
                             <label for="newPlaybook">Change to a new playbook</label>
-                        </div>
+                        </div> -->
 
                         <div class="">
                             <input type="radio" name="die" value="die" <?php echo ($char->die == 1) ? "checked" : "" ; ?>>
                             <label for="die">Die</label>
                         </div>
+                    </div>
 
+                    <div class="panel panel-default char-sheet-panel">
                         <div class="gear">
                             <h3 class="csTitle">Gear</h3>
                             <textarea class="csTextArea" name="gear" rows="8" cols="80"><?php echo $char->added_gear; ?></textarea>
                         </div>
-
-                        <h3 class="csTitle"><?php echo $char->role_name; ?> Moves</h3>
-                        <?php foreach ($getAWMoves as $moves): ?>
-                            <p style="font-weight:bold;"><?php echo $moves->move_name ?></p>
-                            <p><?php echo $moves->move_desc ?></p>
-                        <?php endforeach; ?>
-
-                        <h3 class="csTitle">Selected Moves</h3>
-                        <textarea class="csTextArea" name="other-moves" rows="8" cols="80"><?php echo $char->selected_moves; ?></textarea>
-
-                        <h3>BARTER</h3>
-                        <div><?php echo $char->barter; ?></div>
-
                     </div>
 
+                    <div class="panel panel-default char-sheet-panel">
+                        <h3 class="csTitle"><?php echo $char->role_name; ?> Moves</h3>
+                        <?php foreach ($getAWMoves as $moves): ?>
+                            <p><?php echo $moves->move_name ?></p>
+                            <p><?php echo $moves->move_desc ?></p>
+                        <?php endforeach; ?>
+                    </div>
 
-                    <div class="col-xs-6">
+                    <div class="panel panel-default char-sheet-panel">
+                        <h3 class="csTitle">Selected Moves</h3>
+                        <textarea class="csTextArea" name="other-moves" rows="8" cols="80"><?php echo $char->selected_moves; ?></textarea>
+                    </div>
+
+                    <div class="panel panel-default char-sheet-panel">
+                        <h3>BARTER</h3>
+                        <div><?php echo $char->barter; ?></div>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="panel panel-default char-sheet-panel">
                         <h3 class="csTitle">Creating a <?php echo $char->role_name ?></h3>
                         <h5 class="csTitle">Moves</h5>
                         <p><?php echo $char->moves ?></p>
@@ -184,17 +200,18 @@ $getGame = $charClass->getGame($db, $gameID);
 
                         <h5 class="csTitle">Gear</h5>
                         <p><?php echo $char->gear ?></p>
+                    </div>
                 </div>
             <?php endforeach; ?>
-
+            </form>
         </div>
 
+        <?php else : ?>
 
             <!-- DUNGEON WORLD CHARACTER SHEET -->
-
-            <p style="font-weight:bold;font-size:24px;text-align:center;">DUNGEON WORLD CHARACTER SHEET</p>
-            <?php foreach ($getDWSheet as $char): ?>
-                <p style="font-weight:bold;font-size:24px;"><?php echo $char->name . ' the ' . $char->role_name; ?></p>
+            <h2 class="csTitle">DUNGEON WORLD CHARACTER SHEET</h2>
+            <?php foreach ($getCharSheet as $char): ?>
+                <p><?php echo $char->name . ' the ' . $char->role_name; ?></p>
 
                 <label for="eyes">Eyes:</label>
                 <input type="text" name="eyes" value="<?php echo $char->eyes; ?>">
@@ -230,6 +247,6 @@ $getGame = $charClass->getGame($db, $gameID);
 
             <?php endforeach; ?>
 
-        </main>
-    </body>
-</html>
+        <?php endif; ?>
+    </div>
+</div>
