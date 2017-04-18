@@ -20,6 +20,12 @@
     $gameLanguage = $gameDetails['lang'];
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
+	
+	//Game ID session coming from current-games 
+   if(isset($_POST['games_portal'])){
+   $_SESSION['id'] = $_POST['games_portal'];
+   $gameId = $_SESSION['id'];
+   }
 ?>
 
 <body>

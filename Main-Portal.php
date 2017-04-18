@@ -9,9 +9,7 @@
     $username = $userDetails['user_name'];
     $email = $userDetails['email'];
     $password = $userDetails['password'];
-
-
-
+    $userId = $userDetails['id'];   
 ?>
 
 <body>
@@ -44,9 +42,9 @@
     <div class="row green">
 
         <div class="col-md-12 red">
-            <h1>Main Portal</h1>
+            <h1>Game Room</h1>
             <p>
-                Welcome to the Main Portal <?php echo $fname ?>! Here you can create or join a game. You can
+                Welcome to the Game Room <?echo $fname?>! Here you can create or join a game. You can
                 request to join current games, view pending requests or invites and
                 search for available games. Enjoy your quest!
             </p>
@@ -80,8 +78,9 @@
 
 
     <!--CURRENT GAMES-->
+
         <div class="list-group-item active">
-            <h3>Your Current Games</h3>
+            <h3>View Current Games</h3>
         </div>
 
         <div class="list-group">
@@ -97,46 +96,7 @@
                         <th>Theme</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <a href="#" data-toggle="tooltip" data-placement="right" title="access granted">
-                                <img class="access-colours" src="./Images/status-colours/access-granted.svg" alt="access granted" />
-                            </a>
-                        </td>
-                        <td>tonys_bronys</td>
-                        <td>tony1000</td>
-                        <td>EN</td>
-                        <td>6</td>
-                        <td>Apocalypse World</td>
-
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="#" data-toggle="tooltip" data-placement="right" data-placement="right" title="access granted">
-                                <img class="access-colours" src="./Images/status-colours/access-granted.svg" alt="access granted" />
-                            </a>
-                        </td>
-                        <td>ultimate_quest321</td>
-                        <td>jonny_quest</td>
-                        <td>FR</td>
-                        <td>7</td>
-                        <td>Apocalypse World</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="#" data-toggle="tooltip" data-placement="right" title="access granted">
-                                <img class="access-colours" src="./Images/status-colours/access-granted.svg" alt="access granted" />
-                            </a>
-                        </td>
-                        <td>dungeon_pals412</td>
-                        <td>grand_master_flash</td>
-                        <td>DE</td>
-                        <td>10</td>
-                        <td>Dungeon World</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <?php include 'view/current-games.php' ?>
             </div><!--end of list-group-item-->
         </div><!--end of list-group-->
 
@@ -247,7 +207,7 @@
     </form>
 
     <div class="list-group-item active">
-        <h3>Games</h3>
+        <h3>Current Games</h3>
     </div>
 
     <div class="list-group">
@@ -274,3 +234,4 @@
 <script src="Script/joinReq.js"></script>
 <script src="Script/getRoom-ajax.js"></script>
 <?php include "View/Footer.php"; ?>
+
