@@ -5,7 +5,7 @@ class GameRoom {
 	private $roomName;
 	private $roomLang;
 	private $condition = [];
-	private $query;
+	public $query;
 
 	public function getRoomId($db) {
 		if(!empty($this->condition[0])){
@@ -24,6 +24,10 @@ class GameRoom {
 		$pdostmt->execute();
 		$data = $pdostmt->fetchAll(PDO::FETCH_OBJ);
 		return $data;
+	}
+
+	public function reset() {
+		$this->condition = [];
 	}
 
 	public function setCondition($columnName, $value) {

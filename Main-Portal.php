@@ -226,10 +226,10 @@
             </div>
             <div class="col-md-3 find-a-quest-form-elements">
                 <label for="gamelanguage">Language:</label>
-                <select name="gamelanguage">
-                    <option value="chooseLanguage">-- Choose A Language --</option>
-                    <option value="english">English</option>
-                    <option value="french">French</option>
+                <select name="gamelanguage" id="gamelanguage">
+                    <option value="">-- Choose A Language --</option>
+                    <option value="English">English</option>
+                    <option value="French">French</option>
                     <option value="spanish">Spanish</option>
                     <option value="french">Mandarin</option>
                     <option value="french">Arabic</option>
