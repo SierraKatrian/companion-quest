@@ -480,6 +480,7 @@
         margin-bottom:20px;
         width:100%;
         padding:15px 0;
+        margin-bottom: 0;
         background-color:#1d1d27;
         opacity: 0.85;
         filter: alpha(opacity=85);

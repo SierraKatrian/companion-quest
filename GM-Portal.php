@@ -22,36 +22,10 @@ require_once './Models/AvailCharactersDAO.php';
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
 
-
-
-
-    // require_once './Models/DbConnect.php';
-
-    $dbClass = new DbConnect();
-    $db = $dbClass->getDB();
-
+    //GET CURRENT GAMES AVAILABLE CHARACTERS
     $availCharClass = new AvailCharactersDAO();
-
-    // CHARACTER SELECTOR
-    if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
-
-
-        foreach($_POST['availChars'] as $check) {
-            $viewChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
-
-
-                echo " ---- Rulebook #: " . $ruleBook . " | Name: " . $check;
-        }
-    }
-
     $selectedChars = $availCharClass->getGameChars($db, $gameID);
-    // $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
 
-    if ($ruleBook == 2) {
-        $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
-    } else {
-        $viewChars = $availCharClass->getAvailCharacters($db, $ruleBook);
-    }
 
 var_dump($selectedChars);
 
@@ -86,7 +60,7 @@ var_dump($selectedChars);
         <div class="wrapper">
             <h1>Game Master's Portal</h1>
             <p>
-                Welcome to the Game Master's Portal <?echo $fname?>! Here you can edit the game you've created, add and
+                Welcome to the Game Master's Portal <?php echo $fname?>! Here you can edit the game you've created, add and
                 delete players as well as plan your strategy for your epic quest.
             </p>
         </div>
@@ -94,18 +68,14 @@ var_dump($selectedChars);
 
 <main class="container-fluid wrapper">
 
-    <!--EDIT YOUR QUEST-->
-
     <div class="row">
 
         <!--LEFT SIDE FORM COLUMN-->
-
         <div class="col-md-4">
 
             <h2>Game Info</h2>
 
             <!--GAME NAME-->
-
                 <form action="" method="get">
                     <label for="edit-game-name">Edit Game Name:</label>
                     <div class="input-group col-md-12">
@@ -171,36 +141,27 @@ var_dump($selectedChars);
                 </div>
             </div>
 
-            <!-- <?php foreach ($viewChars as $char): ?>
-                <div class="col-sm-2 col-xs-3 character-thumb-container">
-                    <label for="<?php echo $char->role_name ?>">
-                        <input class="character-chk" type="checkbox" name="availChars[]" value="<?php echo $char->id ?>" />
-                        <img class="character-img" src="Images/<?php echo ($ruleBook == 1) ? "apocalypse" : "dungeon"; ?>-world-characters/<?php echo $char->picture; ?>" />
-                        <p><?php echo $char->role_name ?></p>
-                    </label>
-                </div>
-            <?php endforeach; ?> -->
-
             <!--CHARACTER LIST-->
             <h2>Selected Characters</h2>
             <div class="panel panel-default character-panel-gm">
                 <div class="panel-body">
                     <div class="row all-avail-chars">
-                        <form class="" action="index.html" method="post">
-                            <?php //foreach ($selectedChars as $value): ?>
-                                <div id="showChars">
-                                </div>
-                            <?php //endforeach; ?>
-                        </form>
+                        <?php foreach ($selectedChars as $char): ?>
+                            <div class="col-sm-4 col-xs-6 character-thumb-container">
+                                <label for="<?php echo $char->role_name ?>">
+                                    <!-- <input class="character-chk" type="checkbox" name="availChars[]" value="<?php echo $char->role_id ?>" /> -->
+                                    <img class="character-img" src="Images/<?php echo ($ruleBook == 1) ? "apocalypse" : "dungeon"; ?>-world-characters/<?php echo $char->picture; ?>" />
+                                    <p><?php echo $char->role_name ?></p>
+                                </label>
+                            </div>
+                        <?php endforeach; ?>
                     </div>
-                    <button class="btn btn-primary btn-block" type="button" name="btn_update_chars">Update Playable Characters</button>
                 </div>
             </div>
 
-        </div>
+        </div> <!-- end of left side column -->
 
-        <!--RIGHT SIDE FORM COLUMN-->
-
+        <!--RIGHT SIDE COLUMN-->
         <div class="col-md-8">
 
             <h2>Player Info</h2>
@@ -222,7 +183,7 @@ var_dump($selectedChars);
 
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#1" class="tab-links" data-toggle="tab">Current Players</a></li>
-                                <li><a class="tab-links" href="#2" data-toggle="tab">Requests & Invites</a></li>
+                                <li><a class="tab-links" href="#2" data-toggle="tab">Requests &amp; Invites</a></li>
                             </ul>
                             <div class = tab-content>
                                 <div class="tab-pane active" id="1">
@@ -326,8 +287,6 @@ var_dump($selectedChars);
 
 
 </main>
-    <script type="text/javascript" src="Script/update-selected-chars.js"></script>
     <script type="text/javascript" src="Script/GM.js"></script>
-    <script type="text/javascript" src="Script/select-chars.js"></script>
 
 <?php include "View/Footer.php"; ?>

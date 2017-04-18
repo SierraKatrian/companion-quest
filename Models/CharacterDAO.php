@@ -2,6 +2,18 @@
 
 class CharacterDAO {
 
+    public function getAllChars($db, $userID, $gameID) {
+        $query = 'SELECT * FROM characetrs';
+        $statement = $db->prepare($query);
+        // $statement->bindValue(':rulebookID', $rbID, PDO::PARAM_INT);
+        // $statement->bindValue(':ID', $roleID, PDO::PARAM_INT);
+        $statement->execute();
+        $viewCharacter = $statement->fetchAll(PDO::FETCH_OBJ);
+        $statement->closeCursor();
+
+        return $viewCharacter;
+    }
+
     public function getCharSheet($db, $userID, $gameID){
         $query = 'SELECT characters.role_id, characters.name, characters.eyes, characters.hair, characters.gender, characters.clothes, characters.face, characters.added_gear, characters.selected_moves, characters.alignment, roles.bio, roles.role_name, roles.stats, roles.gear, roles.barter,
         roles.moves, stats.stat1, stats.stat2, stats.stat3, stats.stat4, stats.stat5, harm.total_harm, harm.stabilized, harm.minus_hard,
@@ -71,8 +83,6 @@ class CharacterDAO {
 
         return $charDetails;
     }
-
-
 
     public function getRoleMoves($db, $roleID){
         $query = 'SELECT * FROM moves WHERE role_id = :roleID';
@@ -156,8 +166,6 @@ class CharacterDAO {
         //     $stmt5->bindValue(':harmID', $harmID, PDO::PARAM_INT);
         // }
 
-
-
         return true;
     }
 
@@ -227,6 +235,61 @@ class CharacterDAO {
         $statement->bindValue(':added_gear', $addedGear, PDO::PARAM_LOB);
         $statement->bindValue(':selected_moves', $selectedMoves, PDO::PARAM_LOB);
         $statement->bindValue(':alignment', $alignment, PDO::PARAM_STR);
+        $statement->execute();
+        $statement->closeCursor();
+
+        return true;
+    }
+
+    public function getAvailCharacters($db, $rbID) {
+        $query = 'SELECT * FROM roles WHERE rulebook_id = :rulebookID';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':rulebookID', $rbID, PDO::PARAM_INT);
+        $statement->execute();
+        $viewAvailChars = $statement->fetchAll(PDO::FETCH_OBJ);
+        $statement->closeCursor();
+
+        return $viewAvailChars;
+    }
+
+    public function setAvailCharacters($db, $roleID, $gameID, $perms = 1, $selected = 0) {
+        $query = 'INSERT INTO roles_perms
+                  (role_id, game_id, permissions, selected)
+                  VALUES (:roleID, :gameID, :perms, :selected)';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':roleID', $roleID, PDO::PARAM_INT);
+        $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
+        $statement->bindValue(':perms', $perms, PDO::PARAM_INT);
+        $statement->bindValue(':selected', $selected, PDO::PARAM_INT);
+        $statement->execute();
+        $statement->closeCursor();
+
+        return true;
+    }
+
+    public function getGameChars($db, $gameID) {
+        $query = 'SELECT roles.role_name, roles.picture, roles.bio, roles_perms.role_id, roles_perms.permissions, roles_perms.selected, games.game_name, games.rb_id, rulebooks.name
+                  FROM roles
+                  JOIN roles_perms ON roles_perms.role_id = roles.id
+                  JOIN games ON roles_perms.game_id = games.id
+                  JOIN rulebooks ON rulebooks.id = games.rb_id
+                  WHERE game_id = :gameID';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
+        $statement->execute();
+        $getChars = $statement->fetchAll(PDO::FETCH_OBJ);
+        $statement->closeCursor();
+
+        return $getChars;
+    }
+
+    public function disableSelectedChar($db, $roleID, $gameID) {
+        $query = 'UPDATE roles_perms
+                  SET selected = 1
+                  WHERE role_id = :roleID AND game_id = :gameID';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':roleID', $roleID, PDO::PARAM_INT);
+        $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
         $statement->execute();
         $statement->closeCursor();
 

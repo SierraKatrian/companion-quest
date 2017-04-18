@@ -1,7 +1,6 @@
 <?php
 
-    include "View/Header.php";
-    require_once 'Models/AvailCharactersDAO.php';
+    require_once "View/Header.php";
     require_once 'Models/CharacterDAO.php';
     $charClass = new CharacterDAO();
 
@@ -24,14 +23,6 @@
     $gameLanguage = $gameDetails['lang'];
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
-
-    //Character details
-    // $charDetails = $charClass->getCharacter($db, $userID, $gameID);
-    //
-    // $charDetails = $_SESSION['charDetails'];
-    // $charID = $charDetails['id'];
-    // $roleID = $charDetails['roles_id'];
-
 
 ?>
 
@@ -212,8 +203,9 @@
 
         <!--RIGHT SIDE FORM COLUMN-->
         <div class="col-md-8">
-            <?php include "View/player-portal-STATS.php" ?>
+            <?php include "View/Character-Sheet.php" ?>
         </div>
+
     </div><!--end of row-->
 
     <div class="gap-10px"></div>

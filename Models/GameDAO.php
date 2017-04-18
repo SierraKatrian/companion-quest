@@ -13,7 +13,6 @@ class GameDAO
 
     public function CREATE_Game($ruleBook, $gameName, $gameLanguage, $gamePlayerTotal)
     {
-
         $sql = "INSERT INTO games (rb_id, game_name, lang, max_players, game_status) VALUES (:rb_id, :game_name, :lang, :max_players, :game_status)";
         $stm = $this->db->prepare($sql);
         $stm->bindValue(':rb_id', $ruleBook, PDO::PARAM_STR); //apocalypseworld = 1, dungeonworld = 2

@@ -135,6 +135,22 @@
                     //write user games details
                     $createUserGame = $GameDAO->CREATE_UserGame($userID, $gameID, $notice);
 
+                    $availCharClass = new AvailCharactersDAO();
+
+                    $getCharsClass = $availCharClass->getAvailCharacters($db, $ruleBook);
+
+                    // CHARACTER SELECTOR
+                    if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
+
+                        foreach($_POST['availChars'] as $check) {
+                            $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
+
+                            // echo " Rulebook #: " . $ruleBook . '<br/>';
+                            // echo " Role Name #: " . $check . '<br/>';
+
+                        }
+                    }
+
                     if($createUserGame) {
 
                         $goToGmPortal = "<script type='text/javascript'>location.replace('GM-Portal.php'); </script>";
@@ -142,41 +158,20 @@
                         exit();
 
                     } else {
-
                         //delete userGame and go back to create-a-game.php
                         $output_pageError = "user games error";
-
                     }
 
                 } else {
 
                     $output_pageError = "create game failed";
-
                 }
 
             } else {
-
                 //output
                 $output_gameName = "this game name already exists";
-
             }
         }
-
-        $dbClass = new DbConnect();
-        $db = $dbClass->getDB();
-
-        $availCharClass = new AvailCharactersDAO();
-        $getCharsClass = $availCharClass->getAvailCharacters($db, $ruleBook);
-
-        // CHARACTER SELECTOR
-        if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
-
-            foreach($_POST['availChars'] as $check) {
-                $setAvailChars = $availCharClass->setAvailCharacters($db, $check, $gameID);
-                echo " Rulebook #: " . $ruleBook;
-            }
-        }
-
     }
 
 // var_dump($getCharsClass);
@@ -312,6 +307,6 @@
     </form>
 </main>
 
-<script type="text/javascript" src="Script/select-chars.js"></script>
+<script type="text/javascript" src="Script/limit-chars.js"></script>
 
 <?php include "View/Footer.php"; ?>
