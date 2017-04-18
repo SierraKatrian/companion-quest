@@ -1,7 +1,7 @@
 <?php
 
 require_once "View/Header.php";
-require_once './Models/AvailCharactersDAO.php';
+require_once 'Models/CharacterDAO.php';
 
     //user details
     $userDetails = $_SESSION['user'];
@@ -21,7 +21,6 @@ require_once './Models/AvailCharactersDAO.php';
     $gameLanguage = $gameDetails['lang'];
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
-<<<<<<< HEAD
 
 
 
@@ -31,20 +30,10 @@ require_once './Models/AvailCharactersDAO.php';
 
     $dbClass = new DbConnect();
     $db = $dbClass->getDB();
-=======
->>>>>>> e49a98da72f4a3dc7d299e942f1b6da706647cfe
 
     //GET CURRENT GAMES AVAILABLE CHARACTERS
-    $availCharClass = new AvailCharactersDAO();
-    $selectedChars = $availCharClass->getGameChars($db, $gameID);
-
-
-<<<<<<< HEAD
-    //var_dump($gameID);
-//var_dump($selectedChars);
-=======
-var_dump($selectedChars);
->>>>>>> e49a98da72f4a3dc7d299e942f1b6da706647cfe
+    $charClass = new CharacterDAO();
+    $selectedChars = $charClass->getGameChars($db, $gameID);
 
 ?>
 
@@ -183,8 +172,6 @@ var_dump($selectedChars);
 
             <h2>Player Info</h2>
 
-            <ul class="nav nav-tabs">
-                <li>
             <div class="list-group-item active col-md-12">
                 <h3>Players &nbsp;
                     <a href="#" data-toggle="tooltip" title="Click To Lock Game">

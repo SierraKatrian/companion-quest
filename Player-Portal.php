@@ -1,53 +1,25 @@
 <?php
-
     require_once "View/Header.php";
-    require_once 'Models/DbConnect.php';
     require_once 'Models/CharacterDAO.php';
-
-    $dbClass = new DbConnect();
-    $db = $dbClass->getDB();
-
     $charClass = new CharacterDAO();
 
     //User details
     $userDetails = $_SESSION['user'];
-
     $userID = $userDetails['id'];
     $fname = $userDetails['f_name'];
     $lname = $userDetails['l_name'];
     $username = $userDetails['user_name'];
     $email = $userDetails['email'];
     $password = $userDetails['password'];
-
+    
     //Game details
     $gameDetails = $_SESSION['gameDetails'];
-
     $ruleBook = $gameDetails['rb_id'];
     $gameID = $gameDetails['id'];
     $gameName = $gameDetails['game_name'];
     $gameLanguage = $gameDetails['lang'];
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
-
-    $characters = $charClass->getCharacter($db, $userID, $gameID);
-
-    // $characterDetails = $_SESSION['characters'];
-    //
-    // $roleID = $characterDetails['role_id'];
-
-    // $charDetails = $_SESSION['charDetails'];
-    // $charID = $charDetails['id'];
-    // $roleID = $charDetails['roles_id'];
-
-    echo '<br/>Rulebook: ' . $ruleBook;
-    echo '<br/>Game ID: ' . $gameID;
-    echo '<br/>User ID: ' . $userID . '<br/>';
-    // echo '<br/>Role ID: ' . $roleID . '<br/>';
-
-    // var_dump($roleID);
-
-    var_dump($characters);
-
 ?>
 
 <body>
@@ -230,28 +202,7 @@
             <?php include "View/Character-Sheet.php" ?>
         </div>
 
-<<<<<<< HEAD
-  <!--TABS-->
-
-      <ul class="nav nav-tabs">
-          <li class="active"><a href="#1" class="tab-links" data-toggle="tab">STATS</a></li>
-          <li><a class="tab-links" href="#2" data-toggle="tab">INFO</a></li>
-      </ul>
-
-
-  <!--TAB CONTENT-->
-
-      <div class="tab-content">
-          <div class="tab-pane active" id="1">
-              <?php include "View/player-portal-STATS.php" ?>
-          </div>
-          <div class="tab-pane" id="2">
-              <?php include "View/player-portal-INFO.php" ?>
-          </div>
-      </div>
-=======
     </div><!--end of row-->
->>>>>>> e49a98da72f4a3dc7d299e942f1b6da706647cfe
 
     <div class="gap-10px"></div>
     <div class="gap-10px"></div>
