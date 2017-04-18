@@ -140,14 +140,12 @@
                     $getCharsClass = $charClass->getAvailCharacters($db, $ruleBook);
 
                     // CHARACTER SELECTOR
+                    //Checks to see if array of checked characters exists
                     if(array_key_exists('availChars', $_POST) && !empty($_POST['availChars'])) {
 
+                        //Runs through array of checked characters and inserts them into DB
                         foreach($_POST['availChars'] as $check) {
                             $setAvailChars = $charClass->setAvailCharacters($db, $check, $gameID);
-
-                            // echo " Rulebook #: " . $ruleBook . '<br/>';
-                            // echo " Role Name #: " . $check . '<br/>';
-
                         }
                     }
 
@@ -173,10 +171,6 @@
             }
         }
     }
-
-// var_dump($getCharsClass);
-// var_dump($gameID);
-
 ?>
 
 <body>
