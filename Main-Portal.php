@@ -199,5 +199,6 @@
 </main>
 <script src="Script/joinReq.js"></script>
 <script src="Script/getRoom-ajax.js"></script>
+<script src="Script/acceptMain.js"></script>
 <?php include "View/Footer.php"; ?>
 

@@ -20,8 +20,8 @@ class playerPermissions
     }
     //need to determine notes Id?
     public function insertPending ($db, $user_id, $games_id ) {
-        $query = "INSERT INTO user_games (user_id, games_id, permission, player_status, notes_id, notices) 
-                  VALUES (:user_id, :games_id, 1,3, 1, 'New Player Added')";
+        $query = "INSERT INTO user_games (user_id, games_id, permission, player_status, notes, notices) 
+                  VALUES (:user_id, :games_id, 1,3, 'Welcome the Game!', 'New Player Added')";
         $statement = $db->prepare($query);
         $statement->bindValue(':user_id', $user_id);
         $statement->bindValue(':games_id', $games_id);

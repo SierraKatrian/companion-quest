@@ -17,3 +17,5 @@ $userId = $_SESSION['user']['id'];
 $a = new playerPermissions();
 $a->acceptRequest($connection,$userId, $gameId);
 
+
+

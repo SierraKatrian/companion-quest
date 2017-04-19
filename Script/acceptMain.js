@@ -16,9 +16,9 @@ $(document).ready(function () {
             var gameID = $(this).attr('id');
 
 
-            $.post('Models/acceptMain.php', {game_id: gameID}, function () {
+            $.post('Models/acceptMain.php', {game_id: gameID}, function (data) {
 
-
+            console.log(data);
 
             });
 
@@ -37,7 +37,6 @@ $(document).ready(function () {
 
             $.post('Models/declineMain.php', {game_id: gameID}, function (data) {
 
-                console.log(data);
 
             });
 
@@ -46,13 +45,6 @@ $(document).ready(function () {
         }
 
     });
-
-    function refreshInvites () {
-
-        $.get('Models/playerRequests', function (data){
-                console.log(data);
-        })
-    }
 
 
     });

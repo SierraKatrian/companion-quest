@@ -4,8 +4,7 @@
 
 $(document).ready(function (){
 
-
-    $('#games').on('click', '.request', function(){
+    $('#search-output').on('click', '.request', function(){
 
 
         var game_name = $(this).attr('id');
