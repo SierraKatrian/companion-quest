@@ -156,14 +156,14 @@
                     <option value="">-- Choose A Language --</option>
                     <option value="English">English</option>
                     <option value="French">French</option>
-                    <option value="spanish">Spanish</option>
-                    <option value="french">Mandarin</option>
-                    <option value="french">Arabic</option>
-                    <option value="french">Portuguese</option>
-                    <option value="french">Hindi</option>
-                    <option value="french">Russian</option>
-                    <option value="french">Japanese</option>
-                    <option value="french">Korean</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Mandarin">Mandarin</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="Portuguese">Portuguese</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Russian">Russian</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Korean">Korean</option>
                 </select>
             </div>
             <div class="col-md-1 find-a-quest-form-elements">
