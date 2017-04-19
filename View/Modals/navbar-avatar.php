@@ -30,6 +30,7 @@
                                         <label for="avatarForm__upload">Choose a file:</label>
                                         <span class="avatarForm__upload_uploadError" value=""></span>
                                         <input type="file" class="avatarForm__upload form-control" name="avatarForm__upload" id="avatarForm__upload" />
+                                        <div id="confirmation"></div>
                                     </div>
                                     
                                     <div class="form-group">
