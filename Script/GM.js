@@ -6,14 +6,10 @@ $(document).ready(function(){
 
 
 
-    var game_name = "pooppoop";
-    var games_id = "";
-
-
     //populate the active players tab
 
-    $.post('Models/GM-Players.php', {gameName : game_name}, function (data) {
-        console.log(data);
+    $.get('Models/GM-Players.php', function (data) {
+
 
         var players = "";
 
@@ -43,7 +39,7 @@ $(document).ready(function(){
 
     //populate the requests tab
 
-    $.post('Models/GM-Pending.php', {gameName : game_name}, function (data){
+    $.get('Models/GM-Pending.php',  function (data){
 
 
 

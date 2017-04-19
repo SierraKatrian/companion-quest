@@ -69,7 +69,7 @@ class playerPermissions
     public function listPendingPlayers ($db, $game_id) {
         $query = "SELECT user_games.*, users.user_name FROM user_games
                   JOIN users ON user_games.user_id = users.id
-                  WHERE user_games.games_id = :game_id AND user_games.player_status = 3 OR user_games.player_status = 4";
+                  WHERE user_games.games_id = :game_id AND (user_games.player_status = 3 OR user_games.player_status = 4)";
         $statement = $db->prepare($query);
         $statement->bindValue(':game_id', $game_id);
         $statement->execute();

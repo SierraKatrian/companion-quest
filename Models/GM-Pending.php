@@ -6,16 +6,19 @@
  * Time: 8:02 PM
  */
 
+session_start();
+
 require_once 'DbConnect.php';
 require_once 'playerPermissions.php';
 
 $connection = DbConnect::getDB();
-$gameName = $_POST['gameName'];
+
+$gameId = $_SESSION['gameDetails']['id'];
 
 $p = new playerPermissions();
-$gameID = $p->getGameName($connection, $gameName);
 
-$list= $p->listPendingPlayers($connection, $gameID[0]);
+
+$list= $p->listPendingPlayers($connection, $gameId);
 
 $jList = json_encode($list);
 header("Content-Type: application/json");
