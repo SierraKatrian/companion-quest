@@ -14,7 +14,6 @@
     $password = $userDetails['password'];
 
     //Game details
-    /*
     $gameDetails = $_SESSION['gameDetails'];
 
     $gameID = $gameDetails['id'];
@@ -24,23 +23,14 @@
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
 
+    $characterDetails = $_SESSION['characterDetails'];
+    // $characterID = $characterDetails['id'];
 
-    // if (isset($_POST['selectPlayerChar'])) {
-    //     echo "it works";
-    // }
+    // $charDetails = $_SESSION['charDetails'];
 
-    // $charDetails = $charClass->getCharacter($db, $userID, $gameID);
-    //
-    // // $charDetails = $_SESSION['character'];
-    //
-    // // $charID = $charDetails['id'];
-    //
-    // var_dump($charDetails);
-    // echo $charDetails->id;
-    // // echo "character ID: " . $charID;
-    // var_dump($userID);
+    // $charID = $charDetails['id'];s
 
-    */
+    // echo 'Character ID: ' . $charID;
 
 	//Game ID session coming from current-games
    if(isset($_POST['games_portal'])){

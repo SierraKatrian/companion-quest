@@ -11,7 +11,7 @@ class CharacterDAO {
         $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
         $statement->execute();
         $character = $statement->fetchAll(PDO::FETCH_OBJ);
-        $statement->closeCursor();
+        // $statement->closeCursor();
 
         return $character;
     }
@@ -152,7 +152,7 @@ class CharacterDAO {
         $query = 'UPDATE characters
                    SET stat1 = :stat1, stat2 = :stat2, stat3 = :stat3, stat4 = :stat4, stat5 = :stat5
                    WHERE char_id = :charID';
-        $statement = $db->prepare($query3);
+        $statement = $db->prepare($query);
         $statement->bindValue(':stat1', $stat1, PDO::PARAM_INT);
         $statement->bindValue(':stat2', $stat2, PDO::PARAM_INT);
         $statement->bindValue(':stat3', $stat3, PDO::PARAM_INT);
@@ -184,7 +184,9 @@ class CharacterDAO {
     }
 
 
-    public function updatePlayerChar($db, $userID, $roleID, $gameID, $name = '', $hair = '', $face = '', $eyes = '', $body = '', $clothes = '', $gender = '', $selectedGear = '', $selectedMoves = '', $alignment = '') {
+    public function updatePlayerChar($db, $userID, $roleID, $gameID, $name, $hair, $face, $eyes, $body) {
+    // , $clothes, $gender, $selectedGear, $selectedMoves, $alignment
+
         $query = 'UPDATE characters
                   SET name = :name, hair = :hair, face = :face, , eyes = :eyes, body = :body
                 --   , clothes = :clothes, gender = :gender, alignment = :alignment, added_gear = :added_gear, selected_moves = :selected_moves
@@ -205,6 +207,19 @@ class CharacterDAO {
         // $statement->bindValue(':added_gear', $selectedGear, PDO::PARAM_LOB);
         // $statement->bindValue(':selected_moves', $selectedMoves, PDO::PARAM_LOB);
         // $statement->bindValue(':alignment', $alignment, PDO::PARAM_STR);
+        $statement->execute();
+        $statement->closeCursor();
+
+        return true;
+    }
+
+    public function disableSelectedChar($db, $roleID, $gameID) {
+        $query = 'UPDATE roles_perms
+                  SET selected = 1
+                  WHERE role_id = :roleID AND game_id = :gameID';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':roleID', $roleID, PDO::PARAM_INT);
+        $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
         $statement->execute();
         $statement->closeCursor();
 
@@ -251,19 +266,6 @@ class CharacterDAO {
         $statement->closeCursor();
 
         return $getChars;
-    }
-
-    public function disableSelectedChar($db, $roleID, $gameID) {
-        $query = 'UPDATE roles_perms
-                  SET selected = 1
-                  WHERE role_id = :roleID AND game_id = :gameID';
-        $statement = $db->prepare($query);
-        $statement->bindValue(':roleID', $roleID, PDO::PARAM_INT);
-        $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
-        $statement->execute();
-        $statement->closeCursor();
-
-        return true;
     }
 }
 
