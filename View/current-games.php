@@ -13,16 +13,54 @@ $gameClass = new QueryGame();
 $roomId = $gameClass->getGameRoomid($db, $userId);
 
 ?>
+ <table class="table table-hover">
+<thead>
+    <tr>
+    <th>Status</th>
+    <th>Game Name</th>
+    <th>Games Master</th>
+    <th>Language</th>
+    <th>Players</th>
+    <th>Theme</th>
+    <th></th>
+    </tr>
+</thead>
 <tbody>							
 <?php 
+    
+//--------foreach of the Game Room Id query function---------------------------------------------------
     foreach($roomId as $rvalue){
         
+        //user games query in Game Class passing in roomId
         $usergames = $gameClass->getAllUserGames($db, $rvalue->id);
+        $gamePerm = $gameClass->getGamePermissions($db, $userId, $rvalue->id);
         
-        foreach ($usergames as $value){
+        
+//--------foreach of the Games User Permissions----------------------------------------------------------     
+        
+       foreach ($gamePerm as $pvalue){
+        $href = $pvalue->permission;
+      
+        //switch for form action when click to enter game
+        switch($href){
+        
+        case 1:
+        $href = "<form action='GM-Portal.php' method='post'>";
+        break;
+                
+        case 2:
+        $href = "<form action='Player-Portal.php' method='post'>";
+        break;
+        }
+    
+        
+        
+//-----for each of the usergames information that corresponds to each game in the foreach above--------
+    foreach ($usergames as $value){
         
         $status = $value->player_status;
       
+        //swith for possible status images
         switch($status){
      
         case 1:
@@ -53,9 +91,12 @@ $roomId = $gameClass->getGameRoomid($db, $userId);
         $img = '<img class="access-colours" src="images/status-colours/request-pending.svg" alt="request-pending" />';
         break;
         }
-
-        echo "<tr>" . "<td>" . $img . "</td>" . "<td>" . $value->game_name . "</td>" ."<td>" . $value->user_name . "</td>" ."<td>" . $value->lang . "</td>" ."<td>" . $value->max_players . "</td>" . "<td>" . $value->name . "</td>" . "<td>" . "<form action='player-portal.php' method='post'><button id='game_portal'" . "type='submit' name='games_portal' value='" . $rvalue->id . "'>Go to game portal</button></form>". "</td>". "</tr>";
-    }   
+        
+        echo "<tr>" . "<td>" . $img . "</td>" . "<td>" . $value->game_name . "</td>" ."<td>" . $value->user_name . "</td>" ."<td>" . $value->lang . "</td>" ."<td>" . $value->max_players . "</td>" . "<td>" . $value->name . "</td>" . "<td>" . $href . "<button id='game_portal' type='submit' name='games_portal' value='" . $rvalue->id . "' class = 'btn btn-primary'>Go to game portal</button></form>". "</td>". "</tr>";
+        
+        }
+        
+    }
 }
 ?>
 </tbody>
