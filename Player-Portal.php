@@ -128,69 +128,13 @@
                         <tr>
                             <th>Status</th>
                             <th>Username</th>
-                            <th>Character Name (View/Edit Stats)</th>
+                            <th>Character Name</th>
                             <th>Character</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        <tr>
-                            <td>
-                                <a href="#" data-toggle="tooltip" data-placement="right" title="game master">
-                                    <img class="access-colours" src="./Images/status-colours/gm.svg" alt="grand master" />
-                                </a>
-                                    <?= "GM" ?>
-                            </td>
-                            <td><?= $username ?></td>
-                            <td><a href="#"></td>
-                            <td>
-                                <?= "" ?>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <a href="#" data-toggle="tooltip" data-placement="right" title="access granted">
-                                    <img class="access-colours" src="./Images/status-colours/access-granted.svg" alt="access granted" />
-                                </a>
-                                    <?= "Active" ?>
-                            </td>
-                            <td>SecretPeter</td>
-                            <td>Berty_Pep-Pep</td>
-                            <td>
-                                <?= "Battlebabe" ?>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <a href="#" data-toggle="tooltip" data-placement="right" title="access granted">
-                                    <img class="access-colours" src="./Images/status-colours/request-pending.svg" alt="access granted" />
-                                </a>
-                                    <?= "Request" ?>
-                            </td>
-                            <td>BerylPenn</td>
-
-                            <td>CharlieCheesecakes</td>
-                            <td>
-                                <?= "Driver" ?>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <a class="" href="#" data-toggle="tooltip" data-placement="right" title="invite pending">
-                                    <img class="access-colours" src="./Images/status-colours/invite-pending.svg" alt="invite pending" />
-                                </a>
-                                    <?= "Invited" ?>
-                            </td>
-                            <td>Mandy123</td>
-                            <td></td>
-                            <td>
-                                <?= "" ?>
-                            </td>
-                        </tr>
-
+                            <?php include 'Models/invitesList.php' ?>
                         </tbody>
                     </table>
                 </div><!--end of list-group-item-->

@@ -59,15 +59,25 @@
 
             <section class="panel-body game_info">
                 <h2><?php echo "Game Name"; ?></h2>
-                <ul>
-                    <?php //foreach ($variable as $value) : ?>
-                        <li><?php //list of players ?>list of players</li>
-                        <li><?php //list of players ?>list of players</li>
-                        <li><?php //list of players ?>list of players</li>
-                        <li><?php //list of players ?>list of players</li>
-                        <li><?php //list of players ?>list of players</li>
-                    <?php //endforeach; ?>
-                </ul>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Username</th>
+                        <th>Character Name (View/Edit Stats)</th>
+                        <th>Character</th>
+                    </tr>
+                    </thead>
+
+
+                    <tbody>
+
+                    <?php include 'Models/invitesList.php' ?>
+
+                    </tbody>
+
+
+                </table>
             </section>
             </div>
             <div class="panel panel-default">
