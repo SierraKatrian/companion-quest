@@ -62,9 +62,7 @@ foreach($roomId as $rvalue){
                 "<td>" . $value->name . "</td>" . "</tr>";
         }
     }
-    }
-
-
+}
 
 
 

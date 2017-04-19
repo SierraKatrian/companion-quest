@@ -123,43 +123,9 @@
                         <th>Theme</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <a href="#" data-toggle="tooltip" data-placement="right" title="access denied">
-                                <img class="access-colours" src="./Images/status-colours/access-denied.svg" alt="access denied" />
-                            </a>
-                        </td>
-                        <td>THE_BEST_GAME_EVER111</td>
-                        <td>mandy1000</td>
-                        <td>EN</td>
-                        <td>15</td>
-                        <td>Apocalypse World</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="#" data-toggle="tooltip" data-placement="right" title="pending request...">
-                                <img class="access-colours" src="./Images/status-colours/request-pending.svg" alt="pending request" />
-                            </a>
-                        </td>
-                        <td>harmon_fans</td>
-                        <td>Dan_Dan_Dan</td>
-                        <td>EN</td>
-                        <td>20</td>
-                        <td>Dungeon World</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="#" data-toggle="tooltip" data-placement="right" title="pending invite...">
-                                <img class="access-colours" src="./Images/status-colours/invite-pending.svg" alt="pending invite" />
-                            </a>
-                        </td>
-                        <td>powerfulpals</td>
-                        <td>erin_the_roach</td>
-                        <td>EN</td>
-                        <td>1</td>
-                        <td>Apocalypse World</td>
-                    </tr>
+                    <tbody id = "invReq">
+                    <?php include 'Models/playerRequests.php' ?>
+
                     </tbody>
                 </table>
             </div><!--end of list-group-item-->
