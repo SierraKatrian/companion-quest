@@ -3,31 +3,31 @@
 class CharacterDAO {
 
     public function getCharacter($db, $userID, $gameID) {
-        $query = 'SELECT * FROM characetrs
+        $query = 'SELECT * FROM characters
                   WHERE user_id = :userID
                   AND game_id = :gameID';
         $statement = $db->prepare($query);
         $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
         $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
         $statement->execute();
-        $viewCharacter = $statement->fetchAll(PDO::FETCH_OBJ);
+        $character = $statement->fetchAll(PDO::FETCH_OBJ);
         $statement->closeCursor();
 
-        return $viewCharacter;
+        return $character;
     }
 
     public function getCharSheet($db, $userID, $gameID){
-        $query = 'SELECT characters.role_id, characters.name, characters.eyes, characters.hair, characters.gender, characters.clothes, characters.face, characters.added_gear, characters.selected_moves, characters.alignment, roles.bio, roles.role_name, roles.stats, roles.gear, roles.barter,
+        $query = 'SELECT characters.id, characters.role_id, characters.name, characters.eyes, characters.hair, characters.gender, characters.clothes, characters.body, characters.face, characters.added_gear, characters.selected_moves, characters.alignment, roles.bio, roles.role_name, roles.picture, roles.stats, roles.gear, roles.barter,
         roles.moves, stats.stat1, stats.stat2, stats.stat3, stats.stat4, stats.stat5, harm.total_harm, harm.stabilized, harm.minus_hard, harm.plus_weird, harm.new_role, harm.die
                   FROM characters
                   JOIN roles ON roles.id = characters.role_id
-                  JOIN stats ON stats.id = characters.stats_id
-                  JOIN harm ON harm.id = characters.harm_id
-                  WHERE user_id = :usersID
-                  AND game_id = :gamesID';
+                  JOIN stats ON stats.char_id = characters.id
+                  JOIN harm ON harm.char_id = characters.id
+                  WHERE user_id = :userID
+                  AND game_id = :gameID';
         $statement = $db->prepare($query);
-        $statement->bindValue(':usersID', $userID, PDO::PARAM_INT);
-        $statement->bindValue(':gamesID', $gameID, PDO::PARAM_INT);
+        $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
+        $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
         $statement->execute();
         $viewCharacter = $statement->fetchAll(PDO::FETCH_OBJ);
         $statement->closeCursor();
@@ -117,96 +117,80 @@ class CharacterDAO {
         $statement->execute();
         $statement->closeCursor();
 
+        return true;
+    }
 
-        // $query2 = 'INSERT INTO stats
-        //            (stat1, stat2, stat3, stat4, stat5, stat6)
-        //            VALUES
-        //            (:stat1, :stat2, :stat3, :stat4, :stat5, :stat6)';
-        // $stmt2 = $db->prepare($query2);
-        // $stmt2->execute();
-        // // $stmt2->closeCursor();
-        // $stats = $stmt2->fetch(PDO::FETCH_ASSOC);
-        // $statsID = $stats['id'];
-        //
-        //
-        // $query3 = 'UPDATE characters
-        //            SET stats_id = :statsID';
-        // $stmt3 = $db->prepare($query3);
-        // $stmt3->bindValue(':statsID', $statsID, PDO::PARAM_INT);
-        //
-        //
-        // if ($roleID > 0 && $roleID < 12) {
-        //     $query4 = 'INSERT INTO harm
-        //                (total_harm, stabilized, minus_hard, plus_weird, new_role, die)
-        //                VALUES
-        //                (:total_harm, :stabilized, :minus_hard, :plus_weird, :new_role, :die)';
-        //     $stmt4 = $db->prepare($query4);
-        //     $stmt4->execute();
-        //     // $stmt2->closeCursor();
-        //     $harm = $stmt4->fetch(PDO::FETCH_ASSOC);
-        //     $harmID = $harm['id'];
-        //
-        //     $query5 = 'UPDATE characters
-        //                SET harm_id = :harmID';
-        //     $stmt5 = $db->prepare($query5);
-        //     $stmt5->bindValue(':harmID', $harmID, PDO::PARAM_INT);
-        // }
+    // Inserts a blank row
+    public function setCharStats($db, $charID){
+        $query = 'INSERT INTO stats
+                   (char_id)
+                   VALUES
+                   (:charID)';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':charID', $charID, PDO::PARAM_INT);
+        $statement->execute();
+        $statement->closeCursor();
 
         return true;
     }
 
     // Inserts a blank row
-    public function insertStats($db, $stat1 = 0, $stat2 = 0, $stat3 = 0, $stat4 = 0, $stat5 = 0, $stat6 = 0){
-        $query2 = 'INSERT INTO stats
-                   (stat1, stat2, stat3, stat4, stat5, stat6)
+    public function setCharHarm($db, $charID){
+        $query = 'INSERT INTO stats
+                   (char_id)
                    VALUES
-                   (:stat1, :stat2, :stat3, :stat4, :stat5, :stat6)';
-        $stmt2 = $db->prepare($query2);
-        $stmt2->bindValue(':stat1', $stat1, PDO::PARAM_INT);
-        $stmt2->bindValue(':stat2', $stat2, PDO::PARAM_INT);
-        $stmt2->bindValue(':stat3', $stat3, PDO::PARAM_INT);
-        $stmt2->bindValue(':stat4', $stat4, PDO::PARAM_INT);
-        $stmt2->bindValue(':stat5', $stat5, PDO::PARAM_INT);
-        $stmt2->bindValue(':stat6', $stat6, PDO::PARAM_INT);
-        $stmt2->execute();
-        $stmt2->closeCursor();
-        $stats = $stmt2->fetch(PDO::FETCH_ASSOC);
-        $statsID = $stats['id'];
-        return $statsID;
+                   (:charID)';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':charID', $charID, PDO::PARAM_INT);
+        $statement->execute();
+        $statement->closeCursor();
+
+        return true;
     }
 
-    public function updateCharStats($db, $statsID, $userID, $roleID, $gameID) {
-        $query3 = 'UPDATE characters
-                   SET stats_id = :statsID
-                   WHERE user_id = :userID
-                   AND role_id = :roleID
-                   AND game_id = :gameID';
-        $stmt3 = $db->prepare($query3);
-        $stmt3->bindValue(':statsID', $statsID, PDO::PARAM_INT);
-        $stmt3->bindValue(':userID', $userID, PDO::PARAM_INT);
-        $stmt3->bindValue(':roleID', $roleID, PDO::PARAM_INT);
-        $stmt3->bindValue(':gameID', $gameID, PDO::PARAM_INT);
-        $stmt3->execute();
-        $stmt3->closeCursor();
-    }
-
-
-    public function updatePlayerChar($db, $userID, $roleID, $gameID, $name, $hair, $face, $eyes, $body, $clothes, $gender, $addedGear, $selectedMoves, $alignment = '') {
+    public function updateCharStats($db, $charID, $stat1, $stat2, $stat3, $stat4, $stat5) {
         $query = 'UPDATE characters
-                  SET user_id, role_id, game_id, name, hair, face, eyes, body, clothes, gender, alignment, added_gear, selected_moves
+                   SET stat1 = :stat1, stat2 = :stat2, stat3 = :stat3, stat4 = :stat4, stat5 = :stat5
+                   WHERE char_id = :charID';
+        $statement = $db->prepare($query3);
+        $statement->bindValue(':stat1', $stat1, PDO::PARAM_INT);
+        $statement->bindValue(':stat2', $stat2, PDO::PARAM_INT);
+        $statement->bindValue(':stat3', $stat3, PDO::PARAM_INT);
+        $statement->bindValue(':stat4', $stat4, PDO::PARAM_STR);
+        $statement->bindValue(':stat5', $stat5, PDO::PARAM_STR);
+        $statement->bindValue(':charID', $charID, PDO::PARAM_INT);
+        $statement->execute();
+        $statement->closeCursor();
+
+        return true;
+    }
+
+    public function updateCharHarm($db, $charID, $harm, $stabilized, $minusHard, $plusWeird, $newRole, $die) {
+        $query = 'UPDATE characters
+                   SET total_harm = :harm, stabilized = :stabilized, minus_hard = :minusHard, plus_weird = :plusWeird, new_role = :newRole, die = :die
+                   WHERE char_id = :charID';
+        $statement = $db->prepare($query3);
+        $statement->bindValue(':harm', $harm, PDO::PARAM_STR);
+        $statement->bindValue(':stabilized', $stabilized, PDO::PARAM_STR);
+        $statement->bindValue(':minusHard', $minusHard, PDO::PARAM_STR);
+        $statement->bindValue(':plusWeird', $plusWeird, PDO::PARAM_STR);
+        $statement->bindValue(':newRole', $newRole, PDO::PARAM_STR);
+        $statement->bindValue(':die', $die, PDO::PARAM_LOB);
+        $statement->bindValue(':charID', $charID, PDO::PARAM_INT);
+        $statement->execute();
+        $statement->closeCursor();
+
+        return true;
+    }
+
+
+    public function updatePlayerChar($db, $userID, $roleID, $gameID, $name = '', $hair = '', $face = '', $eyes = '', $body = '', $clothes = '', $gender = '', $selectedGear = '', $selectedMoves = '', $alignment = '') {
+        $query = 'UPDATE characters
+                  SET name = :name, hair = :hair, face = :face, , eyes = :eyes, body = :body
+                --   , clothes = :clothes, gender = :gender, alignment = :alignment, added_gear = :added_gear, selected_moves = :selected_moves
                   WHERE user_id = :userID
                   AND role_id = :roleID
-                  AND game_id = :gameID
-                  AND name = :name
-                  AND hair = :hair
-                  AND face = :face
-                  AND eyes = :eyes
-                  AND body = :body
-                  AND clothes = :clothes
-                  AND gender = :gender
-                  AND alignment = :alignment
-                  AND added_gear = :added_gear
-                  AND selected_moves = :selected_moves';
+                  AND game_id = :gameID';
         $statement = $db->prepare($query);
         $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
         $statement->bindValue(':roleID', $roleID, PDO::PARAM_INT);
@@ -216,11 +200,11 @@ class CharacterDAO {
         $statement->bindValue(':face', $face, PDO::PARAM_STR);
         $statement->bindValue(':eyes', $eyes, PDO::PARAM_STR);
         $statement->bindValue(':body', $body, PDO::PARAM_STR);
-        $statement->bindValue(':clothes', $clothes, PDO::PARAM_STR);
-        $statement->bindValue(':gender', $gender, PDO::PARAM_STR);
-        $statement->bindValue(':added_gear', $addedGear, PDO::PARAM_LOB);
-        $statement->bindValue(':selected_moves', $selectedMoves, PDO::PARAM_LOB);
-        $statement->bindValue(':alignment', $alignment, PDO::PARAM_STR);
+        // $statement->bindValue(':clothes', $clothes, PDO::PARAM_STR);
+        // $statement->bindValue(':gender', $gender, PDO::PARAM_STR);
+        // $statement->bindValue(':added_gear', $selectedGear, PDO::PARAM_LOB);
+        // $statement->bindValue(':selected_moves', $selectedMoves, PDO::PARAM_LOB);
+        // $statement->bindValue(':alignment', $alignment, PDO::PARAM_STR);
         $statement->execute();
         $statement->closeCursor();
 

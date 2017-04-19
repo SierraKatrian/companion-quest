@@ -14,8 +14,8 @@ $password = $userDetails['password'];
 //Game details
 $gameDetails = $_SESSION['gameDetails'];
 
-$ruleBook = $gameDetails['rb_id'];
 $gameID = $gameDetails['id'];
+$ruleBook = $gameDetails['rb_id'];
 $gameName = $gameDetails['game_name'];
 $gameLanguage = $gameDetails['lang'];
 $gamePlayerTotal = $gameDetails['max_players'];
@@ -29,14 +29,27 @@ $db = $dbClass->getDB();
 
 $charClass = new CharacterDAO();
 
-$selectedChar = $_POST['radioValue'];
-$setPlayerChar = $charClass->setPlayerChar($db, $userID, $selectedChar, $gameID);
-$disableSelectedChars = $charClass->disableSelectedChar($db, $selectedChar, $gameID);
+$getPlayerChars = $charClass->getCharacter($db, $userID, $gameID);
 
-$jDisSelChars = json_encode($disableSelectedChars);
-$jSetPlayerChar = json_encode($setPlayerChar);
+var_dump($getPlayerChars);
 
-header("Content-Type: application/json");
-echo $jDisSelChars;
-echo $jSetPlayerChar;
+// $getPlayerChars = $_SESSION['chars'];
+
+// $_SESSION['character'] = $getPlayerChars;
+//
+// $charID = $getPlayerChars['user_id'];
+
+// var_dump($charID);
+
+    $selectedChar = $_POST['radioValue'];
+    $setPlayerChar = $charClass->setPlayerChar($db, $userID, $selectedChar, $gameID);
+    $disableSelectedChars = $charClass->disableSelectedChar($db, $selectedChar, $gameID);
+
+    // $jDisSelChars = json_encode($disableSelectedChars);
+    // $jSetPlayerChar = json_encode($setPlayerChar);
+
+    // header("Content-Type: application/json");
+    // echo $jDisSelChars;
+    // echo $jSetPlayerChar;
+// }
 ?>

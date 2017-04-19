@@ -4,6 +4,8 @@
 /* GLOBAL */
 
     html {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
         box-sizing: border-box;
         height:100%;
         letter-spacing:1px;
@@ -12,6 +14,8 @@
     *,
     *:before,
     *:after {
+        -webkit-box-sizing: inherit;
+        -moz-box-sizing: inherit;
         box-sizing: inherit;
     }
 
@@ -953,7 +957,7 @@
 /* CHARACTER SHEET */
 
 /* CREATE CHARACTER */
-.barterList li, .gearList li {
+.dIndent li {
     margin-left: 30px;
     /*list-style:circle;*/
 }
@@ -981,6 +985,19 @@ p .pBold, li .pBold {
 
 .char-sheet-panel {
     padding: 10px;
+}
+
+.char-img {
+    text-align: right;
+}
+
+.char-img img {
+    max-height: 100px;
+    width: auto;
+}
+
+.csTextArea {
+    max-width: 100%;
 }
 
 

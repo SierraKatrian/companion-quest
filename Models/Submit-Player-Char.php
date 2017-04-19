@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 //User details
 $userDetails = $_SESSION['user'];
@@ -20,19 +21,35 @@ $gameLanguage = $gameDetails['lang'];
 $gamePlayerTotal = $gameDetails['max_players'];
 $gameStatus = $gameDetails['game_status'];
 
-$roleID = 5;
-$name = $_POST['name'];
-$hair = $_POST['hair'];
-$face = $_POST['face'];
-$eyes = $_POST['eyes'];
-$body = $_POST['body'];
-$clothes = $_POST['clothes'];
-$gender = $_POST['gender'];
-$addedGear = $_POST['gear'];
-$selectedMoves = $_POST['"other-moves'];
-$alignment = $_POST['alignment'];
 
-if (isset($_POST['btn_submit_char'])) {
+if (isset($_POST['btn_submit'])) {
+
+    $roleID = $_POST['roleID'];
+    $name = $_POST['name'];
+    // $hair = $_POST['hair'];
+    $face = $_POST['face'];
+    $eyes = $_POST['eyes'];
+    $body = $_POST['body'];
+    $clothes = $_POST['clothes'];
+    $gender = $_POST['gender'];
+
+    // $stat1 = $_POST['stat1'];
+    // $stat2 = $_POST['stat2'];
+    // $stat3 = $_POST['stat3'];
+    // $stat4 = $_POST['stat4'];
+    // $stat5 = $_POST['stat5'];
+    //
+    // $harm = $_POST['harm'];
+    // $stabilized = $_POST['stabilized'];
+    // $minusHard = $_POST['minusHard'];
+    // $plusWeird = $_POST['plusWeird'];
+    // $newRole = $_POST['newPlaybook'];
+    // $die = $_POST['die'];
+
+    $selectedGear = $_POST['selected-gear'];
+    $selectedMoves = $_POST['selected-moves'];
+    // $alignment = $_POST['alignment'];
+
     require_once 'DbConnect.php';
     require_once 'CharacterDAO.php';
 
@@ -40,13 +57,19 @@ if (isset($_POST['btn_submit_char'])) {
     $db = $dbClass->getDB();
     $charClass = new CharacterDAO();
 
+    $updateChar = $charClass->updatePlayerChar($db, $userID, $roleID, $gameID, $name, $face, $eyes, $body, $clothes, $gender, $selectedGear, $selectedMoves);
 
+var_dump($_POST);
+var_dump($updateChar);
+var_dump($userID);
+var_dump($gameID);
 
-    $charClass->submitPlayerChar($db, $userID, $roleID, $gameID, $name, $hair, $face, $eyes, $body, $clothes, $gender, $addedGear, $selectedMoves, $alignment = '');
+    // header ('location: ../Player-Portal.php');
+
 } else {
+
     echo "Something went wrong";
+
 }
-
-
 
 ?>

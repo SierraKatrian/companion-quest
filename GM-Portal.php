@@ -22,10 +22,6 @@ require_once 'Models/CharacterDAO.php';
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
 
-
-
-
-
     // require_once './Models/DbConnect.php';
 
     $dbClass = new DbConnect();

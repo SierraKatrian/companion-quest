@@ -5,21 +5,39 @@
 
     //User details
     $userDetails = $_SESSION['user'];
+
     $userID = $userDetails['id'];
     $fname = $userDetails['f_name'];
     $lname = $userDetails['l_name'];
     $username = $userDetails['user_name'];
     $email = $userDetails['email'];
     $password = $userDetails['password'];
-    
+
     //Game details
     $gameDetails = $_SESSION['gameDetails'];
-    $ruleBook = $gameDetails['rb_id'];
+
     $gameID = $gameDetails['id'];
+    $ruleBook = $gameDetails['rb_id'];
     $gameName = $gameDetails['game_name'];
     $gameLanguage = $gameDetails['lang'];
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
+
+    // if (isset($_POST['selectPlayerChar'])) {
+    //     echo "it works";
+    // }
+
+    // $charDetails = $charClass->getCharacter($db, $userID, $gameID);
+    //
+    // // $charDetails = $_SESSION['character'];
+    //
+    // // $charID = $charDetails['id'];
+    //
+    // var_dump($charDetails);
+    // echo $charDetails->id;
+    // // echo "character ID: " . $charID;
+    // var_dump($userID);
+
 ?>
 
 <body>
