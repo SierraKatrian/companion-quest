@@ -4,7 +4,8 @@
     $getCharMoves = $charClass->getRoleMoves($db, 2);
 
 
-// var_dump($getCharSheet);
+var_dump($_SESSION['games']);
+var_dump($getCharSheet);
 var_dump($userID);
 var_dump($gameID);
 

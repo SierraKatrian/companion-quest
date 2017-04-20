@@ -17,14 +17,14 @@ $email = $userDetails['email'];
 $password = $userDetails['password'];
 
 $gameClass = new QueryGame();
-$gameID = $gameClass->getGameRoomid($db, $userID);
+// $gameID = $gameClass->getGameRoomid($db, $userID);
 
 // $allUserGames = $gameClass->getAllUserGames($db, $gameId);
 // $gamePerms = $gameClass->getGamePermissions($db, $userId, $gameId);
 
 $getAllGames = $gameClass->getAllGames($db, $userID);
 
-var_dump($gameID);
+// var_dump($gameID);
 // var_dump($allUserGames);
 // var_dump($gamePerms);
 
@@ -38,11 +38,16 @@ var_dump($gameID);
             <td><?php echo $games->lang ?></td>
             <td><?php echo $games->max_players ?></td>
             <td><?php echo $games->name ?></td>
-            <th><button type="submit" name="enter_game" value="<?php echo $games->game_id ?>">Go to game: <?php echo $games->games_id ?></button></th>
+            <td>
+                <form action='Models/sessionredirect.php' method='post'>
+                    <input type='hidden' name='room_id' value=<?php echo $games->games_id ?> >
+                    <button type="submit" name="enter_game" value="<?php echo $games->games_id ?>">Go to game: <?php echo $games->games_id ?>
+                    </button>
+                </form>
+            </td>
         </tr>
 
     <?php endforeach; ?>
-
 <?php
 
 

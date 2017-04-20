@@ -13,14 +13,12 @@ require_once 'Models/CharacterDAO.php';
     $password = $userDetails['password'];
 
     //game details
-    $gameDetails = $_SESSION['gameDetails'];
-
-    $ruleBook = $gameDetails['rb_id'];
-    $gameID = $gameDetails['id'];
-    $gameName = $gameDetails['game_name'];
-    $gameLanguage = $gameDetails['lang'];
-    $gamePlayerTotal = $gameDetails['max_players'];
-    $gameStatus = $gameDetails['game_status'];
+    $ruleBook = $_SESSION['games']['rb_id'];
+    $gameID = $_SESSION['games']['games_id'];
+    $gameName = $_SESSION['games']['game_name'];
+    $gameLanguage = $_SESSION['games']['lang'];
+    $gamePlayerTotal = $_SESSION['games']['max_players'];
+    $gameStatus = $_SESSION['games']['game_status'];
 
     $dbClass = new DbConnect();
     $db = $dbClass->getDB();
@@ -29,7 +27,15 @@ require_once 'Models/CharacterDAO.php';
     $charClass = new CharacterDAO();
     $selectedChars = $charClass->getGameChars($db, $gameID);
 
-
+    // var_dump($gameID);
+    //
+    // var_dump($_SESSION['games']);
+    // echo 'Game ID: ' . $_SESSION['games']['games_id'];
+    //
+    // $gameID = $_SESSION['games']['games_id'];
+    //
+    //
+    // echo 'Game ID Variable: ' . $gameID;
 ?>
 
 <body>
