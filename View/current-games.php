@@ -30,9 +30,9 @@ var_dump($gameID);
 
 ?>
     <?php foreach ($getAllGames as $games): ?>
-
+<img src="" alt="">
         <tr>
-            <td><?php echo ($games->game_status) ? "Open" : "Closed" ?></td>
+            <td><img class="access-colours" src="Images/status-colours/<?php echo ($games->permission == 1) ? "gm.svg" : "access-granted.svg" ?>" alt="<?php echo ($games->permission == 1) ? "Game Master Status" : "Player Status" ?>"></td>
             <td><?php echo $games->game_name ?></td>
             <td><?php echo ($games->permission == 1) ? $games->user_name : ""?></td>
             <td><?php echo $games->lang ?></td>

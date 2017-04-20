@@ -17,8 +17,7 @@ class CharacterDAO {
     }
 
     public function getCharSheet($db, $userID, $gameID){
-        $query = 'SELECT characters.id, characters.role_id, characters.name, characters.eyes, characters.hair, characters.gender, characters.clothes, characters.body, characters.face, characters.added_gear, characters.selected_moves, characters.alignment, roles.bio, roles.role_name, roles.picture, roles.stats, roles.gear, roles.barter,
-        roles.moves, stats.stat1, stats.stat2, stats.stat3, stats.stat4, stats.stat5, harm.total_harm, harm.stabilized, harm.minus_hard, harm.plus_weird, harm.new_role, harm.die
+        $query = 'SELECT characters.*, roles.*, stats.*, harm.*
                   FROM characters
                   JOIN roles ON roles.id = characters.role_id
                   JOIN stats ON stats.char_id = characters.id
