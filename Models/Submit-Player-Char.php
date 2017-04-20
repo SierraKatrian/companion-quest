@@ -88,7 +88,7 @@ var_dump($userID);
 var_dump($gameID);
 var_dump($charID);
 
-    header ('location: ../Player-Portal.php');
+    // header ('location: ../Player-Portal.php');
 
 } else {
 

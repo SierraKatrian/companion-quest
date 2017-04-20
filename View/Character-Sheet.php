@@ -1,14 +1,12 @@
 <?php
 
-// if (isset($_POST['btn_select_char'])) {
+$getCharSheet = $charClass->getCharSheet($db, $charID);
+$getCharMoves = $charClass->getRoleMoves($db, $roleID);
 
-
-    $getCharSheet = $charClass->getCharSheet($db, $userID, $gameID);
-    $getCharMoves = $charClass->getRoleMoves($db, $roleID);
-// }
-var_dump($getCharSheet);
+// var_dump($getCharSheet);
 var_dump($charID);
-var_dump($roleID);
+var_dump($userID);
+var_dump($gameID);
 
 ?>
 

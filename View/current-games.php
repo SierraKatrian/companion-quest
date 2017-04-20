@@ -34,15 +34,14 @@ $getAllGames = $gameClass->getAllGames($db, $userID);
         <tr>
             <td><img class="access-colours" src="Images/status-colours/<?php echo ($games->permission == 1) ? "gm.svg" : "access-granted.svg" ?>" alt="<?php echo ($games->permission == 1) ? "Game Master Status" : "Player Status" ?>"></td>
             <td><?php echo $games->game_name ?></td>
-            <td><?php echo ($games->permission == 1) ? $games->user_name : ""?></td>
+            <!-- <td><?php echo ($games->permission == 1) ? $games->user_name : ""?></td> -->
             <td><?php echo $games->lang ?></td>
             <td><?php echo $games->max_players ?></td>
             <td><?php echo $games->name ?></td>
             <td>
                 <form action='Models/sessionredirect.php' method='post'>
                     <input type='hidden' name='room_id' value=<?php echo $games->games_id ?> >
-                    <button type="submit" name="enter_game" value="<?php echo $games->games_id ?>">Go to game: <?php echo $games->games_id ?>
-                    </button>
+                    <button class="btn btn-primary" type="submit" name="enter_game" value="<?php echo $games->games_id ?>">Go to game</button>
                 </form>
             </td>
         </tr>

@@ -90,7 +90,7 @@
                     <tr>
                         <th>Status</th>
                         <th>Game Name</th>
-                        <th>Games Master</th>
+                        <!-- <th>Games Master</th> -->
                         <th>Language</th>
                         <th>Players</th>
                         <th>Theme</th>
@@ -110,7 +110,7 @@
 
 
     <div class="list-group-item active">
-            <h3>Requests & Invites</h3>
+            <h3>Requests &amp; Invites</h3>
         </div>
 
         <div class="list-group">
