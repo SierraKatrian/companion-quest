@@ -9,7 +9,7 @@
     $username = $userDetails['user_name'];
     $email = $userDetails['email'];
     $password = $userDetails['password'];
-    $userId = $userDetails['id'];   
+    $userId = $userDetails['id'];
 ?>
 
 <body>
@@ -94,9 +94,13 @@
                         <th>Language</th>
                         <th>Players</th>
                         <th>Theme</th>
+                        <th></th>
                     </tr>
                     </thead>
-                <?php include 'view/current-games.php' ?>
+                    <tbody>
+                        <?php include 'view/current-games.php' ?>
+                    </tbody>
+                </table>
             </div><!--end of list-group-item-->
         </div><!--end of list-group-->
 
@@ -201,4 +205,3 @@
 <script src="Script/getRoom-ajax.js"></script>
 <script src="Script/acceptMain.js"></script>
 <?php include "View/Footer.php"; ?>
-
