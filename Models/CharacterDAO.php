@@ -18,17 +18,16 @@ class CharacterDAO {
         return $character;
     }
 
-    public function getCharSheet($db, $userID, $gameID){
+    public function getCharSheet($db, $charID){
         $query = 'SELECT characters.*, roles.*, stats.*, harm.*
                   FROM characters
                   JOIN roles ON roles.id = characters.role_id
                   JOIN stats ON stats.char_id = characters.id
                   JOIN harm ON harm.char_id = characters.id
-                  WHERE user_id = :userID
-                  AND game_id = :gameID';
+                  WHERE characetrs.id = :charID';
         $statement = $db->prepare($query);
-        $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
-        $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
+        $statement->bindValue(':charID', $charID, PDO::PARAM_INT);
+        // $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
         $statement->execute();
         $viewCharacter = $statement->fetchAll(PDO::FETCH_OBJ);
         $statement->closeCursor();
@@ -48,29 +47,6 @@ class CharacterDAO {
         return $viewCharacter;
     }
 
-    public function getGear($db, $charID){
-        $query = 'SELECT * FROM roles WHERE id = :ID AND rulebook_id = :rulebookID';
-        $statement = $db->prepare($query);
-        $statement->bindValue(':rulebookID', $rbID, PDO::PARAM_INT);
-        $statement->bindValue(':ID', $roleID, PDO::PARAM_INT);
-        $statement->execute();
-        $viewCharacter = $statement->fetchAll(PDO::FETCH_OBJ);
-        $statement->closeCursor();
-
-        return $viewCharacter;
-    }
-
-    public function getUser($db, $userID){
-        $query = 'SELECT * FROM users WHERE id = :ID';
-        $statement = $db->prepare($query);
-        $statement->bindValue(':ID', $userID, PDO::PARAM_INT);
-        $statement->execute();
-        $viewUser = $statement->fetchAll(PDO::FETCH_OBJ);
-        $statement->closeCursor();
-
-        return $viewUser;
-    }
-
     public function getRoleMoves($db, $roleID){
         $query = 'SELECT * FROM moves WHERE role_id = :roleID';
         $statement = $db->prepare($query);
@@ -82,31 +58,7 @@ class CharacterDAO {
         return $viewMoves;
     }
 
-    // public function submitPlayerChar($db, $userID, $roleID, $gameID, $name, $hair, $face, $eyes, $body, $clothes, $gender, $alignment, $addedGear, $selectedMoves) {
-    //     $query = 'INSERT INTO characters
-    //               (user_id, role_id, game_id, name, hair, face, eyes, body, clothes, gender, alignment, added_gear, selected_moves)
-    //               VALUES (:userID, :roleID, :gameID, :name, :hair, :face, :eyes, :body, :clothes, :gender, :alignment, :added_gear, :selected_moves)';
-    //     $statement = $db->prepare($query);
-    //     $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
-    //     $statement->bindValue(':roleID', $roleID, PDO::PARAM_INT);
-    //     $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
-    //     $statement->bindValue(':name', $name, PDO::PARAM_STR);
-    //     $statement->bindValue(':hair', $hair, PDO::PARAM_STR);
-    //     $statement->bindValue(':face', $face, PDO::PARAM_STR);
-    //     $statement->bindValue(':eyes', $eyes, PDO::PARAM_STR);
-    //     $statement->bindValue(':body', $body, PDO::PARAM_STR);
-    //     $statement->bindValue(':clothes', $clothes, PDO::PARAM_STR);
-    //     $statement->bindValue(':gender', $gender, PDO::PARAM_STR);
-    //     $statement->bindValue(':alignment', $alignment, PDO::PARAM_STR);
-    //     $statement->bindValue(':added_gear', $addedGear, PDO::PARAM_LOB);
-    //     $statement->bindValue(':selected_moves', $selectedMoves, PDO::PARAM_LOB);
-    //     $statement->execute();
-    //     $statement->closeCursor();
-    //
-    //     return true;
-    // }
-
-    public function setPlayerChar($db, $userID, $roleID, $gameID) {
+    public function setPlayerChar($db, $userID, $gameID, $roleID) {
         $query = 'INSERT INTO characters
                   (user_id, role_id, game_id)
                   VALUES
@@ -137,7 +89,7 @@ class CharacterDAO {
 
     // Inserts a blank row
     public function setCharHarm($db, $charID){
-        $query = 'INSERT INTO stats
+        $query = 'INSERT INTO harm
                    (char_id)
                    VALUES
                    (:charID)';

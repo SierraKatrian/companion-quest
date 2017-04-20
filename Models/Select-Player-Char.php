@@ -28,31 +28,28 @@ $db = $dbClass->getDB();
 
 $charClass = new CharacterDAO();
 
-    $selectedChar = $_POST['availChars'];
+$selectedChar = $_POST['availChars'];
 
-    echo 'Role ID: ' . $selectedChar;
+$setPlayerChar = $charClass->setPlayerChar($db, $userID, $gameID, $selectedChar);
+$charDetails = $charClass->getCharacter($db, $userID, $gameID, $selectedChar);
 
-    $setPlayerChar = $charClass->setPlayerChar($db, $userID, $selectedChar, $gameID);
+$_SESSION['characters'] = $charDetails;
+$charID = $_SESSION['characters']['id'];
 
-    $disableSelectedChars = $charClass->disableSelectedChar($db, $selectedChar, $gameID);
+$setStats = $charClass->setCharStats($db, $charID);
+$setHarm = $charClass->setCharHarm($db, $charID);
 
-    $charDetails = $charClass->getCharacter($db, $userID, $gameID, $selectedChar);
+$disableSelectedChars = $charClass->disableSelectedChar($db, $selectedChar, $gameID);
 
-    $_SESSION['characters'] = $charDetails;
+// $jSetPlayerChar = json_encode($setPlayerChar);
+// $jDisSelChars = json_encode($setStats);
+// $jDisSelChars = json_encode($setHarm);
+// $jDisSelChars = json_encode($disableSelectedChars);
 
-    // var_dump($charDetails);
+header ('location: ../Player-Portal.php');
 
-    // echo 'Char ID: ' . $_SESSION['characters']['id'];
+// header("Content-Type: application/json");
+// echo $jDisSelChars;
+// echo $jSetPlayerChar;
 
-    // $jDisSelChars = json_encode($disableSelectedChars);
-    // $jSetPlayerChar = json_encode($setPlayerChar);
-
-    header ('location: ../Player-Portal.php');
-
-    // header("Content-Type: application/json");sss
-    // echo $jDisSelChars;
-    // echo $jSetPlayerChar;
-
-    // var_dump($characterDetails);
-// }
 ?>

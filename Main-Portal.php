@@ -1,6 +1,5 @@
 <?php
-	//addded comment
-    include "View/Header.php";
+    require_once "View/Header.php";
 
     $userDetails = $_SESSION['user'];
 

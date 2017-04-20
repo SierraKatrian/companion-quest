@@ -1,18 +1,21 @@
 <?php
 
+// if (isset($_POST['btn_select_char'])) {
+
+
     $getCharSheet = $charClass->getCharSheet($db, $userID, $gameID);
     $getCharMoves = $charClass->getRoleMoves($db, $roleID);
-
-// var_dump($getCharSheet);
-// var_dump($charID);
-// var_dump($roleID);
+// }
+var_dump($getCharSheet);
+var_dump($charID);
+var_dump($roleID);
 
 ?>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~ CHARACTER LIST ~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<?php if (!isset($charID)): ?>
+<?php //if (!isset($charID)): ?>
     <h2>Choose Your Character</h2>
     <div class="panel panel-default character-panel-player">
         <div class="panel-body">
@@ -26,7 +29,7 @@
             </form>
         </div>
     </div>
-<?php endif; ?>
+<?php //endif; ?>
 
 <div class="character-panel-player">
     <?php if ($ruleBook == 1) : ?>
