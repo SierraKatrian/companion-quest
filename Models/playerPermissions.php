@@ -136,13 +136,30 @@ class playerPermissions
 
     public function getAllUserGames($pdo, $gameId)
     {
-        $sql = "SELECT DISTINCT user_games.player_status, user_name, games.game_name, games.max_players, games.lang, rulebooks.name FROM games JOIN user_games ON games.id = user_games.games_id JOIN users ON users.id = user_games.user_id 
-              JOIN rulebooks ON games.rb_id = rulebooks.id WHERE games.id = :gameId AND user_games.permission = 1 
-              ";
+        $sql = "SELECT DISTINCT  user_name, games.game_name, games.max_players, games.lang, rulebooks.name 
+                FROM games JOIN user_games ON games.id = user_games.games_id JOIN users ON users.id = user_games.user_id 
+              JOIN rulebooks ON games.rb_id = rulebooks.id WHERE user_name = 
+              (SELECT user_name FROM users JOIN user_games ON users.id = user_games.user_id WHERE 
+              user_games.permission = 1 AND user_games.games_id = :gameId )AND games.id = :gameId";
         $pdostmt = $pdo->prepare($sql);
         $pdostmt->bindValue(':gameId', $gameId, PDO::PARAM_INT);
         $pdostmt->execute();
         $userspecificgames = $pdostmt->fetchAll(PDO::FETCH_OBJ);
         return $userspecificgames;
     }
+
+ public function playerInvites($db, $userId) {
+        $query = "SELECT user_games.player_status, games.game_name, games.lang, rulebooks.name, games.max_players FROM user_games 
+                  JOIN games ON user_games.games_id = games.id JOIN rulebooks ON games.rb_id = rulebooks.id 
+                  WHERE user_games.user_id = :userId AND (user_games.player_status = 2 
+                  OR user_games.player_status = 3 OR user_games.player_status = 4) ";
+        $statement = $db->prepare($query);
+        $statement->bindValue(':userId', $userId);
+        $statement->execute();
+        $list = $statement->fetchAll();
+
+        return $list;
+
+ }
+
 }

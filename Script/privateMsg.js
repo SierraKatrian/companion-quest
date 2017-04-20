@@ -2,7 +2,6 @@
 $(document).ready(function() {
 
 
-
     $(window).keydown(function(event){
         if(event.keyCode == 13) {
             event.preventDefault();
@@ -20,7 +19,7 @@ $(document).ready(function() {
             $.each(data, function (index, obj) {
 
 
-                chat += '<li class="msgList"><img class="img-thumbnail" src="' + obj.picture +'" alt="user picture" />'
+                chat += '<li class="msgList"><img class="img-chat" src="' + obj.picture +'" alt="user picture" />'
                     + '<input class="user_btn" id="select_user" type="button" name="selectUser" value="' + obj.user_name +'"/>' +
                     '</li>';
 
@@ -34,7 +33,8 @@ $(document).ready(function() {
 
     }//end load chats
 
-    setTimeout(loadChats, 1000);
+    loadChats();
+    setInterval(loadChats, 1000);
 
 
     //onclick, grab the value of the button and store it in a variable.

@@ -121,7 +121,6 @@
                     <tr>
                         <th>Status</th>
                         <th>Game Name</th>
-                        <th>Games Master</th>
                         <th>Language</th>
                         <th>Players</th>
                         <th>Theme</th>

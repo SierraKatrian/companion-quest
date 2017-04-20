@@ -13,10 +13,10 @@ $db = DbConnect::getDB();
 
 $userId =  $_SESSION['user']['id'];
 
-$gameClass = new playerPermissions();
+$list = new playerPermissions();
 
 
-$roomId = $gameClass->getGameRoomid($db, $userId);
+/*$roomId = $gameClass->getGameRoomid($db, $userId);
 
 
 foreach($roomId as $rvalue){
@@ -54,6 +54,7 @@ foreach($roomId as $rvalue){
 
 
         $usergames = $gameClass->getAllUserGames($db, $rvalue->id);
+        var_dump($usergames);
         foreach ($usergames as $value) {
 
 
@@ -64,10 +65,11 @@ foreach($roomId as $rvalue){
     }
 }
 
+*/
 
 
+$requestList = $list->playerInvites($db, $userId);
 
-/*$requestList = $list->playerInvites($db, $userId);
 
 foreach ($requestList as $request){
 
@@ -95,5 +97,5 @@ foreach ($requestList as $request){
 
 echo "<tr><td>" . $img . "</td>" . "<td>" . $request['game_name'] . "</td>" ."<td>" . $request['lang'] . "</td>" ."<td>" . $request['max_players']. "</td>" ."<td>" . $request['name'] . "</td></tr>";
 }
-*/
+
 ?>
