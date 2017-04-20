@@ -2,9 +2,9 @@
 
 class DbConnect
 {
-    private static $dsn = 'mysql:host=localhost;dbname=CompanionQuest';
-    private static $username = 'root';
-    private static $password = '';
+    private static $dsn = 'mysql:host=localhost;dbname=sierrak_companion_quest';
+    private static $username = 'sierr_cqdb';
+    private static $password = 'C0deC0mps';
     //reference to db connection
     private static $db;
 

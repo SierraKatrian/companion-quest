@@ -4,16 +4,16 @@ $getCharSheet = $charClass->getCharSheet($db, $charID);
 $getCharMoves = $charClass->getRoleMoves($db, $roleID);
 
 // var_dump($getCharSheet);
-var_dump($charID);
-var_dump($userID);
-var_dump($gameID);
+// var_dump($charID);
+// var_dump($userID);
+// var_dump($gameID);
 
 ?>
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~ CHARACTER LIST ~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<?php //if (!isset($charID)): ?>
+<?php if (!isset($charID)): ?>
     <h2>Choose Your Character</h2>
     <div class="panel panel-default character-panel-player">
         <div class="panel-body">
@@ -27,7 +27,7 @@ var_dump($gameID);
             </form>
         </div>
     </div>
-<?php //endif; ?>
+<?php endif; ?>
 
 <div class="character-panel-player">
     <?php if ($ruleBook == 1) : ?>

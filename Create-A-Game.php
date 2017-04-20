@@ -137,7 +137,6 @@
                     $createUserGame = $GameDAO->CREATE_UserGame($userID, $gameID, $notice);
 
                     $charClass = new CharacterDAO();
-
                     $getCharsClass = $charClass->getAvailCharacters($db, $ruleBook);
 
                     //create a chat room for this game id
@@ -157,7 +156,7 @@
                     if($createUserGame) {
 
                         $goToGmPortal = "<script type='text/javascript'>location.replace('GM-Portal.php'); </script>";
-                        
+
                         echo $goToGmPortal;
                         exit();
 

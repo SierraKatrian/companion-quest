@@ -19,12 +19,11 @@ class CharacterDAO {
     }
 
     public function getCharSheet($db, $charID){
-        $query = 'SELECT characters.*
-        -- , roles.*, stats.*, harm.*
+        $query = 'SELECT characters.*, roles.*, stats.*, harm.*
                   FROM characters
-                --   JOIN roles ON roles.id = characters.role_id
-                --   JOIN stats ON stats.char_id = characters.id
-                --   JOIN harm ON harm.char_id = characters.id
+                  JOIN roles ON roles.id = characters.role_id
+                  JOIN stats ON stats.char_id = characters.id
+                  JOIN harm ON harm.char_id = characters.id
                   WHERE characters.id = :charID
                 --   AND user_id = :userID
                 --   AND game_id = :gameID

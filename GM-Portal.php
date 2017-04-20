@@ -275,20 +275,17 @@ $GameDAO = new GameDAO($db);
 
 
         <!--NOTES AND NOTICES-->
-
             <h2>notes &amp; notices</h2>
             <div class="panel panel-default">
                 <div class="panel-body">
 
                     <!--TABS-->
-
                         <ul class="nav nav-tabs">
                             <li class="active"><a href="#1" class="tab-links" data-toggle="tab">Notes</a></li>
                             <li><a class="tab-links" href="#2" data-toggle="tab">Notices</a></li>
                         </ul>
 
                     <!--TAB CONTENT-->
-
                         <div class="tab-content">
                             <div class="tab-pane active" id="1">
                                 <div class="form-group">

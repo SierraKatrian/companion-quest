@@ -78,17 +78,17 @@ if (isset($_POST['btn_submit'])) {
 
     $updateStats = $charClass->updateCharStats($db, $charID, $stat1, $stat2, $stat3, $stat4, $stat5);
 
-    $updateHarm = $charClass->updateCharHarm($db, $charID, $harm, $stabilized, $minusHard, $plusWeird, $newRole, $die);
+    $updateHarm = $charClass->updateCharHarm($db, $charID, $harm);
 
+// 
+// var_dump($_POST);
+// var_dump($updateHarm);
+// // var_dump($updateStats);
+// var_dump($userID);
+// var_dump($gameID);
+// var_dump($charID);
 
-var_dump($_POST);
-var_dump($updateHarm);
-// var_dump($updateStats);
-var_dump($userID);
-var_dump($gameID);
-var_dump($charID);
-
-    // header ('location: ../Player-Portal.php');
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
 
 } else {
 
