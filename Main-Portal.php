@@ -10,6 +10,7 @@
     $email = $userDetails['email'];
     $password = $userDetails['password'];
     $userId = $userDetails['id'];
+
 ?>
 
 <body>

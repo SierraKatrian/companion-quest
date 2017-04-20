@@ -55,9 +55,9 @@ class playerPermissions
     public function listActivePlayers ($db, $game_id) {
         $query = "SELECT user_games.*, users.user_name, characters.name, roles.role_name FROM user_games
                   JOIN users ON user_games.user_id = users.id
-                  JOIN characters ON characters.games_id = user_games.games_id
-                  JOIN roles ON roles.roles_id = characters.roles_id
-                  WHERE user_games.games_id = :game_id AND characters.users_id = user_games.user_id AND user_games.player_status = 1 ";
+                  JOIN characters ON characters.game_id = user_games.games_id
+                  JOIN roles ON roles.roles_id = characters.role_id
+                  WHERE user_games.games_id = :game_id AND characters.user_id = user_games.user_id AND user_games.player_status = 1 ";
         $statement = $db->prepare($query);
         $statement->bindValue(':game_id', $game_id);
         $statement->execute();

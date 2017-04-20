@@ -14,7 +14,14 @@
     $password = $userDetails['password'];
 
     //Game details
+
+
+
+
+   /* $gameDetails = $_SESSION['gameDetails'];
+
     $gameDetails = $_SESSION['gameDetails'];
+
 
     $gameID = $gameDetails['id'];
     $ruleBook = $gameDetails['rb_id'];
@@ -22,15 +29,10 @@
     $gameLanguage = $gameDetails['lang'];
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
+=
+*/
 
-    $characterDetails = $_SESSION['characterDetails'];
-    // $characterID = $characterDetails['id'];
 
-    // $charDetails = $_SESSION['charDetails'];
-
-    // $charID = $charDetails['id'];s
-
-    // echo 'Character ID: ' . $charID;
 
 	//Game ID session coming from current-games
    if(isset($_POST['games_portal'])){
