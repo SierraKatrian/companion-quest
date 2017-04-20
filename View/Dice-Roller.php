@@ -1,11 +1,10 @@
 <?php
+
 require_once './Models/DbConnect.php';
 require_once './Models/DiceDAO.php';
 
 $dbClass = new DbConnect();
 $db = $dbClass->getDB();
-
-$charID = 2;
 
 $numDice = $numSides = $modNum = $message = '';
 
@@ -26,7 +25,7 @@ $numDice = $numSides = $modNum = $message = '';
 
                 <!-- QUANTITY OF DICE -->
                 <div class="form-group">
-                    <label class="control-label col-xs-7" for="roll-dice-form__quantity">Number of dice</label>
+                    <label class="control-label col-xs-7" for="roll-dice-form__quantity">Quantity</label>
                     <div class="col-xs-5">
                         <input id="quantity" class="form-control" type="number" name="roll-dice-form__quantity" value="<?php echo $numDice ?>" />
                     </div>
@@ -34,7 +33,7 @@ $numDice = $numSides = $modNum = $message = '';
 
                 <!-- NUMBER OF SIDES -->
                 <div class="form-group">
-                    <label class="control-label col-xs-7" for="roll-dice-form__sides">Number of sides</label>
+                    <label class="control-label col-xs-7" for="roll-dice-form__sides">Sides</label>
                     <div class="col-xs-5">
                         <input id="sides" class="form-control" type="number" name="roll-dice-form__sides" value="<?php echo $numSides ?>" />
                     </div>
@@ -53,9 +52,9 @@ $numDice = $numSides = $modNum = $message = '';
                     <button id="btn_roll" class="btn btn-default" type="button" name="roll-dice-form__btn-roll">Roll Dice</button>
 
                     <!-- SAVE DICE BUTTON -->
-                    <button id="btn_save" class="btn btn-default" type="button" name="roll-dice-form__btn-save">Save Roll</button>
+                    <button id="btn_save" class="btn btn-default" type="button" name="roll-dice-form__btn-save"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
                 </div>
-                
+
             </form>
             <p id="results"></p>
 

@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require_once 'DbConnect.php';
 require_once 'DiceDAO.php';
 

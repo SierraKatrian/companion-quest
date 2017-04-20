@@ -1,4 +1,8 @@
 <?php
+
+require_once 'DbConnect.php';
+require_once 'CharacterDAO.php';
+
 session_start();
 
 //User details
@@ -19,40 +23,36 @@ $gameLanguage = $_SESSION['games']['lang'];
 $gamePlayerTotal = $_SESSION['games']['max_players'];
 $gameStatus = $_SESSION['games']['game_status'];
 
-require_once 'DbConnect.php';
-require_once 'CharacterDAO.php';
-
 $dbClass = new DbConnect();
 $db = $dbClass->getDB();
 
 $charClass = new CharacterDAO();
 
-// var_dump($getPlayerChars);
-
-// $getPlayerChars = $_SESSION['chars'];
-
-// $_SESSION['character'] = $getPlayerChars;
-//
-// $charID = $getPlayerChars['user_id'];
-
-// var_dump($charID);
-
     $selectedChar = $_POST['availChars'];
+
+    echo 'Role ID: ' . $selectedChar;
+
     $setPlayerChar = $charClass->setPlayerChar($db, $userID, $selectedChar, $gameID);
+
     $disableSelectedChars = $charClass->disableSelectedChar($db, $selectedChar, $gameID);
 
-    $characterDetails = $charClass->getCharacter($db, $userID, $gameID);
-    // $_SESSION['characterDetails'] = $characterDetails;
+    $charDetails = $charClass->getCharacter($db, $userID, $gameID, $selectedChar);
+
+    $_SESSION['characters'] = $charDetails;
+
+    // var_dump($charDetails);
+
+    // echo 'Char ID: ' . $_SESSION['characters']['id'];
 
     // $jDisSelChars = json_encode($disableSelectedChars);
     // $jSetPlayerChar = json_encode($setPlayerChar);
 
-    // header ('location: ../Player-Portal.php');
+    header ('location: ../Player-Portal.php');
 
     // header("Content-Type: application/json");sss
     // echo $jDisSelChars;
     // echo $jSetPlayerChar;
 
-    var_dump($characterDetails);
+    // var_dump($characterDetails);
 // }
 ?>

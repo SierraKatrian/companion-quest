@@ -22,6 +22,14 @@ $gameLanguage = $_SESSION['games']['lang'];
 $gamePlayerTotal = $_SESSION['games']['max_players'];
 $gameStatus = $_SESSION['games']['game_status'];
 
+$charID = $_SESSION['characters']['id'];
+$roleID = $_SESSION['characters']['role_id'];
+
+echo 'Game ID: ' . $gameID;
+echo '<br/> Game ID: ' . $userID;
+echo '<br/> Char ID: ' . $charID;
+echo '<br/> Role ID: ' . $roleID;
+
  ?>
 
 <main>
