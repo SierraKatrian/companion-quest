@@ -14,33 +14,22 @@
     $password = $userDetails['password'];
 
     //Game details
+    $ruleBook = $_SESSION['games']['rb_id'];
+    $gameID = $_SESSION['games']['games_id'];
+    $gameName = $_SESSION['games']['game_name'];
+    $gameLanguage = $_SESSION['games']['lang'];
+    $gamePlayerTotal = $_SESSION['games']['max_players'];
+    $gameStatus = $_SESSION['games']['game_status'];
 
 
 
-
-   /* $gameDetails = $_SESSION['gameDetails'];
-
-    $gameDetails = $_SESSION['gameDetails'];
-
-
-    $gameID = $gameDetails['id'];
-    $ruleBook = $gameDetails['rb_id'];
-    $gameName = $gameDetails['game_name'];
-    $gameLanguage = $gameDetails['lang'];
-    $gamePlayerTotal = $gameDetails['max_players'];
-    $gameStatus = $gameDetails['game_status'];
-=
-*/
-
-
-
-	//Game ID session coming from current-games
-   if(isset($_POST['games_portal'])){
-   $_SESSION['id'] = $_POST['games_portal'];
-   $gameId = $_SESSION['id'];
-   }
-
-   var_dump($gameId);
+   // Game ID session coming from current-games
+   // if(isset($_POST['games_portal'])){
+   // $_SESSION['id'] = $_POST['games_portal'];
+   // $gameId = $_SESSION['id'];
+   // }
+   // var_dump($_SESSION['games']);
+   // echo 'Game ID: ' . $_SESSION['games']['games_id'];
 
 ?>
 
