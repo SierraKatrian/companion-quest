@@ -101,7 +101,7 @@ class playerPermissions
 
     public function gmPermissions ($db, $userID, $gameId) {
 
-        $query = "UPDATE user_games SET permission = 2 WHERE user_id = :userID AND games_id = :gameId";
+        $query = "UPDATE user_games SET permission = 1 WHERE user_id = :userID AND games_id = :gameId";
         $statement = $db->prepare($query);
         $statement->bindValue(':userID', $userID);
         $statement->bindValue(':gameId', $gameId);

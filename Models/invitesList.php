@@ -12,10 +12,10 @@ require_once 'Models/playerPermissions.php';
 $db = DbConnect::getDB();
 
 $userId =  $_SESSION['user']['id'];
-$gameId = $_SESSION['gameDetails']['id'];
+$gameID = $_SESSION['games']['games_id'];
 
 $list = new playerPermissions();
-$playerList = $list->getAllGamePlayers($db,$gameId);
+$playerList = $list->listActivePlayers($db,$gameID);
 
 
 foreach($playerList as $player) {
