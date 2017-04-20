@@ -31,6 +31,7 @@ require_once 'Models/CharacterDAO.php';
     $charClass = new CharacterDAO();
     $selectedChars = $charClass->getGameChars($db, $gameID);
 
+
 ?>
 
 <body>

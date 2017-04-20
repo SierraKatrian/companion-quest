@@ -9,7 +9,9 @@
     $username = $userDetails['user_name'];
     $email = $userDetails['email'];
     $password = $userDetails['password'];
-    $userId = $userDetails['id'];   
+    $userId = $userDetails['id'];
+
+
 ?>
 
 <body>

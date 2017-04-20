@@ -9,7 +9,7 @@ $(document).ready(function(){
     //populate the active players tab
 
     $.get('Models/GM-Players.php', function (data) {
-
+        console.log(data);
 
         var players = "";
 
