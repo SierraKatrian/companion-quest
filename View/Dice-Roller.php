@@ -49,10 +49,10 @@ $numDice = $numSides = $modNum = $message = '';
                 <div class="roll-btns btn-group">
 
                     <!-- ROLL DICE BUTTON -->
-                    <button id="btn_roll" class="btn btn-default" type="button" name="roll-dice-form__btn-roll">Roll Dice</button>
+                    <button id="btn_roll" class="btn btn-info" type="button" name="roll-dice-form__btn-roll">Roll Dice</button>
 
                     <!-- SAVE DICE BUTTON -->
-                    <button id="btn_save" class="btn btn-default" type="button" name="roll-dice-form__btn-save"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+                    <button id="btn_save" class="btn btn-info" type="button" name="roll-dice-form__btn-save"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
                 </div>
 
             </form>
@@ -69,50 +69,49 @@ $numDice = $numSides = $modNum = $message = '';
             </div>
 
             <!-- EDIT DICE FORM -->
-            <?php if (isset($_POST['saved-dice-form__btn-edit'])) : ?>
+            <!-- <?php if (isset($_POST['saved-dice-form__btn-edit'])) : ?>
                 <div class="edit-dice">
-                    <form id="char-dice-form" class="edit-dice-form" action="" method="POST">
+                    <form id="char-dice-form" class="edit-dice-form" action="" method="POST"> -->
 
                         <!-- ID OF DICE TO BE EDITED -->
-                        <div>
+                        <!-- <div>
                             <input type="hidden" name="edit-dice-form__id" value="<?php echo $getDice->id ?>" />
-                        </div>
+                        </div> -->
 
                         <!-- QUANTITY OF DICE TO BE EDITED -->
-                        <div>
+                        <!-- <div>
                             <label for="edit-dice-form__quantity">Number of dice</label>
                             <input type="number" name="edit-dice-form__quantity" value="<?php echo $getDice->quantity ?>" />
-                        </div>
+                        </div> -->
 
                         <!-- NUMBER OF SIDES OF DICE TO BE EDITED -->
-                        <div>
+                        <!-- <div>
                             <label for="edit-dice-form__sides">Number of sides</label>
                             <input type="number" name="edit-dice-form__sides" value="<?php echo $getDice->sides ?>" />
-                        </div>
+                        </div> -->
 
                         <!-- MODIFIER OF DICE TO BE EDITED -->
-                        <div>
+                        <!-- <div>
                             <label for="edit-dice-form__modifier">Modifier</label>
                             <input type="number" name="edit-dice-form__modifier" value="<?php echo $getDice->modifier ?>" />
-                        </div>
+                        </div> -->
 
                         <!-- UPDATE DICE BUTTON -->
-                        <div>
+                        <!-- <div>
                             <button type="submit" name="edit-dice-form__btn-update">Update Dice</button>
                         </div>
                     </form>
                 </div>
-            <?php endif; ?>
+            <?php endif; ?> -->
 
             <!-- DISPLAY ROLLED DICE -->
         <form id="char-dice-form" action="" method="post">
             <table class="table table-hover">
-                <thead class="hidden">
+                <thead>
                     <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>Q</th>
+                        <th>S</th>
+                        <th>M</th>
                         <th></th>
                     </tr>
                 </thead>

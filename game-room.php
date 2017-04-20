@@ -16,19 +16,21 @@ $password = $userDetails['password'];
 
 //Game details
 $ruleBook = $_SESSION['games']['rb_id'];
+$ruleBookName = $_SESSION['games']['name'];
 $gameID = $_SESSION['games']['games_id'];
 $gameName = $_SESSION['games']['game_name'];
 $gameLanguage = $_SESSION['games']['lang'];
 $gamePlayerTotal = $_SESSION['games']['max_players'];
 $gameStatus = $_SESSION['games']['game_status'];
+$userOrGM = $_SESSION['games']['permission'];
 
 $charID = $_SESSION['characters']['id'];
 $roleID = $_SESSION['characters']['role_id'];
-// 
-// echo 'Game ID: ' . $gameID;
-// echo '<br/> Game ID: ' . $userID;
-// echo '<br/> Char ID: ' . $charID;
-// echo '<br/> Role ID: ' . $roleID;
+
+// var_dump($_SESSION['games']);
+// echo '<br/>    User ID: ' . $userID;
+// echo '<br/>    Char ID: ' . $charID;
+// echo '<br/>     Role ID: ' . $roleID;
 
  ?>
 
@@ -111,8 +113,8 @@ $roleID = $_SESSION['characters']['role_id'];
             <section class="chat panel-body">
                 <form class="chat_box" id="chat_box" action="" method="post">
                     <div id="chat-output"></div>
-                    <textarea id="chat-input" name="name" rows="6" cols="80"></textarea>
-                    <button type="submit" name="btn_send">Send</button>
+                    <textarea class="form-control" id="chat-input" name="name" rows="6" cols="80"></textarea>
+                    <button class="btn btn-primary btn-block btn-chat" type="submit" name="btn_send">Send</button>
                 </form>
             </section>
         </div>
@@ -120,23 +122,30 @@ $roleID = $_SESSION['characters']['role_id'];
 
 </div>
 
-            <button class="slideout_btn charSheet_btn" type="button"><span class="glyphicon glyphicon-file glyphicon-inverse" aria-hidden="true"></span></button>
+            <button class="slideout_btn rulebook_btn" type="button"><span class="glyphicon glyphicon-book glyphicon-inverse" aria-hidden="true"></span></button>
 
             <div class="slideout panel panel-default">
+                <div class="panel-heading">
+                    <h2><?php echo $ruleBookName; ?> - Rulebook <button type="button" class="close"><span class="glyphicon glyphicon-remove"></button></h2>
+                    </div>
                 <section class="panel-body">
-                    <button type="button" class="close"><span class="glyphicon glyphicon-remove"></button>
-                    <?php include "View/Character-Sheet.php" ?>
-              </section>
+                    <object width="100%" height="500" data="Files/apocalypseworld-rulebook.pdf"></object>
+                </section>
             </div>
 
-        <button class="slideout_btn rulebook_btn" type="button"><span class="glyphicon glyphicon-book glyphicon-inverse" aria-hidden="true"></span></button>
+            <?php if ($userOrGM == 2): ?>
+                <button class="slideout_btn charSheet_btn" type="button"><span class="glyphicon glyphicon-file glyphicon-inverse" aria-hidden="true"></span></button>
 
-        <div class="slideout panel panel-default">
-            <section class="panel-body">
-                <h3>Apacalypse World - Rulebook <button type="button" class="close"><span class="glyphicon glyphicon-remove"></button></h3>
-                <object type="application/pdf" width="100%" height="100%" data="pdf/aw-rulebook.pdf"></object>
-            </section>
-        </div>
+                <div class="slideout panel panel-default">
+                    <div class="panel-heading">
+                        <h2><?php echo $ruleBookName; ?> - Character Sheet <button type="button" class="close"><span class="glyphicon glyphicon-remove"></button></h2>
+                    </div>
+                    <section class="panel-body">
+                        <?php include "View/Character-Sheet.php" ?>
+                  </section>
+                </div>
+            <?php endif; ?>
+
 
 </div>
 </main>

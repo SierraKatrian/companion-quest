@@ -15,6 +15,7 @@
 
     //Game details
     $ruleBook = $_SESSION['games']['rb_id'];
+    $ruleBookName = $_SESSION['games']['name'];
     $gameID = $_SESSION['games']['games_id'];
     $gameName = $_SESSION['games']['game_name'];
     $gameLanguage = $_SESSION['games']['lang'];
@@ -159,6 +160,7 @@
 
         <!--RIGHT SIDE FORM COLUMN-->
         <div class="col-md-8">
+            <h2><?php echo $ruleBookName ?> - Character Sheet</h2>
             <?php include "View/Character-Sheet.php" ?>
         </div>
 

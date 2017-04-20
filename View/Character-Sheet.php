@@ -1,6 +1,6 @@
 <?php
 
-$getCharSheet = $charClass->getCharSheet($db, $charID);
+$getCharSheet = $charClass->getCharSheet($db, $userID, $gameID, $charID);
 $getCharMoves = $charClass->getRoleMoves($db, $roleID);
 
 // var_dump($getCharSheet);
@@ -35,7 +35,6 @@ $getCharMoves = $charClass->getRoleMoves($db, $roleID);
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         ~~~~~~ APOCALYPSE WORLD CHARACTER SHEET ~~~~~~
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-        <h2 class="csTitle">APOCALYPSE WORLD CHARACTER SHEET</h2>
         <form class="" name="submit_char" action="Models/Submit-Player-Char.php" method="post">
         <?php foreach ($getCharSheet as $char): ?>
 

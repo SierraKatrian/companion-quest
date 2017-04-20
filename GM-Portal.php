@@ -61,7 +61,7 @@ $GameDAO = new GameDAO($db);
             $gameNameLabel = "<span style='color:red;'>Game Name Can't Be Empty:</span>";
         }
     } else {
-        $gameName = $gameDetails['game_name'];
+        $gameName = $getGameName['game_name'];
     }
 
 ?>

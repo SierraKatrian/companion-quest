@@ -31,7 +31,7 @@ $charClass = new CharacterDAO();
 $selectedChar = $_POST['availChars'];
 
 $setPlayerChar = $charClass->setPlayerChar($db, $userID, $gameID, $selectedChar);
-$charDetails = $charClass->getCharacter($db, $userID, $gameID, $selectedChar);
+$charDetails = $charClass->getCharacter($db, $userID, $gameID);
 
 $_SESSION['characters'] = $charDetails;
 $charID = $_SESSION['characters']['id'];

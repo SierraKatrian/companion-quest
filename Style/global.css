@@ -1017,9 +1017,8 @@
               margin:0!important;
           }
 
-/* CHARACTER SHEET */
 
-/* CREATE CHARACTER */
+/* CHARACTER SHEET */
 .dIndent li {
     margin-left: 30px;
     /*list-style:circle;*/
@@ -1063,7 +1062,7 @@ p .pBold, li .pBold {
 ------------------------------*/
 
 .slideout_btn {
-	background-color: #1d1d27;
+	background-color: #ffad33;
 	border-style: none;
 	padding: 8px 10px;
 }
@@ -1072,12 +1071,16 @@ p .pBold, li .pBold {
     position: fixed;
     top: 127px;
     left: 0px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
 
 .rulebook_btn {
     position: fixed;
     top: 88px;
     left: 0px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
 
 .slideout {
@@ -1089,16 +1092,21 @@ p .pBold, li .pBold {
   bottom: -10px;
   left: -100%;
   width: 70%;
-  overflow: auto;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   -o-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  overflow: auto;
 }
+
 
 .slideout.on {
 	z-index: 100;
   	left: 0;
+}
+
+.btn-chat {
+    margin-top: 10px;
 }
 
 

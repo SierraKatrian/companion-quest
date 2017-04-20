@@ -2,10 +2,13 @@
 
 class DiceDAO {
 
-    public function getSavedDice($db, $charID){
-        $query = 'SELECT * FROM saved_dice WHERE char_id = :charID';
+    public function getSavedDice($db, $userID, $gameID){
+        $query = 'SELECT * FROM saved_dice
+        WHERE user_id = :userID
+        AND game_id = :gameID';
         $statement = $db->prepare($query);
-        $statement->bindValue(':charID', $charID, PDO::PARAM_INT);
+        $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
+        $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
         $statement->execute();
         $viewSavedDice = $statement->fetchAll(PDO::FETCH_OBJ);
         $statement->closeCursor();
@@ -13,12 +16,13 @@ class DiceDAO {
         return $viewSavedDice;
     }
 
-    public function saveDice($db, $charID, $numDice, $numSides, $modNum){
+    public function saveDice($db, $userID, $gameID, $numSides, $numDice, $modNum){
         $query = 'INSERT INTO saved_dice
-                  (char_id, quantity, sides, modifier)
-                  VALUES (:charID, :quantity, :sides,  :modifier)';
+                  (user_id, game_id, quantity, sides, modifier)
+                  VALUES (:userID, :gameID, :quantity, :sides,  :modifier)';
         $statement = $db->prepare($query);
-        $statement->bindValue(':charID', $charID, PDO::PARAM_INT);
+        $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
+        $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
         $statement->bindValue(':sides', $numSides, PDO::PARAM_INT);
         $statement->bindValue(':quantity', $numDice, PDO::PARAM_INT);
         $statement->bindValue(':modifier', $modNum, PDO::PARAM_INT);
@@ -38,7 +42,7 @@ class DiceDAO {
     }
 
     public function updateDice($db, $id, $dice) {
-        $query = 'UPDATE saved_dice SET sides = :sides, quantity = :quantity, modifier = :modifier WHERE Id = :ID';
+        $query = 'UPDATE saved_dice SET sides = :sides, quantity = :quantity, modifier = :modifier WHERE id = :ID';
         $statement = $db->prepare($query);
         $statement->bindValue(':ID', $id, PDO::PARAM_INT);
         $statement->bindValue(':sides', $dice->getSides(), PDO::PARAM_INT);
@@ -59,10 +63,6 @@ class DiceDAO {
         // $statement->closeCursor();
 
         return $dice;
-    }
-
-    public function getCharacterId() {
-        'SELECT char_id FROM chars WHERE game_id = :game_id';
     }
 }
 

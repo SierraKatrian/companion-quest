@@ -2,15 +2,13 @@
 
 class CharacterDAO {
 
-    public function getCharacter($db, $userID, $gameID, $roleID) {
+    public function getCharacter($db, $userID, $gameID) {
         $query = 'SELECT * FROM characters
                   WHERE user_id = :userID
-                  AND game_id = :gameID
-                  AND role_id = :roleID';
+                  AND game_id = :gameID';
         $statement = $db->prepare($query);
         $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
         $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
-        $statement->bindValue(':roleID', $roleID, PDO::PARAM_INT);
         $statement->execute();
         $character = $statement->fetch(PDO::FETCH_ASSOC);
         // $statement->closeCursor();
@@ -18,32 +16,20 @@ class CharacterDAO {
         return $character;
     }
 
-    public function getCharSheet($db, $charID){
+    public function getCharSheet($db, $userID, $gameID, $charID){
         $query = 'SELECT characters.*, roles.*, stats.*, harm.*
                   FROM characters
                   JOIN roles ON roles.id = characters.role_id
                   JOIN stats ON stats.char_id = characters.id
                   JOIN harm ON harm.char_id = characters.id
                   WHERE characters.id = :charID
-                --   AND user_id = :userID
-                --   AND game_id = :gameID
+                  AND user_id = :userID
+                  AND game_id = :gameID
                   ';
         $statement = $db->prepare($query);
-        $statement->bindValue(':charID', $charID, PDO::PARAM_INT);
-        // $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
-        // $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
-        $statement->execute();
-        $viewCharacter = $statement->fetchAll(PDO::FETCH_OBJ);
-        $statement->closeCursor();
-
-        return $viewCharacter;
-    }
-
-    public function getRole($db, $rbID, $roleID){
-        $query = 'SELECT * FROM roles WHERE id = :ID AND rulebook_id = :rulebookID';
-        $statement = $db->prepare($query);
-        $statement->bindValue(':rulebookID', $rbID, PDO::PARAM_INT);
-        $statement->bindValue(':ID', $roleID, PDO::PARAM_INT);
+        $statement->bindValue(':userID', $userID, PDO::PARAM_INT);
+        $statement->bindValue(':gameID', $gameID, PDO::PARAM_INT);
+            $statement->bindValue(':charID', $charID, PDO::PARAM_INT);
         $statement->execute();
         $viewCharacter = $statement->fetchAll(PDO::FETCH_OBJ);
         $statement->closeCursor();

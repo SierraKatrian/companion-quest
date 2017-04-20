@@ -29,7 +29,7 @@ $gameStatus = $_SESSION['games']['game_status'];
 $charID = $_SESSION['characters']['id'];
 $roleID = $_SESSION['characters']['role_id'];
 
-$viewSavedDice = $diceClass->getSavedDice($db, $charID);
+$viewSavedDice = $diceClass->getSavedDice($db, $userID, $gameID);
 
 $jSavedDice = json_encode($viewSavedDice);
 
