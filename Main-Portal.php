@@ -80,7 +80,7 @@
     <!--CURRENT GAMES-->
 
         <div class="list-group-item active">
-            <h3>View Current Games</h3>
+            <h3>My Current Games</h3>
         </div>
 
         <div class="list-group">
@@ -176,7 +176,7 @@
     </form>
 
     <div class="list-group-item active">
-        <h3>Current Games</h3>
+        <h3>All Games</h3>
     </div>
 
     <div class="list-group">
