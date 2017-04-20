@@ -967,6 +967,34 @@
                   border:none;
               }
 
+              /* game room map */
+
+              .game-room-map {
+                position:relative;
+              }
+
+              .edit-map-btn {
+                  position:absolute;
+                  left:100%;
+                  transform:translateX(-165%);
+                  margin:10px;
+              }
+
+              .game-room-map {
+                  padding:0;
+              }
+
+              .game-room-map-img {
+                  min-width:100%;
+              }
+
+              .map_view {
+                  width:700px;
+                  height:400px;
+                  overflow-y: hidden;
+                  overflow-x: hidden;
+              }
+
 
     /* CHARACTER SELECTION PANEL */
 
