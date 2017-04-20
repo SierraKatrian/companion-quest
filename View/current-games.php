@@ -38,11 +38,16 @@ var_dump($gameID);
             <td><?php echo $games->lang ?></td>
             <td><?php echo $games->max_players ?></td>
             <td><?php echo $games->name ?></td>
-            <th><button type="submit" name="enter_game" value="<?php echo $games->game_id ?>">Go to game: <?php echo $games->games_id ?></button></th>
+            <td>
+                <form action='Models/sessionredirect.php' method='post'>
+                    <input type='text' style='display: none' name='room_id' value=<?php echo $games->games_id ?> >
+                    <button type="submit" name="enter_game" value="<?php echo $games->games_id ?>">Go to game: <?php echo $games->games_id ?>
+                    </button>
+                </form> 
+            </td>
         </tr>
 
     <?php endforeach; ?>
-
 <?php
 
 
