@@ -98,6 +98,11 @@ $roleID = $_SESSION['characters']['role_id'];
             <div class="panel panel-default">
 
             <section class="panel-body game_info">
+                <div class="backPortal">
+                    <form class="" action="Models/return-to-portal.php" method="post">
+                        <button class="btn button-default btn-block" type="submit" name="btn_back_portal">Go back to the Portal</button>
+                    </form>
+                </div>
                 <h2><?php echo $gameName ?></h2>
                 <table class="table table-hover">
                     <thead>
@@ -125,7 +130,9 @@ $roleID = $_SESSION['characters']['role_id'];
                 <form class="chat_box" id="chat_box" action="" method="post">
                     <div id="chat-output"></div>
                     <textarea class="form-control" id="chat-input" name="name" rows="6" cols="80"></textarea>
-                    <button class="btn btn-primary btn-block btn-chat" type="submit" name="btn_send">Send</button>
+                    <div class="chatButton">
+                        <button class="btn btn-primary btn-chat" type="submit" name="btn_send">Send</button>
+                    </div>
                 </form>
             </section>
         </div>

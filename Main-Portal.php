@@ -44,7 +44,7 @@
         <div class="col-md-12 red">
             <h1>Game Room</h1>
             <p>
-                Welcome to the Game Room <?echo $fname?>! Here you can create or join a game. You can
+                Welcome to the Game Room <?php echo $fname ?>! Here you can create or join a game. You can
                 request to join current games, view pending requests or invites and
                 search for available games. Enjoy your quest!
             </p>

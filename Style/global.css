@@ -1085,6 +1085,14 @@ p .pBold, li .pBold {
     max-width: 100%;
 }
 
+.backPortal {
+    text-align: right;
+}
+
+.chatButton {
+    text-align: right;
+}
+
 /*------------------------------
 ----------- SLIDEOUT -----------
 ------------------------------*/
