@@ -2,8 +2,7 @@
 
     session_start();
 
-    $gameDetails = $_SESSION['gameDetails'];
-    $gameID = $gameDetails['id'];
+    $gameID = $_SESSION['games']['games_id'];
 
     require_once "DbConnect.php";
     require_once "MapsDAO.php";
