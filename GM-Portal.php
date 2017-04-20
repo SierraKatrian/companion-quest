@@ -2,6 +2,7 @@
 
 require_once "View/Header.php";
 require_once 'Models/CharacterDAO.php';
+$GameDAO = new GameDAO($db);
 
     //user details
     $userDetails = $_SESSION['user'];
@@ -15,10 +16,17 @@ require_once 'Models/CharacterDAO.php';
     //game details
     $ruleBook = $_SESSION['games']['rb_id'];
     $gameID = $_SESSION['games']['games_id'];
-    $gameName = $_SESSION['games']['game_name'];
+    //$gameName = $_SESSION['games']['game_name'];
     $gameLanguage = $_SESSION['games']['lang'];
     $gamePlayerTotal = $_SESSION['games']['max_players'];
     $gameStatus = $_SESSION['games']['game_status'];
+
+    //game name
+    $getGameName = $GameDAO->READ_GameName($gameID);
+    $gameName = $getGameName['game_name'];
+
+    //Validation
+    $gameNameLabel = "Edit Game Name:";
 
     $dbClass = new DbConnect();
     $db = $dbClass->getDB();
@@ -36,9 +44,31 @@ require_once 'Models/CharacterDAO.php';
     //
     //
     // echo 'Game ID Variable: ' . $gameID;
+
+    //UPDATE GAME NAME
+    if(isset($_POST['editGameNameBtn'])){
+        if(!empty($_POST['edit-game-name-txt'])){
+            $newGameName = $_POST['edit-game-name-txt'];
+            $gameNameIsUnique = $GameDAO->READ_CheckDuplicateGame($newGameName);
+            if ($gameNameIsUnique){
+                $GameDAO->UPDATE_GameName($gameID, $newGameName);
+                $getGameName = $GameDAO->READ_GameName($gameID);
+                $gameName = $getGameName['game_name'];
+            } else {
+                $gameNameLabel = "<span style='color:red;'>Game Name Already Exists:</span>";
+            }
+        }else{
+            $gameNameLabel = "<span style='color:red;'>Game Name Can't Be Empty:</span>";
+        }
+    } else {
+        $gameName = $gameDetails['game_name'];
+    }
+
 ?>
 
 <body>
+
+    <!--DELETE GAME
 
     <div class="wrapper">
         <div class="delete-game-btn-container green">
@@ -46,7 +76,7 @@ require_once 'Models/CharacterDAO.php';
                 <span class="glyphicon glyphicon-trash"></span>
             </button>
         </div>
-    </div>
+    </div>-->
 
     <!--BANNER-->
 
@@ -83,12 +113,13 @@ require_once 'Models/CharacterDAO.php';
             <h2>Game Info</h2>
 
             <!--GAME NAME-->
-                <form action="" method="get">
-                    <label for="edit-game-name">Edit Game Name:</label>
+
+                <form action="" method="post" name="editGameName">
+                    <label for="edit-game-name"><?= $gameNameLabel ?></label>
                     <div class="input-group col-md-12">
-                        <input type="text" class="form-control bigGameNameInput" placeholder="Search" value="<?= $gameName ?>" name="edit-game-name">
+                        <input type="text" class="form-control bigGameNameInput" placeholder="Search" value="<?= $gameName ?>" name="edit-game-name-txt">
                         <div class="input-group-btn">
-                            <button class="btn btn-primary bigGameNameInput-btn" type="submit">
+                            <button class="btn btn-primary bigGameNameInput-btn" type="submit" name="editGameNameBtn" data-toggle="tooltip" title="Edit Game Name">
                                 <span class="glyphicon glyphicon-floppy-disk"></span>
                             </button>
                         </div>
@@ -135,18 +166,23 @@ require_once 'Models/CharacterDAO.php';
                         </select>
                 </form>
 
-            <!--MAPS-->
-            <label for="mapPanel">Change/Upload Current Map:</label>
-            <div class="panel panel-default mapPanel">
-                <div class="panel-body">
-                    <div class="map-container">
-                        <img src="Images/maps/map1.jpg" alt="map" class="map-image" style="width:100%">
-                        <div class="map-middle">
-                            <span class="map-cog glyphicon glyphicon-cog"></span>
+                <!--MAPS-->
+
+                <label for="mapPanel">Change/Upload Current Map:</label>
+                <a href='#' data-toggle='modal' data-target='#gm-portal-maps' id="edit-image-panel">
+                <div class="panel panel-default mapPanel">
+                    <div class="panel-body">
+                        <div class="map-container">
+                            <div id="portal-map-image">
+                                <img src="Images/maps/default-map.png" alt="map" class="map-image default-map-image" style="width:100%">
+                            </div>
+                            <div class="map-middle">
+                                <span class="map-upload-link"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                </a>
 
             <!--CHARACTER LIST-->
             <h2>Selected Characters</h2>
@@ -293,5 +329,12 @@ require_once 'Models/CharacterDAO.php';
 
 </main>
     <script type="text/javascript" src="Script/GM.js"></script>
+    <script type="text/javascript" src="Script/Maps/page-load-map-functions.js"></script>
+    <script type="text/javascript" src="Script/Maps/populate-gallery-AJAX.js"></script>
 
-<?php include "View/Footer.php"; ?>
+<?php
+
+    include "View/Footer.php";
+    include "View/Modals/gmportal-maps.php";
+
+?>

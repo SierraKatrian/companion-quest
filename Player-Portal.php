@@ -21,6 +21,10 @@
     $gamePlayerTotal = $_SESSION['games']['max_players'];
     $gameStatus = $_SESSION['games']['game_status'];
 
+    $charDetails = $_SESSION['characters'];
+    
+    $charID = $charDetails['id'];
+    $roleID = $charDetails['role_id'];
 
 
    // Game ID session coming from current-games
@@ -28,8 +32,10 @@
    // $_SESSION['id'] = $_POST['games_portal'];
    // $gameId = $_SESSION['id'];
    // }
-   // var_dump($_SESSION['games']);
-   // echo 'Game ID: ' . $_SESSION['games']['games_id'];
+   echo 'Role ID: ' . $roleID;
+   echo 'Char ID: ' . $charID;
+   echo 'Game ID: ' . $gameID;
+   echo 'User ID: ' . $userID;
 
 ?>
 

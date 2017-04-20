@@ -1,11 +1,10 @@
 <?php
 
-    $getCharSheet = $charClass->getCharSheet($db, $userID, $gameID);
-    $getCharMoves = $charClass->getRoleMoves($db, 2);
+$getCharSheet = $charClass->getCharSheet($db, $charID);
+$getCharMoves = $charClass->getRoleMoves($db, $roleID);
 
-
-var_dump($_SESSION['games']);
-var_dump($getCharSheet);
+// var_dump($getCharSheet);
+var_dump($charID);
 var_dump($userID);
 var_dump($gameID);
 
@@ -14,19 +13,21 @@ var_dump($gameID);
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~ CHARACTER LIST ~~~~~~~~~~~~~~
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<h2>Choose Your Character</h2>
-<div class="panel panel-default character-panel-player">
-    <div class="panel-body">
-        <form id="updatePlayerChar" name="updatePlayerChar" action="./Models/Select-Player-Char.php" method="post">
-            <div class="row">
-                <div id="chooseChar">
+<?php //if (!isset($charID)): ?>
+    <h2>Choose Your Character</h2>
+    <div class="panel panel-default character-panel-player">
+        <div class="panel-body">
+            <form id="updatePlayerChar" name="updatePlayerChar" action="./Models/Select-Player-Char.php" method="post">
+                <div class="row">
+                    <div id="chooseChar">
 
+                    </div>
                 </div>
-            </div>
-            <button id="btn_select_char" class="btn btn-primary" type="submit" name="btn_select_char">Select Character</button>
-        </form>
+                <button id="btn_select_char" class="btn btn-primary" type="submit" name="btn_select_char">Select Character</button>
+            </form>
+        </div>
     </div>
-</div>
+<?php //endif; ?>
 
 <div class="character-panel-player">
     <?php if ($ruleBook == 1) : ?>
@@ -140,7 +141,17 @@ var_dump($gameID);
                         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                         ~~~~~~~~~~~~~~~~ CHARACTER HARM ~~~~~~~~~~~~~
                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-                        <h3 class="csTitle">Harm</h3>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h3 class="csTitle">Harm</h3>
+                            </div> <!-- end of column -->
+
+                            <div class="col-sm-6">
+                                <div class="radio">
+                                    <label for="harm"><input type="radio" name="harm" value="0" <?php echo ($char->total_harm == 0) ? "checked" : "" ; ?>>Unharmed</label>
+                                </div>
+                            </div> <!-- end of column -->
+                        </div> <!-- end of row -->
 
                         <div class="row">
                             <div class="col-sm-6">
@@ -175,25 +186,25 @@ var_dump($gameID);
                         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                         ~~~~~~~~~~~~~~ ADDITIONAL DAMAMGE ~~~~~~~~~~~~
                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-                        <div class="radio">
-                            <label for="stabilized"><input type="radio" name="stabilized" value="stabilized" <?php echo ($char->stabilized == 1) ? "checked" : "" ; ?>>Stabalized?</label>
+                        <!-- <div class="radio">
+                            <label for="stabilized"><input type="radio" name="stabilized" value="<?php echo $char->new_role ?>" <?php echo ($char->stabilized == 1) ? "checked" : "" ; ?>>Stabalized?</label>
                         </div>
 
                         <div class="radio">
-                            <label for="minusHard"><input type="radio" name="minusHard" value="minusHard" <?php echo ($char->minus_hard == 1) ? "checked" : "" ; ?>>Come back with -1hard</label>
+                            <label for="minusHard"><input type="radio" name="minusHard" value="<?php echo $char->new_role ?>" <?php echo ($char->minus_hard == 1) ? "checked" : "" ; ?>>Come back with -1hard</label>
                         </div>
 
                         <div class="radio">
-                            <label for="plusWeird"><input type="radio" name="plusWeird" value="plusWeird" <?php echo ($char->plus_weird == 1) ? "checked" : "" ; ?>>Come back with +1weird (max+3)</label>
+                            <label for="plusWeird"><input type="radio" name="plusWeird" value="<?php echo $char->plus_weird ?>" <?php echo ($char->plus_weird == 1) ? "checked" : "" ; ?>>Come back with +1weird (max+3)</label>
                         </div>
 
                         <div class="radio">
-                            <label for="newPlaybook"><input type="radio" name="newPlaybook" value="newPlaybook" <?php echo ($char->new_role == 1) ? "checked" : "" ; ?>>Change to a new playbook</label>
+                            <label for="newPlaybook"><input type="radio" name="newPlaybook" value="<?php echo $char->new_role ?>" <?php echo ($char->new_role == 1) ? "checked" : "" ; ?>>Change to a new playbook</label>
                         </div>
 
                         <div class="radio">
-                            <label for="die"><input type="radio" name="die" value="die" <?php echo ($char->die == 1) ? "checked" : "" ; ?>>Die</label>
-                        </div>
+                            <label for="die"><input type="radio" name="die" value="<?php echo $char->new_role ?>" <?php echo ($char->die == 1) ? "checked" : "" ; ?>>Die</label>
+                        </div> -->
 
                     </div> <!-- end of panel -->
                 </div> <!-- end of column -->

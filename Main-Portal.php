@@ -1,6 +1,5 @@
 <?php
-	//addded comment
-    include "View/Header.php";
+    require_once "View/Header.php";
 
     $userDetails = $_SESSION['user'];
 
@@ -81,7 +80,7 @@
     <!--CURRENT GAMES-->
 
         <div class="list-group-item active">
-            <h3>View Current Games</h3>
+            <h3>My Current Games</h3>
         </div>
 
         <div class="list-group">
@@ -91,7 +90,7 @@
                     <tr>
                         <th>Status</th>
                         <th>Game Name</th>
-                        <th>Games Master</th>
+                        <!-- <th>Games Master</th> -->
                         <th>Language</th>
                         <th>Players</th>
                         <th>Theme</th>
@@ -111,7 +110,7 @@
 
 
     <div class="list-group-item active">
-            <h3>Requests & Invites</h3>
+            <h3>Requests &amp; Invites</h3>
         </div>
 
         <div class="list-group">
@@ -176,7 +175,7 @@
     </form>
 
     <div class="list-group-item active">
-        <h3>Current Games</h3>
+        <h3>All Games</h3>
     </div>
 
     <div class="list-group">

@@ -4,6 +4,7 @@
     require_once "Models/UsersDAO.php";
     require_once "Models/GameDAO.php";
     require_once "Models/Avatar.php";
+    require_once "Models/MapsDAO.php";
 
 
     $db = DbConnect::getDB();
@@ -87,7 +88,7 @@
              <!--THIS IS THE SUPERUSER LINK-->
              <a href='superUserView.php' class='border-bottom'><span class='glyphicon glyphicon-edit'></span>&nbsp;&nbsp; View Users </a>
             <a href='#' class='border-bottom'><span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;<input type='submit' class='dropdown-Link' name='signOutUser' value='SignOut'/></a>
-      
+
            </form>
         </div>
         ";

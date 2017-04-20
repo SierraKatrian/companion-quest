@@ -62,6 +62,17 @@ class QueryGame
         $permission = $pdostmt->fetch(PDO::FETCH_ASSOC);
         return $permission;
     }
+
+    public function getChatRoomId ($db, $gameid) {
+        $sql = "SELECT id
+                FROM chat_rooms
+                WHERE game_id = :gameId";
+        $pdostmt = $db->prepare($sql);
+        $pdostmt->bindValue(':gameId', $gameid, PDO::PARAM_INT);
+        $pdostmt->execute();
+        $permission = $pdostmt->fetch(PDO::FETCH_ASSOC);
+        return $permission;
+    }
 }
 
 ?>

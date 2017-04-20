@@ -1,4 +1,8 @@
 <?php
+
+require_once 'DbConnect.php';
+require_once 'CharacterDAO.php';
+
 session_start();
 
 //User details
@@ -19,40 +23,33 @@ $gameLanguage = $_SESSION['games']['lang'];
 $gamePlayerTotal = $_SESSION['games']['max_players'];
 $gameStatus = $_SESSION['games']['game_status'];
 
-require_once 'DbConnect.php';
-require_once 'CharacterDAO.php';
-
 $dbClass = new DbConnect();
 $db = $dbClass->getDB();
 
 $charClass = new CharacterDAO();
 
-// var_dump($getPlayerChars);
+$selectedChar = $_POST['availChars'];
 
-// $getPlayerChars = $_SESSION['chars'];
+$setPlayerChar = $charClass->setPlayerChar($db, $userID, $gameID, $selectedChar);
+$charDetails = $charClass->getCharacter($db, $userID, $gameID, $selectedChar);
 
-// $_SESSION['character'] = $getPlayerChars;
-//
-// $charID = $getPlayerChars['user_id'];
+$_SESSION['characters'] = $charDetails;
+$charID = $_SESSION['characters']['id'];
 
-// var_dump($charID);
+$setStats = $charClass->setCharStats($db, $charID);
+$setHarm = $charClass->setCharHarm($db, $charID);
 
-    $selectedChar = $_POST['availChars'];
-    $setPlayerChar = $charClass->setPlayerChar($db, $userID, $selectedChar, $gameID);
-    $disableSelectedChars = $charClass->disableSelectedChar($db, $selectedChar, $gameID);
+$disableSelectedChars = $charClass->disableSelectedChar($db, $selectedChar, $gameID);
 
-    $characterDetails = $charClass->getCharacter($db, $userID, $gameID);
-    // $_SESSION['characterDetails'] = $characterDetails;
+// $jSetPlayerChar = json_encode($setPlayerChar);
+// $jDisSelChars = json_encode($setStats);
+// $jDisSelChars = json_encode($setHarm);
+// $jDisSelChars = json_encode($disableSelectedChars);
 
-    // $jDisSelChars = json_encode($disableSelectedChars);
-    // $jSetPlayerChar = json_encode($setPlayerChar);
+header ('location: ../Player-Portal.php');
 
-    // header ('location: ../Player-Portal.php');
+// header("Content-Type: application/json");
+// echo $jDisSelChars;
+// echo $jSetPlayerChar;
 
-    // header("Content-Type: application/json");sss
-    // echo $jDisSelChars;
-    // echo $jSetPlayerChar;
-
-    var_dump($characterDetails);
-// }
 ?>
