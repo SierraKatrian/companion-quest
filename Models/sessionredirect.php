@@ -11,10 +11,11 @@
 
     $game = new QueryGame();
     $gamedata = $game->getGameSession($db,$_SESSION['user']['id'],$_POST['room_id']);
-
+    $chatroomid = $game->getChatRoomId ($db, $_POST['room_id']);
     $_SESSION['games'] = $gamedata;
-
-    //var_dump($_SESSION['games']["permission"]);
+    $_SESSION['chatroom'] = $chatroomid;
+    
+    // logic for redirect 
     if ($_SESSION['games']['permission'] == 1) {
         header('location: ../GM-Portal.php');
     }
