@@ -1,12 +1,12 @@
 <?php
 
-    $getCharSheet = $charClass->getCharSheet($db, $userID, $gameID);
+    $getCharSheet = $charClass->getCharSheet($db, $userID, $gameId);
     $getCharMoves = $charClass->getRoleMoves($db, 2);
 
 
 // var_dump($getCharSheet);
-var_dump($userID);
-var_dump($gameID);
+// var_dump($userID);
+// var_dump($gameId);
 
 ?>
 

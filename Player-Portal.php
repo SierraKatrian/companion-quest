@@ -40,6 +40,8 @@
    $gameId = $_SESSION['id'];
    }
 
+   var_dump($gameId);
+
 ?>
 
 <body>
