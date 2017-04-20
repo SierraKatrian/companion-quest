@@ -204,16 +204,16 @@
                 <label for="gameLanguage">Language <span style="color:red;">*&nbsp;<?= $output_gameLanguage ?></span></label>
                 <select name="gameLanguage">
                     <option value="default">-- Choose A Language --</option>
-                    <option value="en" <?php if ($gameLanguage == 'en') { ?> <?= 'selected' ?> <?php }; ?>>English</option>
-                    <option value="fr" <?php if ($gameLanguage == 'fr') { ?> <?= 'selected' ?> <?php }; ?>>French</option>
-                    <option value="es" <?php if ($gameLanguage == 'es') { ?> <?= 'selected' ?> <?php }; ?>>Spanish</option>
-                    <option value="zh" <?php if ($gameLanguage == 'zh') { ?> <?= 'selected' ?> <?php }; ?>>Mandarin</option>
-                    <option value="ar" <?php if ($gameLanguage == 'ar') { ?> <?= 'selected' ?> <?php }; ?>>Arabic</option>
-                    <option value="pt" <?php if ($gameLanguage == 'pt') { ?> <?= 'selected' ?> <?php }; ?>>Portuguese</option>
-                    <option value="hi" <?php if ($gameLanguage == 'hi') { ?> <?= 'selected' ?> <?php }; ?>>Hindi</option>
-                    <option value="ru" <?php if ($gameLanguage == 'ru') { ?> <?= 'selected' ?> <?php }; ?>>Russian</option>
-                    <option value="ja" <?php if ($gameLanguage == 'ja') { ?> <?= 'selected' ?> <?php }; ?>>Japanese</option>
-                    <option value="ko" <?php if ($gameLanguage == 'ko') { ?> <?= 'selected' ?> <?php }; ?>>Korean</option>
+                    <option value="English" <?php if ($gameLanguage == 'en') { ?> <?= 'selected' ?> <?php }; ?>>English</option>
+                    <option value="French" <?php if ($gameLanguage == 'fr') { ?> <?= 'selected' ?> <?php }; ?>>French</option>
+                    <option value="Spanish" <?php if ($gameLanguage == 'es') { ?> <?= 'selected' ?> <?php }; ?>>Spanish</option>
+                    <option value="Mandarin" <?php if ($gameLanguage == 'zh') { ?> <?= 'selected' ?> <?php }; ?>>Mandarin</option>
+                    <option value="Arabic" <?php if ($gameLanguage == 'ar') { ?> <?= 'selected' ?> <?php }; ?>>Arabic</option>
+                    <option value="Portuguese" <?php if ($gameLanguage == 'pt') { ?> <?= 'selected' ?> <?php }; ?>>Portuguese</option>
+                    <option value="Hindi" <?php if ($gameLanguage == 'hi') { ?> <?= 'selected' ?> <?php }; ?>>Hindi</option>
+                    <option value="Russian" <?php if ($gameLanguage == 'ru') { ?> <?= 'selected' ?> <?php }; ?>>Russian</option>
+                    <option value="Japanese" <?php if ($gameLanguage == 'ja') { ?> <?= 'selected' ?> <?php }; ?>>Japanese</option>
+                    <option value="Korean" <?php if ($gameLanguage == 'ko') { ?> <?= 'selected' ?> <?php }; ?>>Korean</option>
                 </select>
             </div>
             <div class="col-md-3 find-a-quest-form-elements">

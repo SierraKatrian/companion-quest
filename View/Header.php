@@ -80,8 +80,8 @@
 
     $rightNavLink1 = "
         <div class='dropdown'>
-          <a class='dropbtn'>" . $userFullName . "<span class='caret'></span></a>
-          <form action='' method='post' name='signInForm' class='dropdown-content'>
+            <a class='dropbtn'>" . $userFullName . "<span class='caret'></span></a>
+            <form action='' method='post' name='signInForm' class='dropdown-content'>
             <a href='#' class='border-bottom' data-toggle='modal' data-target='#navbar-edit'><span class='glyphicon glyphicon-edit'></span>&nbsp;&nbsp; edit </a>
              <!--THIS IS THE SUPERUSER LINK-->
              <a href='superUserView.php' class='border-bottom'><span class='glyphicon glyphicon-edit'></span>&nbsp;&nbsp; View Users </a>

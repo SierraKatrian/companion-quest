@@ -29,9 +29,7 @@ $db = $dbClass->getDB();
 
 $charClass = new CharacterDAO();
 
-$getPlayerChars = $charClass->getCharacter($db, $userID, $gameID);
-
-var_dump($getPlayerChars);
+// var_dump($getPlayerChars);
 
 // $getPlayerChars = $_SESSION['chars'];
 
@@ -41,15 +39,22 @@ var_dump($getPlayerChars);
 
 // var_dump($charID);
 
-    $selectedChar = $_POST['radioValue'];
+    $selectedChar = $_POST['availChars'];
     $setPlayerChar = $charClass->setPlayerChar($db, $userID, $selectedChar, $gameID);
     $disableSelectedChars = $charClass->disableSelectedChar($db, $selectedChar, $gameID);
+
+    $characterDetails = $charClass->getCharacter($db, $userID, $gameID);
+    // $_SESSION['characterDetails'] = $characterDetails;
 
     // $jDisSelChars = json_encode($disableSelectedChars);
     // $jSetPlayerChar = json_encode($setPlayerChar);
 
-    // header("Content-Type: application/json");
+    // header ('location: ../Player-Portal.php');
+
+    // header("Content-Type: application/json");sss
     // echo $jDisSelChars;
     // echo $jSetPlayerChar;
+
+    var_dump($characterDetails);
 // }
 ?>

@@ -3,23 +3,26 @@
     $getCharSheet = $charClass->getCharSheet($db, $userID, $gameID);
     $getCharMoves = $charClass->getRoleMoves($db, 2);
 
+
 // var_dump($getCharSheet);
 var_dump($userID);
 var_dump($gameID);
 
 ?>
 
-<!--CHARACTER LIST-->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~ CHARACTER LIST ~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <h2>Choose Your Character</h2>
 <div class="panel panel-default character-panel-player">
     <div class="panel-body">
-        <form id="updatePlayerChar" name="updatePlayerChar" action="./Models/Submit-Player-Char.php" method="post">
+        <form id="updatePlayerChar" name="updatePlayerChar" action="./Models/Select-Player-Char.php" method="post">
             <div class="row">
                 <div id="chooseChar">
 
                 </div>
             </div>
-            <button id="btn_select_char" class="btn btn-primary" type="button" name="btn_select_char">Select Character</button>
+            <button id="btn_select_char" class="btn btn-primary" type="submit" name="btn_select_char">Select Character</button>
         </form>
     </div>
 </div>
@@ -27,16 +30,20 @@ var_dump($gameID);
 <div class="character-panel-player">
     <?php if ($ruleBook == 1) : ?>
 
-        <!-- APOCALYPSE WORLD CHARACTER SHEET -->
+        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        ~~~~~~ APOCALYPSE WORLD CHARACTER SHEET ~~~~~~
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <h2 class="csTitle">APOCALYPSE WORLD CHARACTER SHEET</h2>
-        <form class="" name="btn_submit_char" action="Models/Submit-Player-Char.php" method="post">
+        <form class="" name="submit_char" action="Models/Submit-Player-Char.php" method="post">
         <?php foreach ($getCharSheet as $char): ?>
 
             <div class="panel panel-default char-sheet-panel">
                 <div class="row">
                     <div class="col-sm-12">
 
-
+                        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                        ~~~~~~~~~~~~~~~~ CHARACTER NAME ~~~~~~~~~~~~~~
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
                         <div class="row">
                             <div class="col-xs-9">
                                 <h3 class="csTitle"><label for="name">Name </label></h3>
@@ -45,6 +52,9 @@ var_dump($gameID);
                                 <input type="hidden" name="roleID" value="<?php echo $char->role_id ?>">
                             </div> <!-- end of column -->
 
+                            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            ~~~~~~~~~~~~~~~~ CHARACTER IMAGE ~~~~~~~~~~~~~
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
                             <div class="col-xs-3">
                                 <div class="char-img">
                                     <img src="./Images/apocalypse-world-characters/<?php echo $char->picture ?>" alt="Picture of <?php echo $char->role_name ?>">
@@ -52,10 +62,13 @@ var_dump($gameID);
                             </div> <!-- end of column -->
                         </div> <!-- end of row -->
 
-
+                        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                        ~~~~~~~~~~~~~~~~ CHARACTER STATS ~~~~~~~~~~~~~
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
                         <div class="row">
                             <div class="col-sm-2 col-xs-4">
                                 <h3 class="csTitle">Stats</h3>
+                                <!-- <input type="text" name="" value="<?php echo $char->id; ?>"> -->
                                 <div class="cool">
                                     <label for="stat1">COOL</label>
                                     <input class="form-control" type="text" name="stat1" value="<?php echo $char->stat1; ?>">
@@ -78,7 +91,9 @@ var_dump($gameID);
                                 </div>
                             </div> <!-- end of column -->
 
-
+                            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            ~~~~~~~~~~~~~~~~ CHARACTER LOOKS ~~~~~~~~~~~~~
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
                             <div class="col-sm-4 col-xs-8">
                                 <h3 class="csTitle">Look</h3>
                                 <div class="gender">
@@ -103,6 +118,9 @@ var_dump($gameID);
                                 </div>
                             </div> <!-- end of column -->
 
+                            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                            ~~~~~~~~~~~~~~~~ CHARACTER BIO ~~~~~~~~~~~~~~~
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
                             <div class="col-sm-6">
                                     <h3 class="csTitle">The <?php echo $char->role_name ?></h3>
                                     <p><?php echo $char->bio; ?></p>
@@ -118,6 +136,9 @@ var_dump($gameID);
                 <div class="col-sm-6">
                     <div class="panel panel-default char-sheet-panel">
 
+                        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                        ~~~~~~~~~~~~~~~~ CHARACTER HARM ~~~~~~~~~~~~~
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
                         <h3 class="csTitle">Harm</h3>
 
                         <div class="row">
@@ -150,7 +171,9 @@ var_dump($gameID);
                             </div> <!-- end of column -->
                         </div> <!-- end of row -->
 
-
+                        <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                        ~~~~~~~~~~~~~~ ADDITIONAL DAMAMGE ~~~~~~~~~~~~
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
                         <div class="radio">
                             <label for="stabilized"><input type="radio" name="stabilized" value="stabilized" <?php echo ($char->stabilized == 1) ? "checked" : "" ; ?>>Stabalized?</label>
                         </div>
@@ -174,6 +197,9 @@ var_dump($gameID);
                     </div> <!-- end of panel -->
                 </div> <!-- end of column -->
 
+                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                ~~~~~~~~~~~~~~~~ STARTING STATS ~~~~~~~~~~~~~~
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
                 <div class="col-sm-6">
                     <div class="panel panel-default char-sheet-panel">
                         <h5 class="csTitle">Choose Your Stats</h5>
@@ -185,13 +211,21 @@ var_dump($gameID);
 
     <div class="panel panel-default char-sheet-panel">
         <div class="row">
+
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            ~~~~~~~~~~~~~~~~ CHARACTER GEAR ~~~~~~~~~~~~~~
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <div class="col-sm-7">
-                    <div class="form-group gear">
-                        <label for="selected-gear"><h3 class=" csTitle">Your Gear</h3></label>
-                        <textarea class="form-control csTextArea" name="selected-gear" rows="8" cols="80"><?php echo $char->added_gear; ?></textarea>
-                    </div>
+                <div class="form-group gear">
+                    <label for="selected-gear"><h3 class=" csTitle">Your Gear</h3></label>
+                    <textarea class="form-control csTextArea" name="selected-gear" rows="8" cols="80"><?php echo $char->added_gear; ?></textarea>
+                </div>
             </div> <!-- end of column -->
 
+
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            ~~~~~~~~~~~~~~~~ STARTING GEAR ~~~~~~~~~~~~~~~
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <div class="col-sm-5">
                 <h5 class="csTitle">Starting Gear</h5>
                 <p><?php echo $char->gear ?></p>
@@ -203,6 +237,10 @@ var_dump($gameID);
 
     <div class="panel panel-default char-sheet-panel">
         <div class="row">
+
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            ~~~~~~~~~~~~~~~ CHARACTER MOVES ~~~~~~~~~~~~~~
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <div class="col-sm-7">
                 <div class="form-group moves">
                     <label for="selected-moves"><h3 class="csTitle">Your Moves</h3></label>
@@ -210,6 +248,9 @@ var_dump($gameID);
                 </div>
             </div> <!-- end of column -->
 
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            ~~~~~~~~~~~~~~~~ STARTING MOVES ~~~~~~~~~~~~~~
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
             <div class="col-sm-5">
                 <h5 class="csTitle">Starting Moves</h5>
                 <p><?php echo $char->moves ?></p>
@@ -222,6 +263,9 @@ var_dump($gameID);
         <div class="col-sm-12">
             <div class="panel panel-default char-sheet-panel">
 
+                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                ~~~~~~~~~~~~~~~~~~ ROLE MOVES ~~~~~~~~~~~~~~~~
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
                 <h3 class="csTitle"><?php echo $char->role_name; ?> Moves</h3>
                 <?php foreach ($getCharMoves as $moves): ?>
 
@@ -236,6 +280,9 @@ var_dump($gameID);
     </div> <!-- end of row -->
 
 
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ~~~~~~~~~~~~~~~~ CHARACTER BARTER ~~~~~~~~~~~~~~
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div class="row">
         <div class="col-sm-12">
             <div class="panel panel-default char-sheet-panel">
@@ -250,8 +297,8 @@ var_dump($gameID);
 
         <?php endforeach; ?>
 
-        <button type="submit" name="btn_submit">Submit Character Update</button>
-    </form> <!-- end of AW character form -->
+    <button class="btn btn-primary" type="submit" name="btn_submit">Update Character</button>
+</form> <!-- end of AW character form -->
 
         <?php else : ?>
 

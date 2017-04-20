@@ -17,7 +17,11 @@
 
 
 
+
    /* $gameDetails = $_SESSION['gameDetails'];
+
+    $gameDetails = $_SESSION['gameDetails'];
+
 
     $gameID = $gameDetails['id'];
     $ruleBook = $gameDetails['rb_id'];
@@ -25,22 +29,8 @@
     $gameLanguage = $gameDetails['lang'];
     $gamePlayerTotal = $gameDetails['max_players'];
     $gameStatus = $gameDetails['game_status'];
+=
 */
-
-    // if (isset($_POST['selectPlayerChar'])) {
-    //     echo "it works";
-    // }
-
-    // $charDetails = $charClass->getCharacter($db, $userID, $gameID);
-    //
-    // // $charDetails = $_SESSION['character'];
-    //
-    // // $charID = $charDetails['id'];
-    //
-    // var_dump($charDetails);
-    // echo $charDetails->id;
-    // // echo "character ID: " . $charID;
-    // var_dump($userID);
 
 
 
@@ -153,7 +143,6 @@
                         </ul>
 
                     <!--TAB CONTENT-->
-
                         <div class="tab-content">
                             <div class="tab-pane active" id="1">
                                 <div class="form-group">

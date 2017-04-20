@@ -25,19 +25,19 @@ $gameStatus = $gameDetails['game_status'];
 if (isset($_POST['btn_submit'])) {
 
     $roleID = $_POST['roleID'];
-    $name = $_POST['name'];
-    // $hair = $_POST['hair'];
-    $face = $_POST['face'];
-    $eyes = $_POST['eyes'];
-    $body = $_POST['body'];
-    $clothes = $_POST['clothes'];
-    $gender = $_POST['gender'];
+    // $name = $_POST['name'];
+    // // $hair = $_POST['hair'];
+    // $face = $_POST['face'];
+    // $eyes = $_POST['eyes'];
+    // $body = $_POST['body'];
+    // $clothes = $_POST['clothes'];
+    // $gender = $_POST['gender'];
 
-    // $stat1 = $_POST['stat1'];
-    // $stat2 = $_POST['stat2'];
-    // $stat3 = $_POST['stat3'];
-    // $stat4 = $_POST['stat4'];
-    // $stat5 = $_POST['stat5'];
+    $stat1 = $_POST['stat1'];
+    $stat2 = $_POST['stat2'];
+    $stat3 = $_POST['stat3'];
+    $stat4 = $_POST['stat4'];
+    $stat5 = $_POST['stat5'];
     //
     // $harm = $_POST['harm'];
     // $stabilized = $_POST['stabilized'];
@@ -46,8 +46,8 @@ if (isset($_POST['btn_submit'])) {
     // $newRole = $_POST['newPlaybook'];
     // $die = $_POST['die'];
 
-    $selectedGear = $_POST['selected-gear'];
-    $selectedMoves = $_POST['selected-moves'];
+    // $selectedGear = $_POST['selected-gear'];
+    // $selectedMoves = $_POST['selected-moves'];
     // $alignment = $_POST['alignment'];
 
     require_once 'DbConnect.php';
@@ -57,12 +57,16 @@ if (isset($_POST['btn_submit'])) {
     $db = $dbClass->getDB();
     $charClass = new CharacterDAO();
 
-    $updateChar = $charClass->updatePlayerChar($db, $userID, $roleID, $gameID, $name, $face, $eyes, $body, $clothes, $gender, $selectedGear, $selectedMoves);
+    // $updateChar = $charClass->updatePlayerChar($db, $userID, $roleID, $gameID, $name, $face, $eyes, $body, $clothes, $gender, $selectedGear, $selectedMoves);
+
+    $updateStats = $charClass->updateCharStats($db, $roleID, $stat1, $stat2, $stat3, $stat4, $stat5);
 
 var_dump($_POST);
-var_dump($updateChar);
+// var_dump($updateChar);
+var_dump($updateStats);
 var_dump($userID);
 var_dump($gameID);
+var_dump($roleID);
 
     // header ('location: ../Player-Portal.php');
 

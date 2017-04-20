@@ -11,7 +11,6 @@
     $password = $userDetails['password'];
     $userId = $userDetails['id'];
 
-
 ?>
 
 <body>
@@ -96,9 +95,13 @@
                         <th>Language</th>
                         <th>Players</th>
                         <th>Theme</th>
+                        <th></th>
                     </tr>
                     </thead>
-                <?php include 'view/current-games.php' ?>
+                    <tbody>
+                        <?php include 'view/current-games.php' ?>
+                    </tbody>
+                </table>
             </div><!--end of list-group-item-->
         </div><!--end of list-group-->
 
@@ -158,14 +161,14 @@
                     <option value="">-- Choose A Language --</option>
                     <option value="English">English</option>
                     <option value="French">French</option>
-                    <option value="spanish">Spanish</option>
-                    <option value="french">Mandarin</option>
-                    <option value="french">Arabic</option>
-                    <option value="french">Portuguese</option>
-                    <option value="french">Hindi</option>
-                    <option value="french">Russian</option>
-                    <option value="french">Japanese</option>
-                    <option value="french">Korean</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Mandarin">Mandarin</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="Portuguese">Portuguese</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Russian">Russian</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Korean">Korean</option>
                 </select>
             </div>
             <div class="col-md-1 find-a-quest-form-elements">
@@ -203,4 +206,3 @@
 <script src="Script/getRoom-ajax.js"></script>
 <script src="Script/acceptMain.js"></script>
 <?php include "View/Footer.php"; ?>
-

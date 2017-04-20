@@ -15,6 +15,11 @@ $(document).ready(function() {
 			processData:false,
 			success: function(data){
 				console.log(data);
+
+				//inserting the confirmation message
+				$("#confirmation").html(data);
+
+				//clearing the output div and repopulating avatars with the new images
 				$("#output").html("");
 				$.getJSON('Models/getavatar.php',function(data) {	
 					$.each(data, function(i, item) {
