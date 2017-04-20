@@ -54,9 +54,10 @@
 
                              </div>';
 
+
 /*THIS IS WHAT JESSICA M IS USING TO TRY AND DISPLAY THE SUPERUSER LINK*/
 
-        if ($userArray['permissions'] == '1') {
+        if ($userArray['permissions'] == "1") {
 
             $rightNavLink1 = "
         <div class='dropdown'>
@@ -76,7 +77,7 @@
 
 
 
-    }else{
+    }else if ($userArray['permissions'] == "2") {
 
     $rightNavLink1 = "
         <div class='dropdown'>
