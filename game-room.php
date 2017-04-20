@@ -33,7 +33,7 @@ $_SESSION['game']= 1;
 <main>
     <div class="wrapper container-fluid">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-8">
 
             <div class="panel panel-default">
                 <section class="panel-body map_view">
@@ -79,7 +79,7 @@ $_SESSION['game']= 1;
             </div>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="panel panel-default">
 
             <section class="panel-body game_info">
@@ -89,8 +89,8 @@ $_SESSION['game']= 1;
                     <tr>
                         <th>Status</th>
                         <th>Username</th>
-                        <th>Character Name (View/Edit Stats)</th>
-                        <th>Character</th>
+                        <th>Name</th>
+                        <th>Role</th>
                     </tr>
                     </thead>
 
@@ -140,5 +140,6 @@ $_SESSION['game']= 1;
 </main>
 <script type="text/javascript" src="Script/slide-out.js"></script>
 <script type="text/javascript" src="Script/chat-ajax.js"></script>
+<script type="text/javascript" src="Script/dice-roller.js"></script>
 <?php require_once 'View/footer.php'; ?>
 <?php var_dump($_SESSION['game']) ?>
