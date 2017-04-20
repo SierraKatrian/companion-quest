@@ -39,6 +39,33 @@ class GameDAO
 
     }
 
+    //GET GAME NAME
+
+    public function READ_GameName($gameID){
+
+        $sql = "SELECT game_name FROM games WHERE id = :gameID";
+
+        $stm = $this->db->prepare($sql);
+        $stm->bindValue(':gameID', $gameID, PDO::PARAM_STR);
+        $stm->execute();
+        $gameName = $stm->fetch();
+        return $gameName;
+
+    }
+
+    //UPDATE GAME NAME
+
+    public function UPDATE_GameName($gameID, $newGameName){
+
+        $sql = "UPDATE games
+                SET game_name = '$newGameName'
+                WHERE id = :gameID";
+        $stm = $this->db->prepare($sql);
+        $stm->bindValue(':gameID', $gameID, PDO::PARAM_STR);
+        $result = $stm->execute();
+
+    }
+
     //CREATE USER GAME NEW
 
     public function CREATE_UserGame($userID, $gameID, $notice){
