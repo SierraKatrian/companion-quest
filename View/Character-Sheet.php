@@ -297,7 +297,7 @@ var_dump($gameID);
 
         <?php endforeach; ?>
 
-    <button type="submit" name="btn_submit">Submit Character Update</button>
+    <button class="btn btn-primary" type="submit" name="btn_submit">Update Character</button>
 </form> <!-- end of AW character form -->
 
         <?php else : ?>

@@ -1,10 +1,35 @@
-<?php require_once 'View/header.php'; ?>
-<?php $_SESSION['game']= 1; ?>
-<head>
+<?php
 
-</head>
-    <link rel="stylesheet" href="Style/global.css">
-    <script src="Script/slide-out.js"></script>
+require_once "View/Header.php";
+require_once 'Models/CharacterDAO.php';
+$charClass = new CharacterDAO();
+
+//User details
+$userDetails = $_SESSION['user'];
+
+$userID = $userDetails['id'];
+$fname = $userDetails['f_name'];
+$lname = $userDetails['l_name'];
+$username = $userDetails['user_name'];
+$email = $userDetails['email'];
+$password = $userDetails['password'];
+
+//Game details
+$gameDetails = $_SESSION['gameDetails'];
+
+$gameID = $gameDetails['id'];
+$ruleBook = $gameDetails['rb_id'];
+$gameName = $gameDetails['game_name'];
+$gameLanguage = $gameDetails['lang'];
+$gamePlayerTotal = $gameDetails['max_players'];
+$gameStatus = $gameDetails['game_status'];
+
+
+
+$_SESSION['game']= 1;
+
+ ?>
+
 <main>
     <div class="wrapper container-fluid">
     <div class="row">
@@ -98,10 +123,7 @@
             <div class="slideout panel panel-default">
                 <section class="panel-body">
                     <button type="button" class="close"><span class="glyphicon glyphicon-remove"></button>
-                    <div class="avatar">
-                      <?php echo "this is where the avatar will show"; ?>
-                    </div>
-                    <?php echo "this is where the character sheet will show" ?>
+                    <?php include "View/Character-Sheet.php" ?>
               </section>
             </div>
 

@@ -141,7 +141,6 @@
                         </ul>
 
                     <!--TAB CONTENT-->
-
                         <div class="tab-content">
                             <div class="tab-pane active" id="1">
                                 <div class="form-group">
