@@ -106,7 +106,6 @@
 
 
     <!--JOIN A QUEST-->
-
     <h2>Join a quest!</h2>
 
 

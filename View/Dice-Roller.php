@@ -55,11 +55,7 @@ $numDice = $numSides = $modNum = $message = '';
                     <!-- SAVE DICE BUTTON -->
                     <button id="btn_save" class="btn btn-default" type="button" name="roll-dice-form__btn-save">Save Roll</button>
                 </div>
-
-                <!-- VIEW SAVED DICE BUTTON -->
-                <div class="roll-btns">
-                    <button class="btn btn-default" type="button" name="roll-dice-form__btn-view">View Saved Dice</button>
-                </div>
+                
             </form>
             <p id="results"></p>
 

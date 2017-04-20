@@ -32,4 +32,5 @@ foreach($playerList as $player) {
         "</td>" . "<td>" . $player['name'] . "</td>" . "<td>" . $player['role_name'] . "</td>";
 
 }
-        ?>
+
+?>

@@ -152,6 +152,7 @@
                     if($createUserGame) {
 
                         $goToGmPortal = "<script type='text/javascript'>location.replace('GM-Portal.php'); </script>";
+                        
                         echo $goToGmPortal;
                         exit();
 
