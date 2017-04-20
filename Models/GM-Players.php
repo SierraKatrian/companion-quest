@@ -14,8 +14,8 @@ require_once 'playerPermissions.php';
 $connection = DbConnect::getDB();
 
 //$gameId = $_SESSION['gameDetails']['id'];
-$gameDetails = $_SESSION['gameDetails'];
-$gameID = $gameDetails['id'];
+$gameID = $_SESSION['games']['games_id'];
+
 
 
 $p = new playerPermissions();

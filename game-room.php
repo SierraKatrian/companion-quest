@@ -77,7 +77,7 @@ $gameStatus = $_SESSION['games']['game_status'];
             <div class="panel panel-default">
 
             <section class="panel-body game_info">
-                <h2><?php echo "Game Name"; ?></h2>
+                <h2><?php echo $gameName ?></h2>
                 <table class="table table-hover">
                     <thead>
                     <tr>
