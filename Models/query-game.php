@@ -1,6 +1,6 @@
 <?php
-require_once 'Models/game.php';
-require_once 'Models/DbConnect.php';
+//require_once 'Models/game.php';
+//require_once 'Models/DbConnect.php';
 
 class QueryGame
 {
@@ -51,7 +51,17 @@ class QueryGame
         return $permission;
     }
 
-
+    public function getGameSession ($db, $userid, $gameid) {
+        $sql = "SELECT * 
+                FROM games g JOIN rulebooks r ON g.rb_id = r.id JOIN user_games ug ON g.id = ug.games_id JOIN users u ON ug.user_id = u.id
+                WHERE ug.user_id = :user_id AND ug.games_id = :gameId";
+        $pdostmt = $db->prepare($sql);
+        $pdostmt->bindValue(':user_id', $userid, PDO::PARAM_INT);
+        $pdostmt->bindValue(':gameId', $gameid, PDO::PARAM_INT);
+        $pdostmt->execute();
+        $permission = $pdostmt->fetch(PDO::FETCH_ASSOC);
+        return $permission;
+    }
 }
 
 ?>

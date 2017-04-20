@@ -17,7 +17,7 @@ class GameRoom {
 				}
 			}
 		} else {
-			$this->query = "SELECT g.id FROM games g JOIN rulebooks r ON g.rb_id = r.id JOIN user_games ug ON g.id = ug.games_id JOIN users u ON ug.user_id = u.id";
+			$this->query = "SELECT DISTINCT g.id FROM games g JOIN rulebooks r ON g.rb_id = r.id JOIN user_games ug ON g.id = ug.games_id JOIN users u ON ug.user_id = u.id";
 		}
 		
 		$pdostmt = $db->prepare($this->query);
