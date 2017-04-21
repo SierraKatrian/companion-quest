@@ -1093,6 +1093,29 @@ p .pBold, li .pBold {
     text-align: right;
 }
 
+/*Chat box*/
+#chatdisplayarea {
+    height: 350px;
+    overflow-y: scroll;
+    margin-bottom: 20px; 
+}
+
+#chat-output {
+    width: 90px;
+}
+
+.sender-name {
+    color: #4888f1;
+}
+
+.msgcontent {
+    max-width: 270px;
+}
+
+.msgtime {
+    color:#ffad33;
+}
+
 /*------------------------------
 ----------- SLIDEOUT -----------
 ------------------------------*/

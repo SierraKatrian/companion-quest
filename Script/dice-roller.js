@@ -50,8 +50,8 @@ $(document).ready(function(){
             var input = "Rolled "+breakdown+ " " + roll + " " + totalValues;
             $.post("Models/insert-Chat.php", {msg:input}, function(data){
                 $('#chat-output').html();
-                $('#chat-output').scrollTop($('#chat-output').height());
                 $('#chat-output').load("./Models/chatdisplay.php");
+                $('#chatdisplayarea').scrollTop($('#chat-output').height()+70);
                 console.log(data);
             })
 
