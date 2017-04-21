@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Chat {
 	private $userId;
@@ -7,7 +7,8 @@ class Chat {
 	public function getChat ($db, $croomId) {
 		$query = "SELECT message, timestamp, user_name, user_id
 					FROM chat_log cl JOIN chat_rooms cr ON cl.chatroom_id=cr.id JOIN users u ON cl.user_id = u.id
-					WHERE chatroom_id = :croomId";
+					WHERE chatroom_id = :croomId
+					ORDER BY timestamp";
 		$pdostmt = $db->prepare($query);
 		$pdostmt->bindValue(":croomId", $croomId);
 		$pdostmt->execute();
@@ -37,7 +38,7 @@ class Chat {
 
 	public function getChatRoomId ($db) {
 		$query = "SELECT c.id
-					FROM chat_rooms c JOIN games g ON cr.game_id=g.id 
+					FROM chat_rooms c JOIN games g ON cr.game_id=g.id
 					WHERE game_id = :gameId";
 		$pdostmt = $db->prepare($query);
 		$pdostmt->bindValue(":gameId", $gameId);

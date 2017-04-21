@@ -34,7 +34,7 @@ function nerrorhandler($errno,$errmsg,$filename,$linenum,$vars){
   error_log($err,3, dirname(__FILE__). '\logerrors\error_log.log');
 
   //error_log("sometext", 1, "zigzag@my.domain",   "Subject: Foo\nFrom: Rizzlas@my.domain\n");
-  header("Location: customerror.php");
+  // header("Location: customerror.php");
 
 
 

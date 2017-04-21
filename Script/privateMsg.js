@@ -12,7 +12,7 @@ $(document).ready(function() {
 
     function loadChats() {
 
-        $.getJSON('Models/getchats.php', function (data) {
+        $.getJSON('./Models/getchats.php', function (data) {
 
 
             var chat = "";
@@ -45,7 +45,7 @@ $(document).ready(function() {
         selected_user = $(this).val();
 
 
-        $.post('Models/getMessages.php', {UserName: selected_user}, function (res) {
+        $.post('./Models/getMessages.php', {UserName: selected_user}, function (res) {
            // console.log(res);
 
             var msg = "";
@@ -73,10 +73,10 @@ $(document).ready(function() {
         //var time_sent = new Date;
 
 
-        $.post('Models/sendMsg.php', {user_two : selected_user, reply: text},
+        $.post('./Models/sendMsg.php', {user_two : selected_user, reply: text},
             function (data) {
 
-                $.post('Models/getMessages.php', {UserName: selected_user}, function (res) {
+                $.post('./Models/getMessages.php', {UserName: selected_user}, function (res) {
                     console.log(res);
 
                     var msg = "";
@@ -127,11 +127,11 @@ $(document).ready(function() {
         var text = $('#msgText').val(); //input form
         var selected_user = $('#to').val(); //grab user from select dropdown
 
-        $.post('Models/createNewMsg.php', {to : selected_user, message: text },
+        $.post('./Models/createNewMsg.php', {to : selected_user, message: text },
             function (data) {
                 console.log(data);
 
-                $.post('Models/getNewMsg.php', {UserName: selected_user}, function (res) {
+                $.post('./Models/getNewMsg.php', {UserName: selected_user}, function (res) {
                     console.log(res);
 
                     var msg = "";

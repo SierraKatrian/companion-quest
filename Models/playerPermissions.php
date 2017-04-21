@@ -20,7 +20,7 @@ class playerPermissions
     }
     //need to determine notes Id?
     public function insertPending ($db, $user_id, $games_id ) {
-        $query = "INSERT INTO user_games (user_id, games_id, permission, player_status, notes, notices) 
+        $query = "INSERT INTO user_games (user_id, games_id, permission, player_status, notes, notices)
                   VALUES (:user_id, :games_id, 2,3, 'Welcome the Game!', 'New Player Added')";
         $statement = $db->prepare($query);
         $statement->bindValue(':user_id', $user_id);
@@ -56,7 +56,7 @@ class playerPermissions
         $query = "SELECT user_games.*, users.user_name, characters.name, roles.role_name FROM user_games
                   JOIN users ON user_games.user_id = users.id
                   JOIN characters ON characters.game_id = user_games.games_id
-                  JOIN roles ON roles.roles_id = characters.role_id
+                  JOIN roles ON roles.id = characters.role_id
                   WHERE user_games.games_id = :game_id AND characters.user_id = user_games.user_id AND user_games.player_status = 1 ";
         $statement = $db->prepare($query);
         $statement->bindValue(':game_id', $game_id);
@@ -111,9 +111,9 @@ class playerPermissions
     }
 
     public function getAllGamePlayers ($db, $game_id) {
-        $query = "SELECT user_games.player_status, user_games.games_id, user_games.permission, users.user_name, characters.name, roles.role_name 
-        FROM user_games JOIN users ON user_games.user_id = users.id 
-        JOIN characters ON users.id = characters.user_id 
+        $query = "SELECT user_games.player_status, user_games.games_id, user_games.permission, users.user_name, characters.name, roles.role_name
+        FROM user_games JOIN users ON user_games.user_id = users.id
+        JOIN characters ON users.id = characters.user_id
         JOIN roles ON roles.roles_id = characters.role_id
         WHERE user_games.games_id = :game_id AND player_status = 1 ORDER BY user_games.permission ASC";
         $statement = $db->prepare($query);
@@ -136,10 +136,10 @@ class playerPermissions
 
     public function getAllUserGames($pdo, $gameId)
     {
-        $sql = "SELECT DISTINCT  user_name, games.game_name, games.max_players, games.lang, rulebooks.name 
-                FROM games JOIN user_games ON games.id = user_games.games_id JOIN users ON users.id = user_games.user_id 
-              JOIN rulebooks ON games.rb_id = rulebooks.id WHERE user_name = 
-              (SELECT user_name FROM users JOIN user_games ON users.id = user_games.user_id WHERE 
+        $sql = "SELECT DISTINCT  user_name, games.game_name, games.max_players, games.lang, rulebooks.name
+                FROM games JOIN user_games ON games.id = user_games.games_id JOIN users ON users.id = user_games.user_id
+              JOIN rulebooks ON games.rb_id = rulebooks.id WHERE user_name =
+              (SELECT user_name FROM users JOIN user_games ON users.id = user_games.user_id WHERE
               user_games.permission = 1 AND user_games.games_id = :gameId )AND games.id = :gameId";
         $pdostmt = $pdo->prepare($sql);
         $pdostmt->bindValue(':gameId', $gameId, PDO::PARAM_INT);
@@ -149,9 +149,9 @@ class playerPermissions
     }
 
  public function playerInvites($db, $userId) {
-        $query = "SELECT user_games.player_status, games.game_name, games.lang, rulebooks.name, games.max_players FROM user_games 
-                  JOIN games ON user_games.games_id = games.id JOIN rulebooks ON games.rb_id = rulebooks.id 
-                  WHERE user_games.user_id = :userId AND (user_games.player_status = 2 
+        $query = "SELECT user_games.player_status, games.game_name, games.lang, rulebooks.name, games.max_players FROM user_games
+                  JOIN games ON user_games.games_id = games.id JOIN rulebooks ON games.rb_id = rulebooks.id
+                  WHERE user_games.user_id = :userId AND (user_games.player_status = 2
                   OR user_games.player_status = 3 OR user_games.player_status = 4) ";
         $statement = $db->prepare($query);
         $statement->bindValue(':userId', $userId);

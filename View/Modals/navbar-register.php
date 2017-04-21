@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 //call database query class
 
     $UsersDAO = new UsersDAO($db);
