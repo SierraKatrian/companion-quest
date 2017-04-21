@@ -3,6 +3,7 @@
     require_once 'Models/DbConnect.php';
     require_once 'Models/CharacterDAO.php';
     require_once 'Models/ChatRoomDAO.php';
+    require_once 'Models/query-game.php';
 
     //call database query class
         $GameDAO = new GameDAO($db);
@@ -142,6 +143,12 @@
                     //create a chat room for this game id
                     $chatroom = new ChatRoom();
                     $chatroom->setChatRoom($db, $gameID);
+
+                    //create chatroom session 
+                    $game = new QueryGame();
+                    $gamedata = $game->getGameSession($db,$userID ,$gameID);
+                    $chatroomid = $game->getChatRoomId ($db, $gameID);
+                    $_SESSION['chatroom'] = $chatroomid;
 
                     // CHARACTER SELECTOR
                     //Checks to see if array of checked characters exists

@@ -45,6 +45,16 @@ $(document).ready(function(){
             $('#breakdown').html(breakdown);
             $('#rolls').html(roll);
             $('#totals').html(totalValues);
+
+            //send roll result into chat
+            var input = "Rolled "+breakdown+ " " + roll + " " + totalValues;
+            $.post("Models/insert-Chat.php", {msg:input}, function(data){
+                $('#chat-output').html();
+                $('#chat-output').scrollTop($('#chat-output').height());
+                $('#chat-output').load("./Models/chatdisplay.php");
+                console.log(data);
+            })
+
         });
     });
 

@@ -9,6 +9,7 @@ $(document).ready(function() {
 			load();
 			console.log(data);
 		})
+		$('#chat-input').val('');
 	});
 
 	//function to reload chat messages

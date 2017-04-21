@@ -5,7 +5,7 @@ class Chat {
 	private $mssg;
 
 	public function getChat ($db, $croomId) {
-		$query = "SELECT message, timestamp, user_name
+		$query = "SELECT message, timestamp, user_name, user_id
 					FROM chat_log cl JOIN chat_rooms cr ON cl.chatroom_id=cr.id JOIN users u ON cl.user_id = u.id
 					WHERE chatroom_id = :croomId";
 		$pdostmt = $db->prepare($query);

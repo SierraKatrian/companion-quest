@@ -112,7 +112,11 @@ $roleID = $_SESSION['characters']['role_id'];
             <div class="panel panel-default">
             <section class="chat panel-body">
                 <form class="chat_box" id="chat_box" action="" method="post">
-                    <div id="chat-output"></div>
+                    <div id="chatdisplayarea"> 
+                        <table id="chat-output">
+                            <!--message content here -->
+                        </table>
+                    </div>
                     <textarea class="form-control" id="chat-input" name="name" rows="6" cols="80"></textarea>
                     <button class="btn btn-primary btn-block btn-chat" type="submit" name="btn_send">Send</button>
                 </form>
