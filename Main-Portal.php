@@ -98,7 +98,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <?php include 'view/current-games.php' ?>
+                        <?php require_once'View/current-games.php' ?>
                     </tbody>
                 </table>
             </div><!--end of list-group-item-->
