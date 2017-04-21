@@ -20,8 +20,8 @@ foreach($allUsers as $user){
 
     echo "<tr><td>" . $user['id'] . "</td>" . "<td>" . $user['user_name'] . "</td>" .
         "<td>" . $user['f_name'] . "</td>" . "<td>" . $user['l_name'] . "</td>" . "<td>" . $user['email'] . "</td>" .
-       "<td>".$user['permissions']. "</td><td><button id='".$user['id'] ."' class='delete'>Delete</button>" . " " . " " .
-        "<button id='" . $user['id'] ."' class='admin'>Make Admin</button></td>" . "</tr>";
+       "<td>".$user['permissions']. "</td><td><button id='".$user['id'] ."' class='btn btn-danger delete'>Delete</button>" . " " . " " .
+        "<button id='" . $user['id'] ."' class='btn btn-info admin'>Make Admin</button></td>" . "</tr>";
 
 
 
