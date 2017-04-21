@@ -1,0 +1,688 @@
+Error reporting
+	 Date Time: 2017-04-21 02:39:39
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:39:39
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:47:11
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:47:11
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:48:27
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:48:27
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:48:53
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:48:53
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:49:13
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:49:13
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:53:07
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:53:07
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:53:21
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:53:21
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:53:45
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:53:45
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:54:36
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:54:36
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:58:04
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:58:04
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:58:26
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:58:26
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:59:06
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:59:06
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:59:29
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 02:59:29
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:00:02
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:00:02
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:02:11
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:02:11
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:02:25
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:02:25
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:02:38
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:02:38
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:03:24
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:03:24
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:04:06
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:04:06
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:04:50
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:04:50
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:08:56
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:08:56
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:10:20
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:10:20
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:10:44
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:10:44
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:10:58
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:10:58
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:11:32
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:11:32
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:12:03
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:12:03
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:13:46
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:13:46
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:14:10
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\Main-Portal.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:14:10
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\code-companinons\View\Modals\navbar-signin.php:119)
+	 file name: C:\xampp\htdocs\code-companinons\Main-Portal.php
+	 Error line number: 14
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:14:10
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\View\current-games.php
+	 Error line number: 10
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:14:10
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\Models\playerRequests.php
+	 Error line number: 14
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:14:29
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:14:29
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:14:50
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\Main-Portal.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:14:50
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\code-companinons\View\Modals\navbar-signin.php:119)
+	 file name: C:\xampp\htdocs\code-companinons\Main-Portal.php
+	 Error line number: 14
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:14:50
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\View\current-games.php
+	 Error line number: 10
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:14:50
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\Models\playerRequests.php
+	 Error line number: 14
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:14:50
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(something WRong.php): failed to open stream: No such file or directory
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:14:50
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: include(): Failed opening 'something WRong.php' for inclusion (include_path='C:\xampp\php\PEAR')
+	 file name: C:\xampp\htdocs\code-companinons\index.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:13
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\Main-Portal.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:13
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\code-companinons\View\Modals\navbar-signin.php:119)
+	 file name: C:\xampp\htdocs\code-companinons\Main-Portal.php
+	 Error line number: 14
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:13
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\View\current-games.php
+	 Error line number: 10
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:13
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\Models\playerRequests.php
+	 Error line number: 14
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:17
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\Main-Portal.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:17
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\code-companinons\View\Modals\navbar-signin.php:119)
+	 file name: C:\xampp\htdocs\code-companinons\Main-Portal.php
+	 Error line number: 14
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:17
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\View\current-games.php
+	 Error line number: 10
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:17
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\Models\playerRequests.php
+	 Error line number: 14
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:18
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\Main-Portal.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:18
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\code-companinons\View\Modals\navbar-signin.php:119)
+	 file name: C:\xampp\htdocs\code-companinons\Main-Portal.php
+	 Error line number: 14
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:18
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\View\current-games.php
+	 Error line number: 10
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:18
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\Models\playerRequests.php
+	 Error line number: 14
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:19
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\Main-Portal.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:19
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\code-companinons\View\Modals\navbar-signin.php:119)
+	 file name: C:\xampp\htdocs\code-companinons\Main-Portal.php
+	 Error line number: 14
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:19
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\View\current-games.php
+	 Error line number: 10
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:19
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\Models\playerRequests.php
+	 Error line number: 14
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:19
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\Main-Portal.php
+	 Error line number: 4
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:19
+	 Error Number: 2
+	 Error Type: [2]
+	 Error Message: Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\code-companinons\View\Modals\navbar-signin.php:119)
+	 file name: C:\xampp\htdocs\code-companinons\Main-Portal.php
+	 Error line number: 14
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:19
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\View\current-games.php
+	 Error line number: 10
+End reporting
+Error reporting
+	 Date Time: 2017-04-21 03:15:19
+	 Error Number: 8
+	 Error Type: [8]
+	 Error Message: Undefined index: user
+	 file name: C:\xampp\htdocs\code-companinons\Models\playerRequests.php
+	 Error line number: 14
+End reporting

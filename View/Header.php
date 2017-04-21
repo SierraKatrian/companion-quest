@@ -5,6 +5,7 @@
     require_once "Models/GameDAO.php";
     require_once "Models/Avatar.php";
     require_once "Models/MapsDAO.php";
+    // require_once "Models/errorlog/errorhandle.php";
 
 
     $db = DbConnect::getDB();
