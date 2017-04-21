@@ -122,6 +122,15 @@ $(document).ready(function(){
                 $('#breakdown').html(breakdown);
                 $('#rolls').html(roll);
                 $('#totals').html(totalValues);
+
+                //send roll result into chat
+                var input = "Rolled "+breakdown+ " " + roll + " " + totalValues;
+                $.post("Models/insert-Chat.php", {msg:input}, function(data){
+                    $('#chat-output').html();
+                    $('#chat-output').load("./Models/chatdisplay.php");
+                    $('#chatdisplayarea').scrollTop($('#chat-output').height()+70);
+                    console.log(data);
+                })
             });
         });
 });
