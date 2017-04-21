@@ -49,9 +49,9 @@ $(document).ready(function(){
                 totalValues = "<p>Total without modifier: " + total.reduce(
                     function(total, num){ return total + num } , 0) + "</p><p>Total with modifier: " + (total.reduce(
                     function(total, num){ return total + num } , 0) + parseInt(modifier)) + "</p>"
-            $('#breakdown').html(breakdown);
-            $('#rolls').html(roll);
-            $('#totals').html(totalValues);
+            // $('#breakdown').html(breakdown);
+            // $('#rolls').html(roll);
+            // $('#totals').html(totalValues);
 
             //send roll result into chat
             var input = "Rolled "+breakdown+ " " + roll + " " + totalValues;
@@ -119,9 +119,9 @@ $(document).ready(function(){
                     totalValues = "<p>Total without modifier: " + total.reduce(
                         function(total, num){ return total + num } , 0) + "</p><p>Total with modifier: " + (total.reduce(
                         function(total, num){ return total + num } , 0) + parseInt(modifier)) + "</p>"
-                $('#breakdown').html(breakdown);
-                $('#rolls').html(roll);
-                $('#totals').html(totalValues);
+                // $('#breakdown').html(breakdown);
+                // $('#rolls').html(roll);
+                // $('#totals').html(totalValues);
 
                 //send roll result into chat
                 var input = "Rolled "+breakdown+ " " + roll + " " + totalValues;
