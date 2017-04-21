@@ -85,6 +85,21 @@ class GameDAO
 
     }
 
+    //READ USER GAME TABLE
+
+    public function READ_UserGameDetails($userID, $gameID){
+
+        $sql = "SELECT * FROM user_games WHERE user_id = :user_id AND games_id = :game_id";
+
+        $stm = $this->db->prepare($sql);
+        $stm->bindValue(':user_id', $userID);
+        $stm->bindValue(':game_id', $gameID);
+        $stm->execute();
+        $userGameDetails = $stm->fetchAll();
+        return $userGameDetails;
+
+    }
+
     //CHECK FOR DUPLICATE GAME NAME
 
     public function READ_CheckDuplicateGame($gameName){
