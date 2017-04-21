@@ -1116,6 +1116,17 @@ p .pBold, li .pBold {
     color:#ffad33;
 }
 
+/*avatar*/
+
+#output {
+    height: 150px;
+    overflow-y: scroll;
+}
+
+#output img {
+    max-height: 80px;
+}
+
 /*------------------------------
 ----------- SLIDEOUT -----------
 ------------------------------*/
