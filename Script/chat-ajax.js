@@ -1,7 +1,10 @@
 $(document).ready(function() {
-	
+
 	$('#chat-output').load("./Models/chatdisplay.php");
-	$('#chatdisplayarea').scrollTop($('#chat-output').height());
+	// $('#chatdisplayarea').scrollTop(function(){$('#chat-output').height()});
+	$('#chatdisplayarea').scrollTop(function(){
+        return this.scrollHeight;
+    });
 	setInterval(function (){load()},500);
 
 	$('#chat_box').submit (function(event){
@@ -12,13 +15,18 @@ $(document).ready(function() {
 			})
 			load();
 			$('#chat-input').val('');
-			$('#chatdisplayarea').scrollTop($('#chat-output').height());
+			// $('#chatdisplayarea').scrollTop(function(){$('#chat-output').height()});
+				$('#chatdisplayarea').scrollTop(function(){
+			        return this.scrollHeight;
+			    });
 		}
 	});
 
+
 	//function to reload chat messages
 	function load () {
-		$('#chat-output').html();	
+		$('#chat-output').html();
 		$('#chat-output').load("./Models/chatdisplay.php");
+
 	}
 });
