@@ -39,11 +39,22 @@ $roleID = $_SESSION['characters']['role_id'];
     <div class="row">
         <div class="col-md-8">
 
-            <div class="panel panel-default">
-                <section class="panel-body map_view">
-                    <img class="map_image" src="img/map.jpg" alt="image of a map">
-                </section>
-            </div>
+          <!--MAP-->
+
+          <script type="text/javascript" src="Script/Maps/game-page-image-load.js"></script>
+
+          <div class="panel panel-default map_view">
+              <section class="panel-body game-room-map">
+                  <button type="submit" name="edit-map" id="edit-image-panel" data-toggle='modal' data-target='#gm-portal-maps' class="btn btn-primary square-button edit-map-btn" title="Edit Map">
+                      <span class="glyphicon glyphicon-edit"></span>
+                  </button>
+                  <div id="game-room-map-image">
+                    <img src="Images/maps/default-map.png" alt="map" class="map-image default-map-image game-room-map-img" style="width:100%">
+                  </div>
+              </section>
+          </div>
+
+          <!---->
 
             <div class="row">
                 <div class="col-md-8">
@@ -87,6 +98,11 @@ $roleID = $_SESSION['characters']['role_id'];
             <div class="panel panel-default">
 
             <section class="panel-body game_info">
+                <div class="backPortal">
+                    <form class="" action="Models/return-to-portal.php" method="post">
+                        <button class="btn button-default btn-block" type="submit" name="btn_back_portal">Go back to the Portal</button>
+                    </form>
+                </div>
                 <h2><?php echo $gameName ?></h2>
                 <table class="table table-hover">
                     <thead>
@@ -118,7 +134,9 @@ $roleID = $_SESSION['characters']['role_id'];
                         </table>
                     </div>
                     <textarea class="form-control" id="chat-input" name="name" rows="6" cols="80"></textarea>
-                    <button class="btn btn-primary btn-block btn-chat" type="submit" name="btn_send">Send</button>
+                    <div class="chatButton">
+                        <button class="btn btn-primary btn-chat" type="submit" name="btn_send">Send</button>
+                    </div>
                 </form>
             </section>
         </div>
@@ -156,5 +174,11 @@ $roleID = $_SESSION['characters']['role_id'];
 <script type="text/javascript" src="Script/slide-out.js"></script>
 <script type="text/javascript" src="Script/chat-ajax.js"></script>
 <script type="text/javascript" src="Script/dice-roller.js"></script>
+
+<!--MAP FILES-->
+<script type="text/javascript" src="Script/Maps/page-load-map-functions.js"></script>
+<script type="text/javascript" src="Script/Maps/populate-gallery-AJAX.js"></script>
+<?php include "View/Modals/gmportal-maps.php"; ?>
+
 <?php require_once 'View/footer.php'; ?>
 <?php var_dump($_SESSION['game']) ?>

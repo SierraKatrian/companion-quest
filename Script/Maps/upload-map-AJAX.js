@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     $('#mapsForm').submit(function(event){
 
-        $('.default-map-image').css('display','none');
+        //$('.default-map-image').css('display','none');
 
         event.preventDefault();
 
@@ -16,6 +16,7 @@ $(document).ready(function() {
             processData:false,
             success:function(data){
                 //check if upload is empty
+                console.log(data);
                 if ($('#map-upload-file').get(0).files.length === 0) {
                     $.getJSON("./Models/ShowMapAjax.php",function(data){
                          $('#current-map').html('<img src="data:image;base64,' + data[0][3] + '">');
