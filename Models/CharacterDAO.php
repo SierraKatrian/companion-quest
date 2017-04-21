@@ -1,5 +1,12 @@
 <?php
 
+/****************************
+
+Created By: Sierra Katrian
+Year: 2017
+
+****************************/
+
 class CharacterDAO {
 
     public function getCharacter($db, $userID, $gameID) {

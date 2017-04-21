@@ -20,10 +20,7 @@ $timeSent= date("Y-m-d H:i:s");
 $m = new PrivateMessage();
 $newMessage = $m->checkChat($connection, $author, $user_two);
 
-
-
-
-if($newMessage == 0) {
+if ($newMessage == 0) {
     $n= new PrivateMessage();
     $insert = $n->insertChat($connection, $author, $user_two);
     $chat_id = $n->getChatId($connection, $author, $user_two );
@@ -31,7 +28,7 @@ if($newMessage == 0) {
 
     echo "chat inserted";
 
-}else{
+} else {
     $n= new PrivateMessage();
     $r = new PrivateMessage();
     $chat_id = $n->getChatId($connection, $author, $user_two );

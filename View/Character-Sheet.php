@@ -1,5 +1,12 @@
 <?php
 
+/****************************
+
+Created By: Sierra Katrian
+Year: 2017
+
+****************************/
+
 $getCharSheet = $charClass->getCharSheet($db, $userID, $gameID, $charID);
 $getCharMoves = $charClass->getRoleMoves($db, $roleID);
 

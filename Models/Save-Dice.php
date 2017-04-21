@@ -1,4 +1,12 @@
 <?php
+
+/****************************
+
+Created By: Sierra Katrian
+Year: 2017
+
+****************************/
+
 session_start();
 
 require_once 'DbConnect.php';

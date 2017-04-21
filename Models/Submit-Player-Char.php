@@ -1,4 +1,13 @@
 <?php
+
+/****************************
+
+Created By: Sierra Katrian
+Year: 2017
+
+****************************/
+
+ob_start();
 session_start();
 
 //User details
@@ -80,7 +89,7 @@ if (isset($_POST['btn_submit'])) {
 
     $updateHarm = $charClass->updateCharHarm($db, $charID, $harm);
 
-// 
+//
 // var_dump($_POST);
 // var_dump($updateHarm);
 // // var_dump($updateStats);

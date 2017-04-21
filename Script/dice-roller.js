@@ -1,3 +1,10 @@
+/****************************
+
+Created By: Sierra Katrian
+Year: 2017
+
+****************************/
+
 $(document).ready(function(){
     // alert("connected");
 

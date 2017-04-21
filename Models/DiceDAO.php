@@ -1,5 +1,12 @@
 <?php
 
+/****************************
+
+Created By: Sierra Katrian
+Year: 2017
+
+****************************/
+
 class DiceDAO {
 
     public function getSavedDice($db, $userID, $gameID){

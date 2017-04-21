@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     session_start() ;
     require_once 'DbConnect.php';
     require_once 'game.php';

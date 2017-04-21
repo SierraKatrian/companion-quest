@@ -1,4 +1,12 @@
 <?php
+
+/****************************
+
+Created By: Sierra Katrian
+Year: 2017
+
+****************************/
+
 require_once 'DbConnect.php';
 require_once 'CharacterDAO.php';
 

@@ -1,4 +1,12 @@
 <?php
+
+/****************************
+
+Created By: Sierra Katrian
+Year: 2017
+
+****************************/
+
 session_start();
 $ruleBook = $_SESSION['games']['rb_id'];
 $gameID = $_SESSION['games']['games_id'];

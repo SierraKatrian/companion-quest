@@ -1,4 +1,10 @@
 <?php
+/****************************
+
+Created By: Sierra Katrian
+Year: 2017
+
+****************************/
 
 require_once './Models/DbConnect.php';
 require_once './Models/DiceDAO.php';

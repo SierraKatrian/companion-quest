@@ -1,5 +1,12 @@
 <?php
 
+/****************************
+
+Created By: Sierra Katrian
+Year: 2017
+
+****************************/
+
 if (isset($_POST['saved-dice-form__btn-edit'])) {
 
     $id = filter_input(INPUT_POST, 'saved-dice-form__id', FILTER_VALIDATE_INT);
