@@ -27,6 +27,23 @@ $userOrGM = $_SESSION['games']['permission'];
 $charID = $_SESSION['characters']['id'];
 $roleID = $_SESSION['characters']['role_id'];
 
+
+  //Get info from user_games table
+
+  $GameDAO = new GameDAO($db);
+  $userGameDetails = $GameDAO->READ_UserGameDetails($userID, $gameID);
+  $_SESSION['user_games'] = $userGameDetails;
+  $userPermissions = $userGameDetails[0]['permission'];
+
+  if ($userPermissions == "1"){
+      $mapEditBtn = '<button type="submit" name="edit-map" id="edit-image-panel" data-toggle="modal" data-target="#gm-portal-maps" class="btn btn-primary square-button edit-map-btn" title="Edit Map">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button>';
+  } else {
+      $mapEditBtn = '';
+  }
+
+
 // var_dump($_SESSION['games']);
 // echo '<br/>    User ID: ' . $userID;
 // echo '<br/>    Char ID: ' . $charID;
@@ -45,11 +62,9 @@ $roleID = $_SESSION['characters']['role_id'];
 
           <div class="panel panel-default map_view">
               <section class="panel-body game-room-map">
-                  <button type="submit" name="edit-map" id="edit-image-panel" data-toggle='modal' data-target='#gm-portal-maps' class="btn btn-primary square-button edit-map-btn" title="Edit Map">
-                      <span class="glyphicon glyphicon-edit"></span>
-                  </button>
+                  <?= $mapEditBtn ?>
                   <div id="game-room-map-image">
-                    <img src="Images/maps/default-map.png" alt="map" class="map-image default-map-image game-room-map-img" style="width:100%">
+                      <img src="Images/maps/default-map.png" alt="map" class="map-image default-map-image game-room-map-img" style="width:100%">
                   </div>
               </section>
           </div>
@@ -128,7 +143,7 @@ $roleID = $_SESSION['characters']['role_id'];
             <div class="panel panel-default">
             <section class="chat panel-body">
                 <form class="chat_box" id="chat_box" action="" method="post">
-                    <div id="chatdisplayarea"> 
+                    <div id="chatdisplayarea">
                         <table id="chat-output">
                             <!--message content here -->
                         </table>

@@ -5,6 +5,7 @@
     require_once "Models/GameDAO.php";
     require_once "Models/Avatar.php";
     require_once "Models/MapsDAO.php";
+    // require_once "Models/errorlog/errorhandle.php";
 
 
     $db = DbConnect::getDB();
@@ -58,40 +59,38 @@
 
 /*THIS IS WHAT JESSICA M IS USING TO TRY AND DISPLAY THE SUPERUSER LINK*/
 
-        if ($userArray['permissions'] == "1") {
+       if ($userArray['permissions'] == "1") {
 
-            $rightNavLink1 = "
-        <div class='dropdown'>
-          <a class='dropbtn'>" . $userFullName . "<span class='caret'></span></a>
-          <form action='' method='post' name='signInForm' class='dropdown-content'>
-            <a href='#' class='border-bottom' data-toggle='modal' data-target='#navbar-edit'><span class='glyphicon glyphicon-edit'></span>&nbsp;&nbsp; edit </a>
-            <a href='#' class='border-bottom'><span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;<input type='submit' class='dropdown-Link' name='signOutUser' value='SignOut'/></a>
-           </form>
-        </div>
-        ";
+           $rightNavLink1 = "
+       <div class='dropdown'>
+         <a class='dropbtn'>" . $userFullName . "<span class='caret'></span></a>
+         <form action='' method='post' name='signInForm' class='dropdown-content'>
+           <a href='#' class='border-bottom'><span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;<input type='submit' class='dropdown-Link' name='signOutUser' value='SignOut'/></a>
+          </form>
+       </div>
+       ";
 
-            //modify the navigation text to hold user profile pic
-            $rightNavLink2 = "<div id='avatar-container'></div>";
+           //modify the navigation text to hold user profile pic
+           $rightNavLink2 = "<div id='avatar-container'></div>";
 
-            //hide register and sign in buttons on homepage
-            $showRegisterSigninBtns = "";
-
+           //hide register and sign in buttons on homepage
+           $showRegisterSigninBtns = "";
 
 
-    }else if ($userArray['permissions'] == "2") {
 
-    $rightNavLink1 = "
-        <div class='dropdown'>
-            <a class='dropbtn'>" . $userFullName . "<span class='caret'></span></a>
-            <form action='' method='post' name='signInForm' class='dropdown-content'>
-            <a href='#' class='border-bottom' data-toggle='modal' data-target='#navbar-edit'><span class='glyphicon glyphicon-edit'></span>&nbsp;&nbsp; edit </a>
-             <!--THIS IS THE SUPERUSER LINK-->
-             <a href='superUserView.php' class='border-bottom'><span class='glyphicon glyphicon-edit'></span>&nbsp;&nbsp; View Users </a>
-            <a href='#' class='border-bottom'><span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;<input type='submit' class='dropdown-Link' name='signOutUser' value='SignOut'/></a>
+   }else if ($userArray['permissions'] == "2") {
 
-           </form>
-        </div>
-        ";
+   $rightNavLink1 = "
+       <div class='dropdown'>
+           <a class='dropbtn'>" . $userFullName . "<span class='caret'></span></a>
+           <form action='' method='post' name='signInForm' class='dropdown-content'>
+            <!--THIS IS THE SUPERUSER LINK-->
+            <a href='superUserView.php' class='border-bottom'><span class='glyphicon glyphicon-edit'></span>&nbsp;&nbsp; Users </a>
+           <a href='#' class='border-bottom'><span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;<input type='submit' class='dropdown-Link' name='signOutUser' value='SignOut'/></a>
+
+          </form>
+       </div>
+       ";
 
     //modify the navigation text to hold user profile pic
     $rightNavLink2 = "<div id='avatar-container'></div>";

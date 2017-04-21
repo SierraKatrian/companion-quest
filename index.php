@@ -1,6 +1,9 @@
 <?php
 
     include "View/Header.php";
+    include "something WRong.php";
+
+    $omdsfj;
 
 ?>
 
@@ -135,5 +138,3 @@
     </div>
 
 <?php include "View/Footer.php"?>
-
-
